@@ -1,0 +1,28 @@
+{
+  "Matemáticas": [
+    { "titulo": "Guía: Multiplicación con líneas", "tipo": "guia", "url": "#" },
+    { "titulo": "Guía: UM, DM y CM", "tipo": "guia", "url": "#" },
+    { "titulo": "Video: Tabla del 8 con las manos", "tipo": "video", "url": "https://www.youtube.com/watch?v=VXr7NuSX55M" }
+  ],
+  "Castellano": [
+    { "titulo": "Ficha: Partes de la oración", "tipo": "guia", "url": "#" },
+    { "titulo": "Guía: Sinónimos y antónimos", "tipo": "guia", "url": "#" }
+  ],
+  "Ciencias Naturales": [
+    { "titulo": "Guía: El sistema circulatorio", "tipo": "guia", "url": "#" },
+    { "titulo": "Video: Sistema respiratorio para niños", "tipo": "video", "url": "https://www.youtube.com/" }
+  ],
+  "Ciencias Sociales": [
+    { "titulo": "Guía: El mapa y sus partes", "tipo": "guia", "url": "#" },
+    { "titulo": "Guía: El mapa de Colombia", "tipo": "guia", "url": "#" }
+  ],
+  "Inglés": [
+    { "titulo": "Guía: Classroom objects", "tipo": "guia", "url": "#" }
+  ],
+  "Ética y Religión": [
+    { "titulo": "Circular: Trueque del compartir", "tipo": "guia", "url": "#" }
+  ],
+  "Artística": [
+    { "titulo": "Guía: Plana del elefante", "tipo": "guia", "url": "#" }
+  ]
+}

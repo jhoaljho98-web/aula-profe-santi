@@ -1,0 +1,44 @@
+[
+  {
+    "id": "tablas-flashcards",
+    "titulo": "Flashcards: Tablas del 2 al 8",
+    "materia": "Matemáticas",
+    "descripcion": "Practica las tablas con tarjetas. Voltea, responde y avanza.",
+    "estado": "proximamente"
+  },
+  {
+    "id": "multiplicacion-lineas",
+    "titulo": "Multiplicación con líneas",
+    "materia": "Matemáticas",
+    "descripcion": "Arrastra líneas y cuenta los cruces para hallar el resultado.",
+    "estado": "proximamente"
+  },
+  {
+    "id": "sinonimos-memory",
+    "titulo": "Memoria de sinónimos",
+    "materia": "Castellano",
+    "descripcion": "Encuentra las parejas de palabras que significan lo mismo.",
+    "estado": "proximamente"
+  },
+  {
+    "id": "mapa-colombia-puzzle",
+    "titulo": "Puzzle del mapa de Colombia",
+    "materia": "Ciencias Sociales",
+    "descripcion": "Arma el mapa de Colombia arrastrando las regiones a su lugar.",
+    "estado": "proximamente"
+  },
+  {
+    "id": "sistema-respiratorio",
+    "titulo": "Partes del sistema respiratorio",
+    "materia": "Ciencias Naturales",
+    "descripcion": "Arrastra el nombre de cada parte al lugar correcto del cuerpo.",
+    "estado": "proximamente"
+  },
+  {
+    "id": "classroom-objects-en",
+    "titulo": "Classroom objects (English)",
+    "materia": "Inglés",
+    "descripcion": "Flashcards con audio para aprender los objetos del salón en inglés.",
+    "estado": "proximamente"
+  }
+]

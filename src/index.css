@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-institucional-crema text-gray-800 font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-5 py-3 rounded-2xl font-semibold shadow-soft transition-all duration-150 select-none;
+  }
+  .btn-primary {
+    @apply btn bg-institucional-verde text-white hover:bg-institucional-verdeOscuro active:scale-95;
+  }
+  .btn-secondary {
+    @apply btn bg-institucional-amarillo text-gray-900 hover:bg-institucional-amarilloOscuro active:scale-95;
+  }
+  .card {
+    @apply bg-white rounded-3xl shadow-card p-6;
+  }
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold;
+  }
+}

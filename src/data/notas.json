@@ -1,0 +1,17 @@
+{
+  "_info": "Cada llave es el hash SHA-256 del número de documento del estudiante. Genera un hash con la utilidad src/utils/hash.js y guarda las notas bajo ese hash.",
+  "_ejemplo": "Ejemplo con estudiante ficticio para pruebas. Documento: 1088000001 → ver hash con el script.",
+  "estudiantes": {
+    "9c86925f4b78d5df3e0a04d4bb7f42c1cbe8e18aac0d5db4b4f3ab1b8d8e0f6a": {
+      "nombre": "María Ejemplo",
+      "grado": "2B",
+      "anio": 2026,
+      "periodos": {
+        "1": { "Matemáticas": 4.2, "Castellano": 4.5, "Ciencias Naturales": 4.0, "Ciencias Sociales": 4.3, "Inglés": 3.8, "Ética y Religión": 4.7, "Artística": 4.9, "Educación Física": 5.0, "Tecnología": 4.5, "Religión": 4.6 },
+        "2": null,
+        "3": null,
+        "4": null
+      }
+    }
+  }
+}

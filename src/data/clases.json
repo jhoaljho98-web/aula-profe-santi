@@ -1,0 +1,43 @@
+[
+  {
+    "id": "2026-09-13-mat",
+    "fecha": "2026-09-13",
+    "materia": "Matemáticas",
+    "tema": "Unidad de mil, decena de mil y centena de mil",
+    "resumen": "Iniciamos la unidad sobre valor posicional de números grandes. Vimos qué es una unidad de mil (UM) y cómo se compone: 1 UM = 10 centenas = 100 decenas = 1.000 unidades.",
+    "recursos": [
+      { "tipo": "guia", "titulo": "Guía: UM, DM y CM", "url": "#" }
+    ],
+    "actividad": null,
+    "tarea": "Escribir 10 números de 4 cifras y descomponerlos por valor posicional.",
+    "periodo": 3
+  },
+  {
+    "id": "2026-09-11-soc",
+    "fecha": "2026-09-11",
+    "materia": "Ciencias Sociales",
+    "tema": "El mapa de Colombia",
+    "resumen": "Continuamos con la secuencia de mapas. Aprendimos qué es Colombia, en qué continente queda, sus países vecinos (Panamá, Venezuela, Brasil, Perú y Ecuador) y sus océanos (Pacífico y Caribe).",
+    "recursos": [
+      { "tipo": "guia", "titulo": "Guía: El mapa de Colombia", "url": "#" },
+      { "tipo": "video", "titulo": "Colombia para niños", "url": "https://www.youtube.com/" }
+    ],
+    "actividad": null,
+    "tarea": "Buscar un mapa de Colombia con un adulto y observar dónde queda Caldas.",
+    "periodo": 3
+  },
+  {
+    "id": "2026-09-10-mat",
+    "fecha": "2026-09-10",
+    "materia": "Matemáticas",
+    "tema": "Multiplicación con líneas",
+    "resumen": "Aprendimos un método visual y divertido para multiplicar: dibujamos líneas que se cruzan y contamos los puntos de cruce. Practicamos con multiplicaciones de las tablas del 2 al 8.",
+    "recursos": [
+      { "tipo": "guia", "titulo": "Guía: Multiplicación con líneas", "url": "#" },
+      { "tipo": "guia", "titulo": "Plantilla imprimible (10 ejercicios)", "url": "#" }
+    ],
+    "actividad": "multiplicacion-lineas",
+    "tarea": "Enseñar el método a un familiar y resolver 3 multiplicaciones juntos.",
+    "periodo": 3
+  }
+]
