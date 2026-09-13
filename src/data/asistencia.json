@@ -1,5 +1,6 @@
 {
   "_info": "Asistencia por estudiante. Llave = SHA-256 del documento. Códigos: P=presente, R=llegó tarde, F=faltó, E=excusa.",
+  "docente_hash": "aa07deb5d24005c175849e98e61a1ad763a341037c88280764f0b27b8372bca8",
   "estudiantes": {
     "8bd3e81d5249f40882c68b70f2833f030de00af5fab4180f4b4142e831377aee": {
       "nombre": "Arenas Ossa Salomé",
@@ -14,7 +15,109 @@
           "falta": 0,
           "excusa": 1,
           "total_dias": 25,
-          "porcentaje_asistencia": 100.0
+          "porcentaje_asistencia": 100.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-10",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -32,7 +135,109 @@
           "falta": 11,
           "excusa": 5,
           "total_dias": 25,
-          "porcentaje_asistencia": 56.0
+          "porcentaje_asistencia": 56.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "E"
+            }
+          ]
         },
         "4": null
       }
@@ -50,7 +255,109 @@
           "falta": 0,
           "excusa": 1,
           "total_dias": 25,
-          "porcentaje_asistencia": 100.0
+          "porcentaje_asistencia": 100.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -68,7 +375,109 @@
           "falta": 11,
           "excusa": 7,
           "total_dias": 25,
-          "porcentaje_asistencia": 56.0
+          "porcentaje_asistencia": 56.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "E"
+            }
+          ]
         },
         "4": null
       }
@@ -86,7 +495,109 @@
           "falta": 0,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 100.0
+          "porcentaje_asistencia": 100.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -104,7 +615,109 @@
           "falta": 2,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 92.0
+          "porcentaje_asistencia": 92.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -122,7 +735,109 @@
           "falta": 2,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 92.0
+          "porcentaje_asistencia": 92.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -140,7 +855,109 @@
           "falta": 6,
           "excusa": 2,
           "total_dias": 25,
-          "porcentaje_asistencia": 76.0
+          "porcentaje_asistencia": 76.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "R"
+            }
+          ]
         },
         "4": null
       }
@@ -158,7 +975,109 @@
           "falta": 1,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 96.0
+          "porcentaje_asistencia": 96.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -176,7 +1095,109 @@
           "falta": 6,
           "excusa": 1,
           "total_dias": 25,
-          "porcentaje_asistencia": 76.0
+          "porcentaje_asistencia": 76.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "R"
+            }
+          ]
         },
         "4": null
       }
@@ -194,7 +1215,109 @@
           "falta": 1,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 96.0
+          "porcentaje_asistencia": 96.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "R"
+            }
+          ]
         },
         "4": null
       }
@@ -212,7 +1335,109 @@
           "falta": 0,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 100.0
+          "porcentaje_asistencia": 100.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -230,7 +1455,109 @@
           "falta": 2,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 92.0
+          "porcentaje_asistencia": 92.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -248,7 +1575,109 @@
           "falta": 9,
           "excusa": 1,
           "total_dias": 25,
-          "porcentaje_asistencia": 64.0
+          "porcentaje_asistencia": 64.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "R"
+            }
+          ]
         },
         "4": null
       }
@@ -266,7 +1695,109 @@
           "falta": 0,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 100.0
+          "porcentaje_asistencia": 100.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -284,7 +1815,109 @@
           "falta": 8,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 68.0
+          "porcentaje_asistencia": 68.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "F"
+            }
+          ]
         },
         "4": null
       }
@@ -302,7 +1935,109 @@
           "falta": 7,
           "excusa": 1,
           "total_dias": 25,
-          "porcentaje_asistencia": 72.0
+          "porcentaje_asistencia": 72.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "R"
+            }
+          ]
         },
         "4": null
       }
@@ -320,7 +2055,109 @@
           "falta": 2,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 92.0
+          "porcentaje_asistencia": 92.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -338,7 +2175,109 @@
           "falta": 0,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 100.0
+          "porcentaje_asistencia": 100.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -356,7 +2295,109 @@
           "falta": 3,
           "excusa": 1,
           "total_dias": 25,
-          "porcentaje_asistencia": 88.0
+          "porcentaje_asistencia": 88.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -374,7 +2415,109 @@
           "falta": 6,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 76.0
+          "porcentaje_asistencia": 76.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "R"
+            }
+          ]
         },
         "4": null
       }
@@ -392,7 +2535,109 @@
           "falta": 1,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 96.0
+          "porcentaje_asistencia": 96.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -410,7 +2655,109 @@
           "falta": 13,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 48.0
+          "porcentaje_asistencia": 48.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "F"
+            }
+          ]
         },
         "4": null
       }
@@ -428,7 +2775,109 @@
           "falta": 0,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 100.0
+          "porcentaje_asistencia": 100.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "R"
+            }
+          ]
         },
         "4": null
       }
@@ -446,7 +2895,109 @@
           "falta": 3,
           "excusa": 2,
           "total_dias": 25,
-          "porcentaje_asistencia": 88.0
+          "porcentaje_asistencia": 88.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "F"
+            }
+          ]
         },
         "4": null
       }
@@ -464,7 +3015,109 @@
           "falta": 4,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 84.0
+          "porcentaje_asistencia": 84.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "R"
+            }
+          ]
         },
         "4": null
       }
@@ -482,7 +3135,109 @@
           "falta": 7,
           "excusa": 4,
           "total_dias": 25,
-          "porcentaje_asistencia": 72.0
+          "porcentaje_asistencia": 72.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "F"
+            }
+          ]
         },
         "4": null
       }
@@ -500,7 +3255,109 @@
           "falta": 2,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 92.0
+          "porcentaje_asistencia": 92.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "R"
+            }
+          ]
         },
         "4": null
       }
@@ -518,7 +3375,109 @@
           "falta": 9,
           "excusa": 1,
           "total_dias": 25,
-          "porcentaje_asistencia": 64.0
+          "porcentaje_asistencia": 64.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "F"
+            }
+          ]
         },
         "4": null
       }
@@ -536,7 +3495,109 @@
           "falta": 0,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 100.0
+          "porcentaje_asistencia": 100.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
@@ -554,7 +3615,109 @@
           "falta": 0,
           "excusa": 1,
           "total_dias": 25,
-          "porcentaje_asistencia": 100.0
+          "porcentaje_asistencia": 100.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "R"
+            }
+          ]
         },
         "4": null
       }
@@ -572,7 +3735,109 @@
           "falta": 4,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 84.0
+          "porcentaje_asistencia": 84.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "F"
+            }
+          ]
         },
         "4": null
       }
@@ -590,7 +3855,109 @@
           "falta": 0,
           "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 100.0
+          "porcentaje_asistencia": 100.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-05",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-10-11",
+              "codigo": "P"
+            }
+          ]
         },
         "4": null
       }
