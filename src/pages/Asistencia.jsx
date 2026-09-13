@@ -1,0 +1,167 @@
+import { useState } from 'react'
+import { sha256 } from '../utils/hash.js'
+import asistenciaData from '../data/asistencia.json'
+
+const PERIODOS = [1, 2, 3, 4]
+
+function BarraAsistencia({ presente, tarde, falta, excusa, total }) {
+  if (!total) return null
+  const pctP = (presente / total) * 100
+  const pctR = (tarde / total) * 100
+  const pctE = (excusa / total) * 100
+  const pctF = (falta / total) * 100
+  return (
+    <div className="w-full h-6 rounded-full overflow-hidden bg-gray-200 flex">
+      <div className="bg-institucional-verde" style={{ width: `${pctP}%` }} title={`Presente: ${presente}`} />
+      <div className="bg-institucional-amarillo" style={{ width: `${pctR}%` }} title={`Tarde: ${tarde}`} />
+      <div className="bg-blue-400" style={{ width: `${pctE}%` }} title={`Excusa: ${excusa}`} />
+      <div className="bg-red-400" style={{ width: `${pctF}%` }} title={`Falta: ${falta}`} />
+    </div>
+  )
+}
+
+export default function Asistencia() {
+  const [documento, setDocumento] = useState('')
+  const [buscando, setBuscando] = useState(false)
+  const [resultado, setResultado] = useState(null)
+  const [error, setError] = useState(null)
+
+  async function consultar(e) {
+    e.preventDefault()
+    setError(null)
+    setResultado(null)
+    if (!documento.trim()) {
+      setError('Por favor escribe el número de documento del estudiante.')
+      return
+    }
+    setBuscando(true)
+    try {
+      const hash = await sha256(documento)
+      const estudiante = asistenciaData.estudiantes[hash]
+      if (!estudiante) {
+        setError('No encontramos un estudiante con ese documento. Verifica el número o comunícate con el docente.')
+      } else {
+        setResultado(estudiante)
+      }
+    } catch {
+      setError('Ocurrió un problema al consultar. Inténtalo de nuevo.')
+    } finally {
+      setBuscando(false)
+    }
+  }
+
+  return (
+    <div className="space-y-6">
+      <section>
+        <h1 className="text-3xl md:text-4xl font-display font-bold text-institucional-verdeOscuro">
+          Consulta de asistencia
+        </h1>
+        <p className="mt-2 text-gray-700">
+          Escribe el número de documento del estudiante para ver su asistencia por periodo.
+        </p>
+      </section>
+
+      <div className="card bg-institucional-crema">
+        <h2 className="font-display font-bold text-lg mb-2">📖 ¿Qué significan los códigos?</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+          <div className="flex items-center gap-2"><span className="w-4 h-4 rounded bg-institucional-verde"></span> <span><strong>P</strong> = Presente</span></div>
+          <div className="flex items-center gap-2"><span className="w-4 h-4 rounded bg-institucional-amarillo"></span> <span><strong>R</strong> = Llegó tarde</span></div>
+          <div className="flex items-center gap-2"><span className="w-4 h-4 rounded bg-blue-400"></span> <span><strong>E</strong> = Con excusa</span></div>
+          <div className="flex items-center gap-2"><span className="w-4 h-4 rounded bg-red-400"></span> <span><strong>F</strong> = Faltó</span></div>
+        </div>
+      </div>
+
+      <form onSubmit={consultar} className="card">
+        <label className="block text-sm font-semibold mb-2">Número de documento del estudiante</label>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <input
+            type="text"
+            inputMode="numeric"
+            value={documento}
+            onChange={(e) => setDocumento(e.target.value)}
+            placeholder="Ej: 1058231195"
+            className="flex-1 rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-institucional-verde outline-none"
+          />
+          <button type="submit" className="btn-primary" disabled={buscando}>
+            {buscando ? 'Consultando...' : 'Consultar asistencia'}
+          </button>
+        </div>
+        <p className="text-xs text-gray-500 mt-3">
+          🔒 El documento se codifica en tu navegador antes de la búsqueda. No lo compartas con otras personas.
+        </p>
+      </form>
+
+      {error && (
+        <div className="card bg-red-50 border border-red-200 text-red-700">
+          {error}
+        </div>
+      )}
+
+      {resultado && (
+        <section className="space-y-4">
+          <div className="card">
+            <h2 className="font-display font-bold text-2xl text-institucional-verdeOscuro">
+              {resultado.nombre}
+            </h2>
+            <p className="text-gray-600">
+              Grado {resultado.grado} · Año {resultado.anio}
+            </p>
+          </div>
+
+          {PERIODOS.map((p) => {
+            const data = resultado.periodos[p]
+            if (!data) {
+              return (
+                <div key={p} className="card bg-gray-50">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-display font-bold text-lg text-gray-700">Periodo {p}</h3>
+                    <span className="badge bg-gray-300 text-gray-700">Sin datos aún</span>
+                  </div>
+                </div>
+              )
+            }
+            return (
+              <div key={p} className="card">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="font-display font-bold text-xl">Periodo {p}</h3>
+                  <span className="badge bg-institucional-verde text-white">
+                    {data.porcentaje_asistencia}% asistencia
+                  </span>
+                </div>
+
+                <BarraAsistencia {...data} total={data.total_dias} />
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 text-center">
+                  <div className="rounded-xl bg-institucional-verde bg-opacity-10 p-3">
+                    <div className="text-2xl font-bold text-institucional-verdeOscuro">{data.presente}</div>
+                    <div className="text-xs text-gray-600">Presente</div>
+                  </div>
+                  <div className="rounded-xl bg-institucional-amarillo bg-opacity-20 p-3">
+                    <div className="text-2xl font-bold text-gray-800">{data.tarde}</div>
+                    <div className="text-xs text-gray-600">Tarde</div>
+                  </div>
+                  <div className="rounded-xl bg-blue-50 p-3">
+                    <div className="text-2xl font-bold text-blue-700">{data.excusa}</div>
+                    <div className="text-xs text-gray-600">Excusa</div>
+                  </div>
+                  <div className="rounded-xl bg-red-50 p-3">
+                    <div className="text-2xl font-bold text-red-700">{data.falta}</div>
+                    <div className="text-xs text-gray-600">Falta</div>
+                  </div>
+                </div>
+
+                <p className="text-xs text-gray-500 mt-3">
+                  Total de días de clase en el periodo: <strong>{data.total_dias}</strong>
+                </p>
+              </div>
+            )
+          })}
+
+          <p className="text-xs text-gray-500">
+            El porcentaje de asistencia considera P, R y E como "asistió". Solo F cuenta como inasistencia.
+          </p>
+        </section>
+      )}
+    </div>
+  )
+}

@@ -9,6 +9,7 @@ const NAV = [
   { to: '/actividades', label: 'Actividades', icon: '🎮' },
   { to: '/padres', label: 'Para los padres', icon: '👨‍👩‍👧' },
   { to: '/notas', label: 'Notas', icon: '📊' },
+  { to: '/asistencia', label: 'Asistencia', icon: '✅' },
   { to: '/contacto', label: 'Contacto', icon: '📞' },
 ]
 

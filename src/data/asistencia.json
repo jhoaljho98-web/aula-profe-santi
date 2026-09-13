@@ -1,5 +1,5 @@
 {
-  "_info": "Notas por estudiante. Llave = SHA-256 del documento. 4 periodos, 25% cada uno.",
+  "_info": "Asistencia por estudiante. Llave = SHA-256 del documento. Códigos: P=presente, R=llegó tarde, F=faltó, E=excusa.",
   "estudiantes": {
     "8bd3e81d5249f40882c68b70f2833f030de00af5fab4180f4b4142e831377aee": {
       "nombre": "Arenas Ossa Salomé",
@@ -8,7 +8,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 22,
+          "tarde": 2,
+          "falta": 0,
+          "excusa": 1,
+          "total_dias": 25,
+          "porcentaje_asistencia": 100.0
+        },
         "4": null
       }
     },
@@ -19,7 +26,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 6,
+          "tarde": 3,
+          "falta": 11,
+          "excusa": 5,
+          "total_dias": 25,
+          "porcentaje_asistencia": 56.0
+        },
         "4": null
       }
     },
@@ -30,7 +44,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 22,
+          "tarde": 2,
+          "falta": 0,
+          "excusa": 1,
+          "total_dias": 25,
+          "porcentaje_asistencia": 100.0
+        },
         "4": null
       }
     },
@@ -41,7 +62,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 4,
+          "tarde": 3,
+          "falta": 11,
+          "excusa": 7,
+          "total_dias": 25,
+          "porcentaje_asistencia": 56.0
+        },
         "4": null
       }
     },
@@ -52,7 +80,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 21,
+          "tarde": 4,
+          "falta": 0,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 100.0
+        },
         "4": null
       }
     },
@@ -63,7 +98,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 23,
+          "tarde": 0,
+          "falta": 2,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 92.0
+        },
         "4": null
       }
     },
@@ -74,7 +116,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 19,
+          "tarde": 4,
+          "falta": 2,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 92.0
+        },
         "4": null
       }
     },
@@ -85,7 +134,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 7,
+          "tarde": 10,
+          "falta": 6,
+          "excusa": 2,
+          "total_dias": 25,
+          "porcentaje_asistencia": 76.0
+        },
         "4": null
       }
     },
@@ -96,7 +152,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 24,
+          "tarde": 0,
+          "falta": 1,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 96.0
+        },
         "4": null
       }
     },
@@ -107,7 +170,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 9,
+          "tarde": 9,
+          "falta": 6,
+          "excusa": 1,
+          "total_dias": 25,
+          "porcentaje_asistencia": 76.0
+        },
         "4": null
       }
     },
@@ -118,7 +188,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 22,
+          "tarde": 2,
+          "falta": 1,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 96.0
+        },
         "4": null
       }
     },
@@ -129,7 +206,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 24,
+          "tarde": 1,
+          "falta": 0,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 100.0
+        },
         "4": null
       }
     },
@@ -140,7 +224,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 23,
+          "tarde": 0,
+          "falta": 2,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 92.0
+        },
         "4": null
       }
     },
@@ -151,7 +242,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 10,
+          "tarde": 5,
+          "falta": 9,
+          "excusa": 1,
+          "total_dias": 25,
+          "porcentaje_asistencia": 64.0
+        },
         "4": null
       }
     },
@@ -162,7 +260,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 25,
+          "tarde": 0,
+          "falta": 0,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 100.0
+        },
         "4": null
       }
     },
@@ -173,7 +278,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 7,
+          "tarde": 10,
+          "falta": 8,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 68.0
+        },
         "4": null
       }
     },
@@ -184,7 +296,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 14,
+          "tarde": 3,
+          "falta": 7,
+          "excusa": 1,
+          "total_dias": 25,
+          "porcentaje_asistencia": 72.0
+        },
         "4": null
       }
     },
@@ -195,7 +314,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 15,
+          "tarde": 8,
+          "falta": 2,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 92.0
+        },
         "4": null
       }
     },
@@ -206,7 +332,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 24,
+          "tarde": 1,
+          "falta": 0,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 100.0
+        },
         "4": null
       }
     },
@@ -217,7 +350,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 19,
+          "tarde": 2,
+          "falta": 3,
+          "excusa": 1,
+          "total_dias": 25,
+          "porcentaje_asistencia": 88.0
+        },
         "4": null
       }
     },
@@ -228,7 +368,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 12,
+          "tarde": 7,
+          "falta": 6,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 76.0
+        },
         "4": null
       }
     },
@@ -239,7 +386,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 23,
+          "tarde": 1,
+          "falta": 1,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 96.0
+        },
         "4": null
       }
     },
@@ -250,7 +404,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 7,
+          "tarde": 5,
+          "falta": 13,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 48.0
+        },
         "4": null
       }
     },
@@ -261,7 +422,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 22,
+          "tarde": 3,
+          "falta": 0,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 100.0
+        },
         "4": null
       }
     },
@@ -272,7 +440,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 18,
+          "tarde": 2,
+          "falta": 3,
+          "excusa": 2,
+          "total_dias": 25,
+          "porcentaje_asistencia": 88.0
+        },
         "4": null
       }
     },
@@ -283,7 +458,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 19,
+          "tarde": 2,
+          "falta": 4,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 84.0
+        },
         "4": null
       }
     },
@@ -294,7 +476,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 13,
+          "tarde": 1,
+          "falta": 7,
+          "excusa": 4,
+          "total_dias": 25,
+          "porcentaje_asistencia": 72.0
+        },
         "4": null
       }
     },
@@ -305,7 +494,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 18,
+          "tarde": 5,
+          "falta": 2,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 92.0
+        },
         "4": null
       }
     },
@@ -316,7 +512,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 12,
+          "tarde": 3,
+          "falta": 9,
+          "excusa": 1,
+          "total_dias": 25,
+          "porcentaje_asistencia": 64.0
+        },
         "4": null
       }
     },
@@ -327,7 +530,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 25,
+          "tarde": 0,
+          "falta": 0,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 100.0
+        },
         "4": null
       }
     },
@@ -338,7 +548,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 22,
+          "tarde": 2,
+          "falta": 0,
+          "excusa": 1,
+          "total_dias": 25,
+          "porcentaje_asistencia": 100.0
+        },
         "4": null
       }
     },
@@ -349,7 +566,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 18,
+          "tarde": 3,
+          "falta": 4,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 84.0
+        },
         "4": null
       }
     },
@@ -360,7 +584,14 @@
       "periodos": {
         "1": null,
         "2": null,
-        "3": null,
+        "3": {
+          "presente": 23,
+          "tarde": 2,
+          "falta": 0,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 100.0
+        },
         "4": null
       }
     }

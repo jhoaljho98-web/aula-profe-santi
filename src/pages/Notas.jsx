@@ -44,8 +44,8 @@ export default function Notas() {
 
   const materias = resultado
     ? Array.from(new Set(
-        Object.values(resultado.periodos)
-          .filter(Boolean)
+        Object.values(resultado.periodos ?? {})
+          .filter((p) => p && typeof p === 'object')
           .flatMap((p) => Object.keys(p))
       ))
     : []
@@ -100,40 +100,53 @@ export default function Notas() {
             </p>
           </div>
 
-          <div className="card overflow-x-auto p-0">
-            <table className="w-full text-sm">
-              <thead className="bg-institucional-verde text-white">
-                <tr>
-                  <th className="p-3 text-left">Materia</th>
-                  <th className="p-3">P1 (25%)</th>
-                  <th className="p-3">P2 (25%)</th>
-                  <th className="p-3">P3 (25%)</th>
-                  <th className="p-3">P4 (25%)</th>
-                  <th className="p-3 bg-institucional-verdeOscuro">Promedio</th>
-                </tr>
-              </thead>
-              <tbody>
-                {materias.map((materia, i) => (
-                  <tr key={materia} className={i % 2 === 0 ? 'bg-white' : 'bg-institucional-crema'}>
-                    <td className="p-3 font-semibold">{materia}</td>
-                    {[1, 2, 3, 4].map((p) => (
-                      <td key={p} className="p-3 text-center">
-                        {resultado.periodos[p]?.[materia] ?? '—'}
-                      </td>
+          {materias.length === 0 ? (
+            <div className="card text-center">
+              <p className="text-gray-700 font-semibold">
+                Aún no hay notas registradas para este estudiante.
+              </p>
+              <p className="text-sm text-gray-500 mt-2">
+                Las notas de cada periodo se cargan después de la reunión de padres correspondiente.
+              </p>
+            </div>
+          ) : (
+            <>
+              <div className="card overflow-x-auto p-0">
+                <table className="w-full text-sm">
+                  <thead className="bg-institucional-verde text-white">
+                    <tr>
+                      <th className="p-3 text-left">Materia</th>
+                      <th className="p-3">P1 (25%)</th>
+                      <th className="p-3">P2 (25%)</th>
+                      <th className="p-3">P3 (25%)</th>
+                      <th className="p-3">P4 (25%)</th>
+                      <th className="p-3 bg-institucional-verdeOscuro">Promedio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {materias.map((materia, i) => (
+                      <tr key={materia} className={i % 2 === 0 ? 'bg-white' : 'bg-institucional-crema'}>
+                        <td className="p-3 font-semibold">{materia}</td>
+                        {[1, 2, 3, 4].map((p) => (
+                          <td key={p} className="p-3 text-center">
+                            {resultado.periodos[p]?.[materia] ?? '—'}
+                          </td>
+                        ))}
+                        <td className="p-3 text-center font-bold bg-institucional-crema">
+                          {calcularPromedioMateria(resultado, materia) ?? '—'}
+                        </td>
+                      </tr>
                     ))}
-                    <td className="p-3 text-center font-bold bg-institucional-crema">
-                      {calcularPromedioMateria(resultado, materia) ?? '—'}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                  </tbody>
+                </table>
+              </div>
 
-          <p className="text-xs text-gray-500">
-            Las notas se calculan como promedio simple de los periodos disponibles. Al finalizar
-            el año, cada periodo pesará 25% de la nota final.
-          </p>
+              <p className="text-xs text-gray-500">
+                Las notas se calculan como promedio simple de los periodos disponibles. Al finalizar
+                el año, cada periodo pesará 25% de la nota final.
+              </p>
+            </>
+          )}
         </section>
       )}
     </div>

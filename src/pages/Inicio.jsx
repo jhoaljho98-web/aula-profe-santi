@@ -8,6 +8,7 @@ const SECCIONES = [
   { to: '/actividades', titulo: 'Actividades lúdicas', desc: 'Juegos por materia para practicar.', icon: '🎮', color: 'bg-institucional-verde' },
   { to: '/padres', titulo: 'Para los padres', desc: 'Recomendaciones y comunicados.', icon: '👨‍👩‍👧', color: 'bg-institucional-amarillo' },
   { to: '/notas', titulo: 'Consulta de notas', desc: 'Ver notas con documento del estudiante.', icon: '📊', color: 'bg-institucional-verdeClaro' },
+  { to: '/asistencia', titulo: 'Consulta de asistencia', desc: 'Ver asistencia por periodo con documento.', icon: '✅', color: 'bg-institucional-verde' },
 ]
 
 export default function Inicio() {
