@@ -5,7 +5,8 @@ import MemoriaPalabras from '../games/MemoriaPalabras.jsx'
 import PartesOracion from '../games/PartesOracion.jsx'
 import SilabasTrabadas from '../games/SilabasTrabadas.jsx'
 import RetoLectura from '../games/RetoLectura.jsx'
-import LoginEstudiante from '../components/LoginEstudiante.jsx'
+import LoginObligatorio from '../components/LoginObligatorio.jsx'
+import { useEstudiante } from '../lib/estudiante'
 
 const JUEGOS = [
   {
@@ -61,13 +62,34 @@ const JUEGOS = [
 const MATERIAS = ['Todas', 'Matemáticas', 'Castellano']
 
 export default function Actividades() {
+  const { estudiante, cerrarSesion } = useEstudiante()
+  const [modoInvitado, setModoInvitado] = useState(false)
   const [filtro, setFiltro] = useState('Todas')
   const [juegoActivo, setJuegoActivo] = useState(null)
 
-  const lista = useMemo(() => (
-    JUEGOS.filter(j => filtro === 'Todas' || j.materia === filtro)
-  ), [filtro])
+  const lista = useMemo(
+    () => JUEGOS.filter((j) => filtro === 'Todas' || j.materia === filtro),
+    [filtro],
+  )
 
+  // 1. GATE: si no hay estudiante y no eligió invitado, mostrar solo el ingreso
+  if (!estudiante && !modoInvitado) {
+    return (
+      <div className="space-y-6">
+        <section>
+          <h1 className="text-3xl md:text-4xl font-display font-bold text-institucional-verdeOscuro">
+            Actividades lúdicas 🎮
+          </h1>
+          <p className="mt-2 text-gray-700">
+            Juega, practica y aprende. Cada actividad es corta y divertida.
+          </p>
+        </section>
+        <LoginObligatorio onInvitado={() => setModoInvitado(true)} />
+      </div>
+    )
+  }
+
+  // 2. Jugando un juego
   if (juegoActivo) {
     const Juego = juegoActivo.componente
     return (
@@ -76,13 +98,16 @@ export default function Actividades() {
           <h1 className="text-2xl md:text-3xl font-display font-bold text-institucional-verdeOscuro">
             {juegoActivo.icono} {juegoActivo.titulo}
           </h1>
-          <p className="text-sm text-gray-600">{juegoActivo.materia} · {juegoActivo.descripcion}</p>
+          <p className="text-sm text-gray-600">
+            {juegoActivo.materia} · {juegoActivo.descripcion}
+          </p>
         </section>
         <Juego onExit={() => setJuegoActivo(null)} />
       </div>
     )
   }
 
+  // 3. Vista principal (con estudiante o como invitado)
   return (
     <div className="space-y-6">
       <section>
@@ -94,7 +119,42 @@ export default function Actividades() {
         </p>
       </section>
 
-      <LoginEstudiante />
+      {estudiante ? (
+        <div className="card bg-institucional-verde text-white flex flex-col sm:flex-row sm:items-center gap-3">
+          <div className="text-3xl">👋</div>
+          <div className="flex-1">
+            <div className="text-sm opacity-90">¡Bienvenido/a!</div>
+            <div className="font-display font-bold text-lg">{estudiante.nombre}</div>
+            <div className="text-xs opacity-80">
+              Tus puntos, medallas y racha se guardan en el podio.
+            </div>
+          </div>
+          <button
+            onClick={cerrarSesion}
+            className="px-3 py-2 bg-white text-institucional-verdeOscuro rounded-lg text-sm font-semibold hover:bg-institucional-crema"
+          >
+            Cambiar de estudiante
+          </button>
+        </div>
+      ) : (
+        <div className="card bg-yellow-100 border-2 border-yellow-400 flex items-center gap-3">
+          <div className="text-3xl">👤</div>
+          <div className="flex-1">
+            <div className="font-display font-bold text-sm text-yellow-900">
+              Estás jugando como invitado
+            </div>
+            <div className="text-xs text-yellow-800">
+              Tus puntos no se están guardando en el podio.
+            </div>
+          </div>
+          <button
+            onClick={() => setModoInvitado(false)}
+            className="px-3 py-2 bg-institucional-verde text-white rounded-lg text-sm font-semibold hover:bg-institucional-verdeOscuro"
+          >
+            Ingresar con documento
+          </button>
+        </div>
+      )}
 
       <div className="flex flex-wrap gap-2">
         {MATERIAS.map((m) => (
