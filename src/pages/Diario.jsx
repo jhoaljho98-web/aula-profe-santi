@@ -1,123 +1,154 @@
-import { useMemo, useState } from 'react'
-import clases from '../data/clases.json'
+import { useState, useEffect } from 'react'
+import diarioFotos from '../data/diario-fotos.json'
+import guias from '../data/guias.json'
 
-const MATERIAS = ['Todas', 'Matemáticas', 'Castellano', 'Ciencias Naturales', 'Ciencias Sociales', 'Inglés', 'Ética y Religión', 'Artística']
-const PERIODOS = ['Todos', 1, 2, 3, 4]
+function Lightbox({ fotos, index, onClose, onPrev, onNext }) {
+  useEffect(() => {
+    function handleKey(e) {
+      if (e.key === 'Escape') onClose()
+      if (e.key === 'ArrowLeft') onPrev()
+      if (e.key === 'ArrowRight') onNext()
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [onClose, onPrev, onNext])
 
-function tipoIcono(tipo) {
-  return { guia: '📄', video: '🎥', link: '🔗', juego: '🎮' }[tipo] || '📎'
+  if (index === null) return null
+  const foto = fotos[index]
+  return (
+    <div
+      className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <button
+        className="absolute top-4 right-4 text-white text-3xl hover:text-institucional-amarillo"
+        onClick={onClose}
+        aria-label="Cerrar"
+      >✕</button>
+      <button
+        className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-institucional-amarillo px-4"
+        onClick={(e) => { e.stopPropagation(); onPrev() }}
+        aria-label="Anterior"
+      >‹</button>
+      <img
+        src={`${import.meta.env.BASE_URL}${foto}`}
+        alt={`Foto ${index + 1}`}
+        className="max-w-full max-h-full object-contain"
+        onClick={(e) => e.stopPropagation()}
+      />
+      <button
+        className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-institucional-amarillo px-4"
+        onClick={(e) => { e.stopPropagation(); onNext() }}
+        aria-label="Siguiente"
+      >›</button>
+      <div className="absolute bottom-4 left-0 right-0 text-center text-white text-sm">
+        {index + 1} / {fotos.length}
+      </div>
+    </div>
+  )
 }
 
 export default function Diario() {
-  const [materia, setMateria] = useState('Todas')
-  const [periodo, setPeriodo] = useState('Todos')
-  const [busqueda, setBusqueda] = useState('')
+  const materias = Object.keys(diarioFotos)
+  const [materiaActiva, setMateriaActiva] = useState(materias[0] || null)
+  const [lightboxIndex, setLightboxIndex] = useState(null)
 
-  const filtradas = useMemo(() => {
-    return [...clases]
-      .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
-      .filter((c) => materia === 'Todas' || c.materia === materia)
-      .filter((c) => periodo === 'Todos' || c.periodo === periodo)
-      .filter((c) =>
-        !busqueda ||
-        c.tema.toLowerCase().includes(busqueda.toLowerCase()) ||
-        c.resumen.toLowerCase().includes(busqueda.toLowerCase())
-      )
-  }, [materia, periodo, busqueda])
+  const fotos = materiaActiva ? diarioFotos[materiaActiva].fotos : []
+
+  function abrir(i) { setLightboxIndex(i) }
+  function cerrar() { setLightboxIndex(null) }
+  function prev() { setLightboxIndex((i) => (i - 1 + fotos.length) % fotos.length) }
+  function next() { setLightboxIndex((i) => (i + 1) % fotos.length) }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <section>
         <h1 className="text-3xl md:text-4xl font-display font-bold text-institucional-verdeOscuro">
           Diario de clase
         </h1>
         <p className="mt-2 text-gray-700">
-          Aquí queda registrado lo que hacemos clase a clase. Si un niño faltó, puede desatrasarse desde aquí.
+          Todo lo que hacemos clase a clase: fotos del tablero, cuadernos y guías de trabajo.
         </p>
       </section>
 
-      {/* Filtros */}
-      <div className="card space-y-3">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <div>
-            <label className="block text-sm font-semibold mb-1">Materia</label>
-            <select
-              value={materia}
-              onChange={(e) => setMateria(e.target.value)}
-              className="w-full rounded-xl border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-institucional-verde outline-none"
-            >
-              {MATERIAS.map((m) => <option key={m} value={m}>{m}</option>)}
-            </select>
+      {/* Fotos por materia */}
+      {materiaActiva && (
+        <section className="space-y-4">
+          <h2 className="font-display font-bold text-2xl text-institucional-verdeOscuro">
+            📚 Lo que vimos en clase
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {materias.map((m) => (
+              <button
+                key={m}
+                onClick={() => { setMateriaActiva(m); setLightboxIndex(null) }}
+                className={`px-4 py-2 rounded-full font-semibold text-sm transition-colors ${
+                  materiaActiva === m
+                    ? 'bg-institucional-verde text-white'
+                    : 'bg-white text-gray-700 hover:bg-institucional-crema'
+                }`}
+              >
+                {m} <span className="opacity-70">({diarioFotos[m].total})</span>
+              </button>
+            ))}
           </div>
-          <div>
-            <label className="block text-sm font-semibold mb-1">Periodo</label>
-            <select
-              value={periodo}
-              onChange={(e) => setPeriodo(e.target.value === 'Todos' ? 'Todos' : Number(e.target.value))}
-              className="w-full rounded-xl border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-institucional-verde outline-none"
-            >
-              {PERIODOS.map((p) => <option key={p} value={p}>{p}</option>)}
-            </select>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            {fotos.map((f, i) => (
+              <button
+                key={i}
+                onClick={() => abrir(i)}
+                className="aspect-square rounded-2xl overflow-hidden shadow-soft hover:shadow-card hover:-translate-y-1 transition-all bg-white"
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}${f}`}
+                  alt={`${materiaActiva} ${i + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </button>
+            ))}
           </div>
-          <div>
-            <label className="block text-sm font-semibold mb-1">Buscar</label>
-            <input
-              type="text"
-              value={busqueda}
-              onChange={(e) => setBusqueda(e.target.value)}
-              placeholder="Tema o palabra clave..."
-              className="w-full rounded-xl border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-institucional-verde outline-none"
-            />
-          </div>
-        </div>
-        <div className="text-sm text-gray-500">
-          Mostrando {filtradas.length} de {clases.length} clases.
-        </div>
-      </div>
+        </section>
+      )}
 
-      {/* Lista de clases */}
-      <div className="space-y-4">
-        {filtradas.length === 0 && (
-          <div className="card text-center text-gray-500">
-            No hay clases que coincidan con los filtros.
-          </div>
-        )}
-        {filtradas.map((c) => (
-          <article key={c.id} className="card">
-            <div className="flex flex-wrap items-center gap-2 mb-2">
-              <span className="badge bg-institucional-verde text-white">{c.materia}</span>
-              <span className="badge bg-institucional-amarillo text-gray-900">Periodo {c.periodo}</span>
-              <span className="text-sm text-gray-500 ml-auto">
-                {new Date(c.fecha).toLocaleDateString('es-CO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
-              </span>
+      {/* Guías de trabajo en casa */}
+      {guias.length > 0 && (
+        <section className="card bg-institucional-crema">
+          <div className="flex items-start gap-3 mb-4">
+            <div className="text-3xl">🏠</div>
+            <div>
+              <h2 className="font-display font-bold text-2xl text-institucional-verdeOscuro">
+                Guías de trabajo en casa
+              </h2>
+              <p className="text-sm text-gray-700 mt-1">
+                Las guías que enviamos durante el trabajo en casa por el terremoto. Todas en PDF.
+              </p>
             </div>
-            <h2 className="font-display font-bold text-xl mb-2">{c.tema}</h2>
-            <p className="text-gray-700 mb-4">{c.resumen}</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {guias.map((g, i) => (
+              <a
+                key={i}
+                href={`${import.meta.env.BASE_URL}${g.archivo}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 p-3 rounded-xl bg-white hover:bg-institucional-verdeClaro hover:text-white transition-colors"
+              >
+                <span className="text-xl">📄</span>
+                <span className="text-sm font-semibold">{g.titulo}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
-            {c.recursos && c.recursos.length > 0 && (
-              <div className="mb-3">
-                <div className="text-sm font-semibold text-gray-700 mb-1">📎 Recursos:</div>
-                <ul className="space-y-1">
-                  {c.recursos.map((r, i) => (
-                    <li key={i}>
-                      <a href={r.url} target="_blank" rel="noopener noreferrer" className="text-institucional-verde hover:underline">
-                        {tipoIcono(r.tipo)} {r.titulo}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {c.tarea && (
-              <div className="bg-institucional-crema border-l-4 border-institucional-amarillo rounded-r-xl p-3">
-                <div className="text-sm font-semibold text-gray-700 mb-1">✏️ Tarea para casa:</div>
-                <p className="text-gray-700 text-sm">{c.tarea}</p>
-              </div>
-            )}
-          </article>
-        ))}
-      </div>
+      <Lightbox
+        fotos={fotos}
+        index={lightboxIndex}
+        onClose={cerrar}
+        onPrev={prev}
+        onNext={next}
+      />
     </div>
   )
 }

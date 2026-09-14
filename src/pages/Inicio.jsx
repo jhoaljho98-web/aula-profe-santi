@@ -1,20 +1,17 @@
 import { Link } from 'react-router-dom'
-import clases from '../data/clases.json'
 
 const SECCIONES = [
   { to: '/aula', titulo: 'Nuestra aula', desc: 'Conoce al grupo, el horario y al docente.', icon: '👥', color: 'bg-institucional-verde' },
-  { to: '/diario', titulo: 'Diario de clase', desc: 'Qué vimos clase a clase.', icon: '📅', color: 'bg-institucional-amarillo' },
-  { to: '/recursos', titulo: 'Recursos', desc: 'Guías, videos y materiales.', icon: '📚', color: 'bg-institucional-verdeClaro' },
+  { to: '/diario', titulo: 'Diario de clase', desc: 'Fotos y guías de lo que hacemos clase a clase.', icon: '📅', color: 'bg-institucional-amarillo' },
+  { to: '/recursos', titulo: 'Recursos', desc: 'Guías, videos y materiales por materia.', icon: '📚', color: 'bg-institucional-verdeClaro' },
   { to: '/actividades', titulo: 'Actividades lúdicas', desc: 'Juegos por materia para practicar.', icon: '🎮', color: 'bg-institucional-verde' },
-  { to: '/padres', titulo: 'Para los padres', desc: 'Recomendaciones y comunicados.', icon: '👨‍👩‍👧', color: 'bg-institucional-amarillo' },
+  { to: '/padres', titulo: 'Para los padres', desc: 'Recomendaciones de acompañamiento.', icon: '👨‍👩‍👧', color: 'bg-institucional-amarillo' },
   { to: '/notas', titulo: 'Consulta de notas', desc: 'Ver notas con documento del estudiante.', icon: '📊', color: 'bg-institucional-verdeClaro' },
   { to: '/asistencia', titulo: 'Consulta de asistencia', desc: 'Ver asistencia por periodo con documento.', icon: '✅', color: 'bg-institucional-verde' },
-  { to: '/galeria', titulo: 'Galería del periodo', desc: 'Fotos del tablero y cuadernos por materia.', icon: '📸', color: 'bg-institucional-amarillo' },
+  { to: '/galeria', titulo: 'Galería del proceso', desc: 'Memorias y momentos especiales con los niños.', icon: '📸', color: 'bg-institucional-amarillo' },
 ]
 
 export default function Inicio() {
-  const ultimas = clases.slice(0, 3)
-
   return (
     <div className="space-y-12">
       {/* Hero */}
@@ -56,32 +53,6 @@ export default function Inicio() {
               <h3 className="font-display font-bold text-xl mb-1">{s.titulo}</h3>
               <p className="text-gray-600 text-sm">{s.desc}</p>
             </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Últimas clases */}
-      <section>
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-display font-bold text-institucional-verdeOscuro">
-            Últimas clases
-          </h2>
-          <Link to="/diario" className="text-institucional-verde font-semibold hover:underline">
-            Ver todas →
-          </Link>
-        </div>
-        <div className="space-y-3">
-          {ultimas.map((c) => (
-            <div key={c.id} className="card flex items-start gap-4">
-              <div className="badge bg-institucional-verde text-white shrink-0">
-                {c.materia}
-              </div>
-              <div className="flex-1">
-                <div className="text-sm text-gray-500">{new Date(c.fecha).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
-                <h3 className="font-display font-bold text-lg">{c.tema}</h3>
-                <p className="text-gray-600 text-sm mt-1 line-clamp-2">{c.resumen}</p>
-              </div>
-            </div>
           ))}
         </div>
       </section>

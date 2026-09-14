@@ -1,5 +1,4 @@
 import recursos from '../data/recursos.json'
-import guias from '../data/guias.json'
 
 function tipoIcono(tipo) {
   return { guia: '📄', video: '🎥', link: '🔗' }[tipo] || '📎'
@@ -16,38 +15,6 @@ export default function Recursos() {
           Guías descargables, videos recomendados y enlaces útiles agrupados por área.
         </p>
       </section>
-
-      {/* Sección especial: Guías de trabajo en casa */}
-      {guias.length > 0 && (
-        <section className="card bg-institucional-crema">
-          <div className="flex items-start gap-3 mb-4">
-            <div className="text-3xl">🏠</div>
-            <div>
-              <h2 className="font-display font-bold text-xl text-institucional-verdeOscuro">
-                Guías de trabajo en casa
-              </h2>
-              <p className="text-sm text-gray-700 mt-1">
-                Las guías que enviamos durante el trabajo en casa por el terremoto.
-                Todas están disponibles en PDF.
-              </p>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {guias.map((g, i) => (
-              <a
-                key={i}
-                href={`${import.meta.env.BASE_URL}${g.archivo}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 p-3 rounded-xl bg-white hover:bg-institucional-verdeClaro hover:text-white transition-colors"
-              >
-                <span className="text-xl">📄</span>
-                <span className="text-sm font-semibold">{g.titulo}</span>
-              </a>
-            ))}
-          </div>
-        </section>
-      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {Object.entries(recursos).map(([materia, items]) => (

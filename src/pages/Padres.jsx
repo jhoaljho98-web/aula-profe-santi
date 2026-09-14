@@ -6,11 +6,6 @@ const RECOMENDACIONES = [
   { titulo: 'Reconocer el esfuerzo', texto: 'Celebren los avances, no solo los resultados. Una palabra amable vale más que una nota alta.' },
 ]
 
-const COMUNICADOS = [
-  { fecha: '2026-09-13', titulo: 'Reunión de padres — Cierre de tercer periodo', texto: 'Nos reunimos el próximo viernes para entregar el boletín del tercer periodo.' },
-  { fecha: '2026-09-10', titulo: 'Trueque del compartir', texto: 'La próxima clase de Ética haremos un trueque entre los niños. Enviar objeto en buen estado.' },
-]
-
 export default function Padres() {
   return (
     <div className="space-y-8">
@@ -19,25 +14,8 @@ export default function Padres() {
           Para los padres de familia
         </h1>
         <p className="mt-2 text-gray-700">
-          Recomendaciones, comunicados y todo lo que necesitan saber para acompañar mejor a sus hijos.
+          Recomendaciones y todo lo que necesitan saber para acompañar mejor a sus hijos.
         </p>
-      </section>
-
-      <section>
-        <h2 className="font-display font-bold text-2xl mb-4 text-institucional-verdeOscuro">
-          Comunicados recientes
-        </h2>
-        <div className="space-y-3">
-          {COMUNICADOS.map((c, i) => (
-            <div key={i} className="card">
-              <div className="text-sm text-gray-500">
-                {new Date(c.fecha).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' })}
-              </div>
-              <h3 className="font-display font-bold text-lg">{c.titulo}</h3>
-              <p className="text-gray-700 mt-1">{c.texto}</p>
-            </div>
-          ))}
-        </div>
       </section>
 
       <section>

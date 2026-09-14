@@ -30,13 +30,6 @@ export default function Contacto() {
             Marmato, Caldas, Colombia
           </p>
         </div>
-
-        <div className="card">
-          <h2 className="font-display font-bold text-xl mb-2">🕐 Horario de atención</h2>
-          <p className="text-gray-700">
-            Reuniones con padres: viernes, previo agendamiento.
-          </p>
-        </div>
       </section>
     </div>
   )
