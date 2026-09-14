@@ -18,7 +18,12 @@ const CODIGO_COLOR = {
 }
 
 function formatearFecha(fecha) {
-  return new Date(fecha).toLocaleDateString('es-CO', {
+  // Parsear la fecha en zona horaria LOCAL para evitar el shift de UTC.
+  // (new Date("2026-07-07") interpreta como UTC medianoche y en Colombia
+  // se corre al 6 de julio; hay que construirla con año/mes/día explícitos.)
+  const [y, m, d] = fecha.split('-').map(Number)
+  const local = new Date(y, m - 1, d)
+  return local.toLocaleDateString('es-CO', {
     weekday: 'short', day: 'numeric', month: 'short'
   })
 }
