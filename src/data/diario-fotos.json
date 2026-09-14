@@ -10,7 +10,7 @@
   },
   "Castellano": {
     "slug": "castellano",
-    "total": 27,
+    "total": 28,
     "fotos": [
       "galeria/castellano/001.jpeg",
       "galeria/castellano/002.jpeg",
@@ -38,7 +38,8 @@
       "galeria/castellano/024.jpeg",
       "galeria/castellano/025.jpeg",
       "galeria/castellano/026.jpeg",
-      "galeria/castellano/027.jpeg"
+      "galeria/castellano/027.jpeg",
+      "galeria/castellano/028.jpeg"
     ]
   },
   "Ética y Religión": {
@@ -67,7 +68,7 @@
   },
   "Matemáticas": {
     "slug": "matematicas",
-    "total": 34,
+    "total": 36,
     "fotos": [
       "galeria/matematicas/001.jpeg",
       "galeria/matematicas/002.jpeg",
@@ -102,7 +103,9 @@
       "galeria/matematicas/031.jpeg",
       "galeria/matematicas/032.jpeg",
       "galeria/matematicas/033.jpeg",
-      "galeria/matematicas/034.jpeg"
+      "galeria/matematicas/034.jpeg",
+      "galeria/matematicas/035.jpeg",
+      "galeria/matematicas/036.jpeg"
     ]
   },
   "Ciencias Naturales": {
@@ -127,7 +130,7 @@
   },
   "Ciencias Sociales": {
     "slug": "sociales",
-    "total": 12,
+    "total": 13,
     "fotos": [
       "galeria/sociales/001.jpeg",
       "galeria/sociales/002.jpeg",
@@ -140,7 +143,8 @@
       "galeria/sociales/009.jpeg",
       "galeria/sociales/010.jpeg",
       "galeria/sociales/011.jpeg",
-      "galeria/sociales/012.jpeg"
+      "galeria/sociales/012.jpeg",
+      "galeria/sociales/013.jpeg"
     ]
   }
 }
