@@ -29,7 +29,7 @@ export function calcularPuntos(aciertos, total) {
 // Guarda una partida y devuelve todo lo relevante para animar:
 // puntos, medallas nuevas, trofeos nuevos, evento de racha, etc.
 // materia: 'matematicas' | 'castellano' | 'sociales' | 'naturales'
-export async function guardarPartida({ hash, nombre, juegoId, juegoNombre, materia, aciertos, total }) {
+export async function guardarPartida({ hash, nombre, foto, juegoId, juegoNombre, materia, aciertos, total }) {
   const puntos = calcularPuntos(aciertos, total)
   const resultado = {
     puntos,
@@ -116,6 +116,7 @@ export async function guardarPartida({ hash, nombre, juegoId, juegoNombre, mater
   // --- Escribir estudiante ---
   const datosEstudiante = {
     nombre,
+    foto: foto ?? null,
     puntosTotal: increment(puntos),
     partidasTotal: increment(1),
     ultimaFecha: serverTimestamp(),

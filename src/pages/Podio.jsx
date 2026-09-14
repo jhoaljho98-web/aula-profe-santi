@@ -11,6 +11,7 @@ import {
   TROFEOS_RACHA,
 } from '../lib/logros'
 import LoginEstudiante from '../components/LoginEstudiante'
+import Avatar from '../components/Avatar'
 
 const POSICIONES = ['🥇', '🥈', '🥉']
 
@@ -102,7 +103,7 @@ export default function Podio() {
 
       {!estudiante && firebaseHabilitado && <LoginEstudiante />}
 
-      {mis && <MiResumen mis={mis} posicion={posicionMia} materia={materia} />}
+      {mis && <MiResumen mis={mis} posicion={posicionMia} materia={materia} estudiante={estudiante} />}
 
       {mis && (
         <div className="flex gap-2">
@@ -200,9 +201,10 @@ export default function Podio() {
                     soyYo ? 'ring-4 ring-institucional-verde' : ''
                   }`}
                 >
-                  <div className="text-2xl w-10 text-center">
-                    {POSICIONES[i] ?? <span className="text-gray-500 font-bold">#{i + 1}</span>}
+                  <div className="text-2xl w-8 text-center">
+                    {POSICIONES[i] ?? <span className="text-gray-500 font-bold text-sm">#{i + 1}</span>}
                   </div>
+                  <Avatar foto={p.foto} nombre={p.nombre} tamano={48} />
                   <div className="flex-1 min-w-0">
                     <div className="font-display font-bold text-lg truncate">
                       {primerNombre(p.nombre)}
@@ -239,7 +241,7 @@ export default function Podio() {
   )
 }
 
-function MiResumen({ mis, posicion, materia }) {
+function MiResumen({ mis, posicion, materia, estudiante }) {
   const materiaObj = MATERIAS.find((m) => m.id === materia)
   const puntos =
     materia === 'general'
@@ -258,6 +260,8 @@ function MiResumen({ mis, posicion, materia }) {
   return (
     <div className={`card ${materiaObj?.color ?? 'bg-institucional-verde'} text-white space-y-3`}>
       <div className="flex items-center justify-between flex-wrap gap-2">
+        <div className="flex items-center gap-3">
+          {estudiante && <Avatar foto={estudiante.foto} nombre={estudiante.nombre} tamano={72} />}
         <div>
           <div className="text-sm opacity-90">
             {materia === 'general'
@@ -269,6 +273,7 @@ function MiResumen({ mis, posicion, materia }) {
             {partidas} partidas
             {posicion >= 0 ? ` · Puesto #${posicion + 1}` : ''}
           </div>
+        </div>
         </div>
         {materia === 'general' && medalla && (
           <div className="text-center">

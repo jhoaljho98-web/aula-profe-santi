@@ -27,16 +27,18 @@ export function EstudianteProvider({ children }) {
     const doc = String(documento).trim()
     if (!doc) return { ok: false, error: 'Escribe tu número de documento.' }
     const hash = await sha256(doc)
+    if (hash === notas.docente_hash) {
+      const info = { hash, nombre: 'Jhonatan Santiago Álvarez (Docente)', foto: 'foto-docente.jpeg', esDocente: true }
+      setEstudiante(info)
+      return { ok: true, ...info }
+    }
     const encontrado = notas.estudiantes?.[hash]
     if (!encontrado) {
       return { ok: false, error: 'No encontramos ese documento. Revisa que esté bien escrito.' }
     }
-    // Docente no juega — que el profe use la vista admin
-    if (hash === notas.docente_hash) {
-      return { ok: false, error: 'Los juegos son para los estudiantes 😊' }
-    }
-    setEstudiante({ hash, nombre: encontrado.nombre })
-    return { ok: true, hash, nombre: encontrado.nombre }
+    const info = { hash, nombre: encontrado.nombre, foto: encontrado.foto ?? null }
+    setEstudiante(info)
+    return { ok: true, ...info }
   }
 
   function cerrarSesion() {

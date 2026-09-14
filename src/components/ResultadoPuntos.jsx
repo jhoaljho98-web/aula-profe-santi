@@ -20,6 +20,7 @@ export default function ResultadoPuntos({ juegoId, juegoNombre, materia, acierto
         const r = await guardarPartida({
           hash: estudiante.hash,
           nombre: estudiante.nombre,
+          foto: estudiante.foto,
           juegoId,
           juegoNombre,
           materia,

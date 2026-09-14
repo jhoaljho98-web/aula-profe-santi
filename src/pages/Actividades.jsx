@@ -6,6 +6,7 @@ import PartesOracion from '../games/PartesOracion.jsx'
 import SilabasTrabadas from '../games/SilabasTrabadas.jsx'
 import RetoLectura from '../games/RetoLectura.jsx'
 import LoginObligatorio from '../components/LoginObligatorio.jsx'
+import Avatar from '../components/Avatar.jsx'
 import { useEstudiante } from '../lib/estudiante'
 
 const JUEGOS = [
@@ -121,7 +122,7 @@ export default function Actividades() {
 
       {estudiante ? (
         <div className="card bg-institucional-verde text-white flex flex-col sm:flex-row sm:items-center gap-3">
-          <div className="text-3xl">👋</div>
+          <Avatar foto={estudiante.foto} nombre={estudiante.nombre} tamano={64} />
           <div className="flex-1">
             <div className="text-sm opacity-90">¡Bienvenido/a!</div>
             <div className="font-display font-bold text-lg">{estudiante.nombre}</div>
