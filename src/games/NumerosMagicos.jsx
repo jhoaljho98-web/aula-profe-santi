@@ -2,55 +2,175 @@ import { useState } from 'react'
 
 const TOTAL_PREGUNTAS = 12
 
-function generar() {
-  const tipo = Math.floor(Math.random() * 4)  // 0: mayor, 1: menor, 2: siguiente, 3: anterior
-  const rango = Math.random() < 0.5 ? 100 : 1000
-  const a = Math.floor(Math.random() * rango) + 1
-  const b = Math.floor(Math.random() * rango) + 1
-  if (tipo === 0) return { tipo: 'mayor', a, b, correcta: Math.max(a, b), opciones: [a, b].sort(() => Math.random() - 0.5) }
-  if (tipo === 1) return { tipo: 'menor', a, b, correcta: Math.min(a, b), opciones: [a, b].sort(() => Math.random() - 0.5) }
-  if (tipo === 2) {
-    const n = Math.floor(Math.random() * (rango - 1)) + 1
-    const correcta = n + 1
-    const distractores = new Set([n - 1, n + 2, n + 10])
-    distractores.delete(correcta)
-    const opciones = [correcta, ...Array.from(distractores).slice(0, 3)].sort(() => Math.random() - 0.5)
-    return { tipo: 'siguiente', a: n, correcta, opciones }
+// ------------- Convertir número 0-1000 a letras -------------
+const UNIDADES = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve']
+const DIEZ_A_19 = ['diez', 'once', 'doce', 'trece', 'catorce', 'quince', 'dieciséis', 'diecisiete', 'dieciocho', 'diecinueve']
+const DECENAS = ['', '', 'veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa']
+const CENTENAS = ['', '', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 'seiscientos', 'setecientos', 'ochocientos', 'novecientos']
+const VEINTI = ['veinte', 'veintiuno', 'veintidós', 'veintitrés', 'veinticuatro', 'veinticinco', 'veintiséis', 'veintisiete', 'veintiocho', 'veintinueve']
+
+function numeroALetras(n) {
+  if (n === 0) return 'cero'
+  if (n === 1000) return 'mil'
+
+  const cent = Math.floor(n / 100)
+  const resto = n % 100
+
+  const partes = []
+
+  if (cent > 0) {
+    if (cent === 1 && resto === 0) partes.push('cien')
+    else if (cent === 1) partes.push('ciento')
+    else partes.push(CENTENAS[cent])
   }
-  // anterior
-  const n = Math.floor(Math.random() * rango) + 2
-  const correcta = n - 1
-  const distractores = new Set([n + 1, n - 2, n - 10])
-  distractores.delete(correcta)
-  const opciones = [correcta, ...Array.from(distractores).slice(0, 3)].sort(() => Math.random() - 0.5)
-  return { tipo: 'anterior', a: n, correcta, opciones }
+
+  if (resto === 0) {
+    // nada
+  } else if (resto < 10) {
+    partes.push(UNIDADES[resto])
+  } else if (resto < 20) {
+    partes.push(DIEZ_A_19[resto - 10])
+  } else if (resto < 30) {
+    partes.push(VEINTI[resto - 20])
+  } else {
+    const dec = Math.floor(resto / 10)
+    const uni = resto % 10
+    if (uni === 0) partes.push(DECENAS[dec])
+    else partes.push(DECENAS[dec] + ' y ' + UNIDADES[uni])
+  }
+
+  return partes.join(' ')
 }
 
-function Enunciado({ p }) {
-  if (p.tipo === 'mayor') return <>¿Cuál número es <span className="text-institucional-verde">MAYOR</span>?</>
-  if (p.tipo === 'menor') return <>¿Cuál número es <span className="text-institucional-verde">MENOR</span>?</>
-  if (p.tipo === 'siguiente') return <>¿Cuál es el <span className="text-institucional-verde">SIGUIENTE</span> de {p.a}?</>
-  return <>¿Cuál es el <span className="text-institucional-verde">ANTERIOR</span> de {p.a}?</>
+function randRango(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
+
+function generar() {
+  const tipo = ['mayor', 'menor', 'siguiente', 'anterior', 'letras-cifras', 'cifras-letras', 'ordenar-asc', 'ordenar-desc'][Math.floor(Math.random() * 8)]
+  const rango = Math.random() < 0.5 ? [1, 100] : [100, 1000]
+
+  if (tipo === 'mayor' || tipo === 'menor') {
+    const a = randRango(...rango)
+    let b = randRango(...rango)
+    while (b === a) b = randRango(...rango)
+    return {
+      tipo,
+      pregunta: `¿Cuál número es ${tipo === 'mayor' ? 'MAYOR' : 'MENOR'}?`,
+      opciones: [a, b].sort(() => Math.random() - 0.5),
+      correcta: tipo === 'mayor' ? Math.max(a, b) : Math.min(a, b),
+      modo: 'seleccion',
+    }
+  }
+
+  if (tipo === 'siguiente' || tipo === 'anterior') {
+    const n = randRango(2, 999)
+    const correcta = tipo === 'siguiente' ? n + 1 : n - 1
+    const dis = new Set()
+    while (dis.size < 3) {
+      const delta = [-1, 1, -2, 2, -10, 10, -5, 5][Math.floor(Math.random() * 8)]
+      const val = correcta + delta
+      if (val !== correcta && val >= 0 && val <= 1000) dis.add(val)
+    }
+    return {
+      tipo,
+      pregunta: `¿Cuál es el ${tipo.toUpperCase()} de ${n}?`,
+      opciones: [correcta, ...dis].sort(() => Math.random() - 0.5),
+      correcta,
+      modo: 'seleccion',
+    }
+  }
+
+  if (tipo === 'letras-cifras') {
+    const n = randRango(1, 999)
+    const dis = new Set()
+    while (dis.size < 3) {
+      const delta = [1, -1, 10, -10, 100, -100][Math.floor(Math.random() * 6)]
+      const val = n + delta
+      if (val !== n && val > 0 && val <= 1000) dis.add(val)
+    }
+    return {
+      tipo,
+      pregunta: `¿Qué número es "${numeroALetras(n)}"?`,
+      opciones: [n, ...dis].sort(() => Math.random() - 0.5),
+      correcta: n,
+      modo: 'seleccion',
+    }
+  }
+
+  if (tipo === 'cifras-letras') {
+    const n = randRango(1, 999)
+    const dis = new Set()
+    while (dis.size < 3) {
+      const delta = [1, -1, 10, -10, 100, -100][Math.floor(Math.random() * 6)]
+      const val = n + delta
+      if (val !== n && val > 0 && val <= 1000) dis.add(val)
+    }
+    return {
+      tipo,
+      pregunta: `¿Cómo se lee el número ${n}?`,
+      opciones: [numeroALetras(n), ...Array.from(dis).map(numeroALetras)].sort(() => Math.random() - 0.5),
+      correcta: numeroALetras(n),
+      modo: 'seleccion-texto',
+    }
+  }
+
+  // ordenar-asc / ordenar-desc
+  const cantidad = 5
+  const nums = new Set()
+  while (nums.size < cantidad) nums.add(randRango(1, 1000))
+  const arr = Array.from(nums)
+  const ordenado = [...arr].sort((a, b) => tipo === 'ordenar-asc' ? a - b : b - a)
+  return {
+    tipo,
+    pregunta: `Ordena de ${tipo === 'ordenar-asc' ? 'MENOR a MAYOR' : 'MAYOR a MENOR'}. Toca en el orden correcto.`,
+    numeros: arr.sort(() => Math.random() - 0.5),
+    orden_correcto: ordenado,
+    modo: 'ordenar',
+  }
+}
+
 
 export default function NumerosMagicos({ onExit }) {
   const [i, setI] = useState(0)
   const [preguntas] = useState(() => Array.from({ length: TOTAL_PREGUNTAS }, generar))
   const [aciertos, setAciertos] = useState(0)
   const [seleccion, setSeleccion] = useState(null)
+  const [orden, setOrden] = useState([])
   const [terminado, setTerminado] = useState(false)
+  const [feedbackOrden, setFeedbackOrden] = useState(null)
 
   const p = preguntas[i]
+
+  function siguiente(ok) {
+    setTimeout(() => {
+      if (ok) setAciertos((a) => a + 1)
+      if (i + 1 >= TOTAL_PREGUNTAS) setTerminado(true)
+      else {
+        setI((v) => v + 1)
+        setSeleccion(null)
+        setOrden([])
+        setFeedbackOrden(null)
+      }
+    }, 900)
+  }
 
   function responder(op) {
     if (seleccion !== null) return
     setSeleccion(op)
-    const ok = op === p.correcta
-    setTimeout(() => {
-      if (ok) setAciertos((a) => a + 1)
-      if (i + 1 >= TOTAL_PREGUNTAS) setTerminado(true)
-      else { setI((v) => v + 1); setSeleccion(null) }
-    }, 700)
+    siguiente(op === p.correcta)
+  }
+
+  function clickNumero(n) {
+    if (feedbackOrden !== null) return
+    if (orden.includes(n)) return
+    const nuevo = [...orden, n]
+    setOrden(nuevo)
+    if (nuevo.length === p.numeros.length) {
+      const ok = nuevo.every((v, idx) => v === p.orden_correcto[idx])
+      setFeedbackOrden(ok)
+      siguiente(ok)
+    }
   }
 
   if (terminado) {
@@ -87,30 +207,96 @@ export default function NumerosMagicos({ onExit }) {
         <div className="h-full bg-institucional-verde transition-all" style={{ width: `${(i / TOTAL_PREGUNTAS) * 100}%` }} />
       </div>
 
-      <div className="card text-center py-10">
-        <div className="text-2xl md:text-3xl font-display font-bold text-institucional-verdeOscuro mb-8">
-          <Enunciado p={p} />
-        </div>
-        <div className={`grid gap-3 max-w-lg mx-auto ${p.opciones.length === 2 ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-4'}`}>
-          {p.opciones.map((op) => {
-            let color = 'bg-white text-institucional-verdeOscuro border-2 border-institucional-verde hover:bg-institucional-crema'
-            if (seleccion !== null) {
-              if (op === p.correcta) color = 'bg-institucional-verde text-white'
-              else if (op === seleccion) color = 'bg-red-400 text-white'
-              else color = 'bg-gray-100 text-gray-400 border-2 border-transparent'
-            }
-            return (
-              <button
-                key={op}
-                onClick={() => responder(op)}
-                disabled={seleccion !== null}
-                className={`py-6 text-3xl font-bold rounded-2xl shadow-soft transition-all ${color}`}
-              >
-                {op}
-              </button>
-            )
-          })}
-        </div>
+      <div className="card py-8">
+        <p className="text-xl md:text-2xl font-display font-bold text-institucional-verdeOscuro mb-8 text-center">
+          {p.pregunta}
+        </p>
+
+        {p.modo === 'seleccion' && (
+          <div className={`grid gap-3 max-w-lg mx-auto ${p.opciones.length === 2 ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-4'}`}>
+            {p.opciones.map((op) => {
+              let color = 'bg-white text-institucional-verdeOscuro border-2 border-institucional-verde hover:bg-institucional-crema'
+              if (seleccion !== null) {
+                if (op === p.correcta) color = 'bg-institucional-verde text-white'
+                else if (op === seleccion) color = 'bg-red-400 text-white'
+                else color = 'bg-gray-100 text-gray-400 border-2 border-transparent'
+              }
+              return (
+                <button
+                  key={op}
+                  onClick={() => responder(op)}
+                  disabled={seleccion !== null}
+                  className={`py-6 text-3xl font-bold rounded-2xl shadow-soft transition-all ${color}`}
+                >
+                  {op}
+                </button>
+              )
+            })}
+          </div>
+        )}
+
+        {p.modo === 'seleccion-texto' && (
+          <div className="grid gap-3 max-w-2xl mx-auto grid-cols-1 sm:grid-cols-2">
+            {p.opciones.map((op) => {
+              let color = 'bg-white text-institucional-verdeOscuro border-2 border-institucional-verde hover:bg-institucional-crema'
+              if (seleccion !== null) {
+                if (op === p.correcta) color = 'bg-institucional-verde text-white'
+                else if (op === seleccion) color = 'bg-red-400 text-white'
+                else color = 'bg-gray-100 text-gray-400 border-2 border-transparent'
+              }
+              return (
+                <button
+                  key={op}
+                  onClick={() => responder(op)}
+                  disabled={seleccion !== null}
+                  className={`py-4 px-3 text-lg font-semibold rounded-2xl shadow-soft transition-all ${color}`}
+                >
+                  {op}
+                </button>
+              )
+            })}
+          </div>
+        )}
+
+        {p.modo === 'ordenar' && (
+          <>
+            {/* Orden actual (arriba) */}
+            <div className="min-h-[70px] flex items-center justify-center gap-2 flex-wrap mb-6 p-3 rounded-2xl bg-institucional-crema border-2 border-dashed border-gray-300">
+              {orden.length === 0
+                ? <span className="text-gray-500 italic">Aquí aparecerán los números en el orden que toques</span>
+                : orden.map((n, idx) => (
+                    <span key={idx} className={`px-4 py-2 rounded-xl text-xl font-bold ${
+                      feedbackOrden === null
+                        ? 'bg-institucional-amarillo text-gray-900'
+                        : feedbackOrden ? 'bg-institucional-verde text-white' : 'bg-red-400 text-white'
+                    }`}>
+                      {idx + 1}. {n}
+                    </span>
+                  ))
+              }
+            </div>
+            {/* Números disponibles */}
+            <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 max-w-xl mx-auto">
+              {p.numeros.map((n) => {
+                const usado = orden.includes(n)
+                return (
+                  <button
+                    key={n}
+                    onClick={() => clickNumero(n)}
+                    disabled={usado || feedbackOrden !== null}
+                    className={`py-4 text-2xl font-bold rounded-2xl shadow-soft transition-all ${
+                      usado
+                        ? 'bg-gray-200 text-gray-400'
+                        : 'bg-white text-institucional-verdeOscuro border-2 border-institucional-verde hover:bg-institucional-crema'
+                    }`}
+                  >
+                    {n}
+                  </button>
+                )
+              })}
+            </div>
+          </>
+        )}
       </div>
     </div>
   )

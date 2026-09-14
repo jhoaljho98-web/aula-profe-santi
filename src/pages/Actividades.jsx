@@ -3,6 +3,7 @@ import TablasBatalla from '../games/TablasBatalla.jsx'
 import NumerosMagicos from '../games/NumerosMagicos.jsx'
 import MemoriaPalabras from '../games/MemoriaPalabras.jsx'
 import PartesOracion from '../games/PartesOracion.jsx'
+import SilabasTrabadas from '../games/SilabasTrabadas.jsx'
 
 const JUEGOS = [
   {
@@ -33,9 +34,17 @@ const JUEGOS = [
     id: 'partes-oracion',
     titulo: 'Partes de la oración',
     materia: 'Castellano',
-    descripcion: 'Identifica sujeto, verbo y complemento.',
+    descripcion: 'Arma la oración: pon cada parte en su lugar.',
     icono: '✍️',
     componente: PartesOracion,
+  },
+  {
+    id: 'silabas-trabadas',
+    titulo: 'Sílabas trabadas',
+    materia: 'Castellano',
+    descripcion: 'Encuentra las palabras con BR, CL, FL, TR y más. Practica lectura.',
+    icono: '📖',
+    componente: SilabasTrabadas,
   },
 ]
 

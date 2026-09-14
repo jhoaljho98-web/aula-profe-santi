@@ -17,6 +17,70 @@ function generarPregunta() {
   return { a, b, correcta, opciones }
 }
 
+function LineasVisualizacion({ a, b }) {
+  if (a === 0 || b === 0) {
+    return (
+      <div className="text-center text-gray-600 py-8 italic">
+        Cuando alguno es 0, no hay cruces. Por eso {a} × {b} = 0.
+      </div>
+    )
+  }
+  const size = 260
+  const pad = 30
+  const inner = size - pad * 2
+  const spacingA = inner / (a + 1)  // líneas verticales
+  const spacingB = inner / (b + 1)  // líneas horizontales
+  const puntos = []
+  for (let i = 1; i <= a; i++) {
+    for (let j = 1; j <= b; j++) {
+      puntos.push({ x: pad + spacingA * i, y: pad + spacingB * j })
+    }
+  }
+  return (
+    <div className="flex flex-col items-center gap-3">
+      <svg width={size} height={size} className="rounded-xl bg-white shadow-inner">
+        {/* Líneas verticales — factor A */}
+        {Array.from({ length: a }, (_, i) => (
+          <line
+            key={`v${i}`}
+            x1={pad + spacingA * (i + 1)}
+            y1={pad}
+            x2={pad + spacingA * (i + 1)}
+            y2={size - pad}
+            stroke="#2E7D32"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+        ))}
+        {/* Líneas horizontales — factor B */}
+        {Array.from({ length: b }, (_, i) => (
+          <line
+            key={`h${i}`}
+            x1={pad}
+            y1={pad + spacingB * (i + 1)}
+            x2={size - pad}
+            y2={pad + spacingB * (i + 1)}
+            stroke="#FFD400"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+        ))}
+        {/* Puntos de cruce */}
+        {puntos.map((p, i) => (
+          <circle key={i} cx={p.x} cy={p.y} r="5" fill="#DC2626" />
+        ))}
+      </svg>
+      <p className="text-sm text-gray-700 text-center">
+        <span className="text-institucional-verdeOscuro font-semibold">{a} líneas verdes</span>
+        {' × '}
+        <span className="text-institucional-amarilloOscuro font-semibold">{b} líneas amarillas</span>
+        {' = '}
+        <span className="text-red-600 font-bold">{a * b} cruces rojos</span>
+      </p>
+    </div>
+  )
+}
+
 export default function TablasBatalla({ onExit }) {
   const [i, setI] = useState(0)
   const [preguntas] = useState(() => Array.from({ length: TOTAL_PREGUNTAS }, generarPregunta))
@@ -25,6 +89,7 @@ export default function TablasBatalla({ onExit }) {
   const [terminado, setTerminado] = useState(false)
   const [inicio] = useState(Date.now())
   const [tiempoFinal, setTiempoFinal] = useState(null)
+  const [mostrarLineas, setMostrarLineas] = useState(false)
 
   const p = preguntas[i]
 
@@ -40,6 +105,7 @@ export default function TablasBatalla({ onExit }) {
       } else {
         setI((v) => v + 1)
         setSeleccion(null)
+        setMostrarLineas(false)
       }
     }, 700)
   }
@@ -90,6 +156,21 @@ export default function TablasBatalla({ onExit }) {
         <div className="text-6xl md:text-7xl font-display font-bold text-institucional-verdeOscuro mb-6">
           {p.a} × {p.b}
         </div>
+
+        {!mostrarLineas && (
+          <button
+            onClick={() => setMostrarLineas(true)}
+            className="mb-6 px-4 py-2 rounded-full bg-institucional-amarillo text-gray-900 font-semibold text-sm hover:bg-institucional-amarilloOscuro"
+          >
+            🤔 ¿Necesitas ayuda? Ver líneas
+          </button>
+        )}
+        {mostrarLineas && (
+          <div className="mb-6">
+            <LineasVisualizacion a={p.a} b={p.b} />
+          </div>
+        )}
+
         <div className="grid grid-cols-2 gap-3 max-w-md mx-auto">
           {p.opciones.map((op) => {
             let color = 'bg-white text-institucional-verdeOscuro border-2 border-institucional-verde hover:bg-institucional-crema'
