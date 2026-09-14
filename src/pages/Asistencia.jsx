@@ -1,6 +1,7 @@
 import { useState, Fragment } from 'react'
 import { sha256 } from '../utils/hash.js'
 import asistenciaData from '../data/asistencia.json'
+import copiasData from '../data/copias.json'
 
 const PERIODOS = [1, 2, 3, 4]
 
@@ -15,6 +16,73 @@ const CODIGO_COLOR = {
   R: 'bg-institucional-amarillo text-gray-900',
   E: 'bg-blue-400 text-white',
   F: 'bg-red-400 text-white',
+}
+
+const MESES_LABEL = {
+  enero: 'Enero', febrero: 'Febrero', marzo: 'Marzo', abril: 'Abril',
+  mayo: 'Mayo', junio: 'Junio', julio: 'Julio', agosto: 'Agosto',
+  septiembre: 'Septiembre', octubre: 'Octubre', noviembre: 'Noviembre',
+}
+
+function formatearMoneda(n) {
+  return '$' + n.toLocaleString('es-CO')
+}
+
+function CopiasEstudiante({ estudiante }) {
+  const meses = copiasData.meses
+  const cuota = copiasData.cuota_mensual
+  const total = estudiante.total_pagado
+  const pagados = estudiante.meses_pagados
+  const pendientes = meses.length - pagados
+
+  return (
+    <div className="card">
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+        <h3 className="font-display font-bold text-xl">🧾 Copias mensuales</h3>
+        <span className="badge bg-institucional-verde text-white">
+          Cuota: {formatearMoneda(cuota)}/mes
+        </span>
+      </div>
+
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 mb-4">
+        {meses.map((mes) => {
+          const pagado = estudiante.pagos?.[mes]
+          return (
+            <div
+              key={mes}
+              className={`rounded-xl p-2 text-center text-sm ${
+                pagado
+                  ? 'bg-institucional-verde text-white'
+                  : 'bg-gray-100 text-gray-500'
+              }`}
+            >
+              <div className="text-xs uppercase font-semibold opacity-80">
+                {MESES_LABEL[mes].slice(0, 3)}
+              </div>
+              <div className="text-lg font-bold">{pagado ? '✓' : '—'}</div>
+            </div>
+          )
+        })}
+      </div>
+
+      <div className="grid grid-cols-3 gap-3 text-center">
+        <div className="rounded-xl bg-institucional-verde bg-opacity-10 p-3">
+          <div className="text-xl font-bold text-institucional-verdeOscuro">{pagados}</div>
+          <div className="text-xs text-gray-600">Meses al día</div>
+        </div>
+        <div className="rounded-xl bg-red-50 p-3">
+          <div className="text-xl font-bold text-red-700">{pendientes}</div>
+          <div className="text-xs text-gray-600">Meses pendientes</div>
+        </div>
+        <div className="rounded-xl bg-institucional-crema p-3">
+          <div className="text-xl font-bold text-institucional-verdeOscuro">
+            {formatearMoneda(total)}
+          </div>
+          <div className="text-xs text-gray-600">Total aportado</div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 function formatearFecha(fecha) {
@@ -225,7 +293,115 @@ function VistaDocente() {
           </table>
         </div>
       </div>
+
+      <VistaDocenteCopias />
     </section>
+  )
+}
+
+// -------------------- VISTA DOCENTE — COPIAS --------------------
+function VistaDocenteCopias() {
+  const [ordenar, setOrdenar] = useState('nombre')
+  const meses = copiasData.meses
+  const cuota = copiasData.cuota_mensual
+
+  const estudiantes = Object.entries(copiasData.estudiantes).map(([hash, e]) => ({
+    hash, ...e,
+  }))
+
+  estudiantes.sort((a, b) => {
+    if (ordenar === 'nombre') return a.nombre.localeCompare(b.nombre)
+    if (ordenar === 'mas_al_dia') return b.meses_pagados - a.meses_pagados
+    if (ordenar === 'mas_pendientes') return a.meses_pagados - b.meses_pagados
+    return 0
+  })
+
+  const totalRecaudado = estudiantes.reduce((s, e) => s + e.total_pagado, 0)
+  const mesesPagadosPorMes = meses.map(m => ({
+    mes: m,
+    pagados: estudiantes.filter(e => e.pagos?.[m]).length,
+  }))
+
+  return (
+    <div className="card">
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+        <h3 className="font-display font-bold text-lg">🧾 Cuota de copias mensuales</h3>
+        <div className="flex items-center gap-2">
+          <label className="text-sm text-gray-600">Ordenar por:</label>
+          <select
+            value={ordenar}
+            onChange={(e) => setOrdenar(e.target.value)}
+            className="rounded-lg border border-gray-300 px-3 py-1 text-sm"
+          >
+            <option value="nombre">Nombre (A-Z)</option>
+            <option value="mas_al_dia">Más meses al día</option>
+            <option value="mas_pendientes">Más meses pendientes</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
+        <div className="rounded-xl bg-institucional-verde bg-opacity-10 p-3 text-center">
+          <div className="text-xl font-bold text-institucional-verdeOscuro">
+            ${totalRecaudado.toLocaleString('es-CO')}
+          </div>
+          <div className="text-xs text-gray-600">Total recaudado</div>
+        </div>
+        <div className="rounded-xl bg-institucional-amarillo bg-opacity-20 p-3 text-center">
+          <div className="text-xl font-bold text-gray-800">
+            ${cuota.toLocaleString('es-CO')}
+          </div>
+          <div className="text-xs text-gray-600">Cuota mensual</div>
+        </div>
+        <div className="rounded-xl bg-institucional-crema p-3 text-center">
+          <div className="text-xl font-bold text-institucional-verdeOscuro">
+            {estudiantes.length}
+          </div>
+          <div className="text-xs text-gray-600">Estudiantes</div>
+        </div>
+      </div>
+
+      <div className="overflow-x-auto -mx-6 px-6">
+        <table className="w-full text-xs">
+          <thead className="bg-institucional-verde text-white">
+            <tr>
+              <th className="p-2 text-left sticky left-0 bg-institucional-verde">Estudiante</th>
+              {meses.map((m) => (
+                <th key={m} className="p-2">{m.slice(0,3).toUpperCase()}</th>
+              ))}
+              <th className="p-2">Meses</th>
+              <th className="p-2 bg-institucional-verdeOscuro">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {estudiantes.map((e, i) => (
+              <tr key={e.hash} className={i % 2 === 0 ? 'bg-white' : 'bg-institucional-crema'}>
+                <td className="p-2 font-semibold whitespace-nowrap sticky left-0 bg-inherit">{e.nombre}</td>
+                {meses.map((m) => (
+                  <td key={m} className="p-2 text-center">
+                    {e.pagos?.[m]
+                      ? <span className="inline-block w-6 h-6 rounded-full bg-institucional-verde text-white">✓</span>
+                      : <span className="text-gray-300">—</span>}
+                  </td>
+                ))}
+                <td className="p-2 text-center font-semibold">{e.meses_pagados}</td>
+                <td className="p-2 text-center font-bold bg-institucional-crema">
+                  ${e.total_pagado.toLocaleString('es-CO')}
+                </td>
+              </tr>
+            ))}
+            <tr className="bg-institucional-verde text-white font-bold">
+              <td className="p-2 sticky left-0 bg-institucional-verde">Total por mes</td>
+              {mesesPagadosPorMes.map(({mes, pagados}) => (
+                <td key={mes} className="p-2 text-center">{pagados}</td>
+              ))}
+              <td className="p-2"></td>
+              <td className="p-2 text-center">${totalRecaudado.toLocaleString('es-CO')}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   )
 }
 
@@ -256,7 +432,7 @@ export default function Asistencia() {
         if (!estudiante) {
           setError('No encontramos un estudiante con ese documento. Verifica el número o comunícate con el docente.')
         } else {
-          setResultado(estudiante)
+          setResultado({ ...estudiante, hash })
         }
       }
     } catch {
@@ -270,10 +446,11 @@ export default function Asistencia() {
     <div className="space-y-6">
       <section>
         <h1 className="text-3xl md:text-4xl font-display font-bold text-institucional-verdeOscuro">
-          Consulta de asistencia
+          Asistencia y cuota de copias
         </h1>
         <p className="mt-2 text-gray-700">
-          Escribe el número de documento del estudiante para ver su asistencia por periodo.
+          Escribe el número de documento del estudiante para ver su asistencia por periodo
+          y el estado de la cuota mensual de copias ($5.000).
         </p>
       </section>
 
@@ -344,6 +521,10 @@ export default function Asistencia() {
           <p className="text-xs text-gray-500">
             El porcentaje de asistencia considera P, R y E como "asistió". Solo F cuenta como inasistencia.
           </p>
+
+          {resultado.hash && copiasData.estudiantes[resultado.hash] && (
+            <CopiasEstudiante estudiante={copiasData.estudiantes[resultado.hash]} />
+          )}
         </section>
       )}
     </div>
