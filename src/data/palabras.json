@@ -1,0 +1,48 @@
+{
+  "sinonimos": [
+    ["bonito", "lindo"],
+    ["veloz", "rápido"],
+    ["feliz", "contento"],
+    ["casa", "hogar"],
+    ["grande", "enorme"],
+    ["pequeño", "chiquito"],
+    ["comenzar", "iniciar"],
+    ["delgado", "flaco"],
+    ["cansado", "agotado"],
+    ["llorar", "sollozar"],
+    ["limpio", "aseado"],
+    ["carro", "auto"],
+    ["mirar", "observar"],
+    ["hablar", "conversar"],
+    ["bello", "hermoso"]
+  ],
+  "antonimos": [
+    ["alto", "bajo"],
+    ["frío", "caliente"],
+    ["bonito", "feo"],
+    ["rápido", "lento"],
+    ["grande", "pequeño"],
+    ["día", "noche"],
+    ["abrir", "cerrar"],
+    ["lleno", "vacío"],
+    ["nuevo", "viejo"],
+    ["triste", "alegre"],
+    ["limpio", "sucio"],
+    ["subir", "bajar"],
+    ["blanco", "negro"],
+    ["encender", "apagar"],
+    ["gordo", "flaco"]
+  ],
+  "oraciones": [
+    {"sujeto": "Mi mamá", "verbo": "cocina", "complemento": "arroz"},
+    {"sujeto": "El perro", "verbo": "corre", "complemento": "en el parque"},
+    {"sujeto": "Los niños", "verbo": "juegan", "complemento": "fútbol"},
+    {"sujeto": "La profesora", "verbo": "escribe", "complemento": "en el tablero"},
+    {"sujeto": "Mi papá", "verbo": "trabaja", "complemento": "en la finca"},
+    {"sujeto": "Las gallinas", "verbo": "ponen", "complemento": "huevos"},
+    {"sujeto": "El sol", "verbo": "brilla", "complemento": "en el cielo"},
+    {"sujeto": "Mi hermano", "verbo": "estudia", "complemento": "matemáticas"},
+    {"sujeto": "El río", "verbo": "corre", "complemento": "entre las montañas"},
+    {"sujeto": "Los pájaros", "verbo": "cantan", "complemento": "en el árbol"}
+  ]
+}
