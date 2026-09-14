@@ -25,11 +25,13 @@ export default function Aula() {
 
       {/* Docente */}
       <section className="card">
-        <div className="flex items-start gap-4">
-          <div className="w-20 h-20 rounded-full bg-institucional-amarillo flex items-center justify-center text-4xl shrink-0">
-            👨‍🏫
-          </div>
-          <div>
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
+          <img
+            src={`${import.meta.env.BASE_URL}foto-docente.jpeg`}
+            alt="Jhonatan Santiago Álvarez"
+            className="w-36 h-36 rounded-full object-cover border-4 border-institucional-amarillo shadow-soft shrink-0"
+          />
+          <div className="text-center sm:text-left">
             <h2 className="font-display font-bold text-2xl text-institucional-verdeOscuro">
               Jhonatan Santiago Álvarez
             </h2>
