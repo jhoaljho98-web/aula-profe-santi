@@ -10,6 +10,7 @@ import Notas from './pages/Notas.jsx'
 import Asistencia from './pages/Asistencia.jsx'
 import Galeria from './pages/Galeria.jsx'
 import Contacto from './pages/Contacto.jsx'
+import Podio from './pages/Podio.jsx'
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/asistencia" element={<Asistencia />} />
         <Route path="/galeria" element={<Galeria />} />
         <Route path="/contacto" element={<Contacto />} />
+        <Route path="/podio" element={<Podio />} />
       </Routes>
     </Layout>
   )

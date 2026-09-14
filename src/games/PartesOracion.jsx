@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import palabras from '../data/palabras.json'
+import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
 
 const TOTAL = 8
 
@@ -92,6 +93,14 @@ export default function PartesOracion({ onExit }) {
         <h2 className="font-display font-bold text-3xl text-institucional-verdeOscuro mb-4">
           {aciertos} de {TOTAL} oraciones correctas
         </h2>
+        <div className="mb-6">
+          <ResultadoPuntos
+            juegoId="partes-oracion"
+            juegoNombre="Partes de la oración"
+            aciertos={aciertos}
+            total={TOTAL}
+          />
+        </div>
         <div className="flex flex-wrap gap-3 justify-center">
           <button onClick={() => window.location.reload()} className="btn-primary">Jugar otra vez</button>
           <button onClick={onExit} className="btn-secondary">Volver</button>

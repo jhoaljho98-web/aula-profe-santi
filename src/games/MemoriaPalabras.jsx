@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import palabras from '../data/palabras.json'
+import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
 
 const CANTIDAD_PAREJAS = 6
 
@@ -94,7 +95,15 @@ export default function MemoriaPalabras({ onExit }) {
           <h2 className="font-display font-bold text-3xl text-institucional-verdeOscuro mb-2">
             ¡Encontraste todas las parejas!
           </h2>
-          <p className="text-lg text-gray-700 mb-6">Lo lograste en {intentos} intentos.</p>
+          <p className="text-lg text-gray-700 mb-4">Lo lograste en {intentos} intentos.</p>
+          <div className="mb-6">
+            <ResultadoPuntos
+              juegoId="memoria-palabras"
+              juegoNombre="Memoria de palabras"
+              aciertos={Math.max(0, CANTIDAD_PAREJAS * 2 - Math.max(0, intentos - CANTIDAD_PAREJAS))}
+              total={CANTIDAD_PAREJAS * 2}
+            />
+          </div>
           <div className="flex flex-wrap gap-3 justify-center">
             <button onClick={reiniciar} className="btn-primary">Jugar otra vez</button>
             <button onClick={onExit} className="btn-secondary">Volver</button>

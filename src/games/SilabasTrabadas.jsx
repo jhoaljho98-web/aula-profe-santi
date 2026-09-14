@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
 
 const PALABRAS_POR_TRABADA = {
   BL: ['blanco', 'blusa', 'bloque', 'pueblo', 'tabla'],
@@ -97,6 +98,14 @@ export default function SilabasTrabadas({ onExit }) {
         <h2 className="font-display font-bold text-3xl text-institucional-verdeOscuro mb-4">
           {aciertos} de {TOTAL_PREGUNTAS} correctas
         </h2>
+        <div className="mb-6">
+          <ResultadoPuntos
+            juegoId="silabas-trabadas"
+            juegoNombre="Sílabas trabadas"
+            aciertos={aciertos}
+            total={TOTAL_PREGUNTAS}
+          />
+        </div>
         <div className="flex flex-wrap gap-3 justify-center">
           <button onClick={() => window.location.reload()} className="btn-primary">Jugar otra vez</button>
           <button onClick={onExit} className="btn-secondary">Volver</button>

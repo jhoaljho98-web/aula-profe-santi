@@ -7,6 +7,7 @@ const NAV = [
   { to: '/diario', label: 'Diario de clase', icon: '📅' },
   { to: '/recursos', label: 'Recursos', icon: '📚' },
   { to: '/actividades', label: 'Actividades', icon: '🎮' },
+  { to: '/podio', label: 'Podio', icon: '🏆' },
   { to: '/padres', label: 'Para los padres', icon: '👨‍👩‍👧' },
   { to: '/notas', label: 'Notas', icon: '📊' },
   { to: '/asistencia', label: 'Asistencia', icon: '✅' },

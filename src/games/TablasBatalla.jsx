@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
 
 const TOTAL_PREGUNTAS = 15
 
@@ -153,6 +154,14 @@ export default function TablasBatalla({ onExit }) {
         </h2>
         <p className="text-lg text-gray-700 mb-2">{mensaje}</p>
         <p className="text-sm text-gray-500 mb-6">Tiempo: {tiempoFinal} segundos</p>
+        <div className="mb-6">
+          <ResultadoPuntos
+            juegoId="tablas-batalla"
+            juegoNombre="Batalla de Tablas"
+            aciertos={aciertos}
+            total={TOTAL_PREGUNTAS}
+          />
+        </div>
         <div className="flex flex-wrap gap-3 justify-center">
           <button onClick={() => window.location.reload()} className="btn-primary">Jugar otra vez</button>
           <button onClick={onExit} className="btn-secondary">Volver a las actividades</button>

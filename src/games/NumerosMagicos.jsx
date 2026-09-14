@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
 
 const TOTAL_PREGUNTAS = 12
 
@@ -184,6 +185,14 @@ export default function NumerosMagicos({ onExit }) {
         <h2 className="font-display font-bold text-3xl text-institucional-verdeOscuro mb-4">
           {aciertos} de {TOTAL_PREGUNTAS} correctas
         </h2>
+        <div className="mb-6">
+          <ResultadoPuntos
+            juegoId="numeros-magicos"
+            juegoNombre="Números mágicos"
+            aciertos={aciertos}
+            total={TOTAL_PREGUNTAS}
+          />
+        </div>
         <div className="flex flex-wrap gap-3 justify-center">
           <button onClick={() => window.location.reload()} className="btn-primary">Jugar otra vez</button>
           <button onClick={onExit} className="btn-secondary">Volver</button>

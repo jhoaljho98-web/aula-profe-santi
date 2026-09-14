@@ -5,6 +5,7 @@ import MemoriaPalabras from '../games/MemoriaPalabras.jsx'
 import PartesOracion from '../games/PartesOracion.jsx'
 import SilabasTrabadas from '../games/SilabasTrabadas.jsx'
 import RetoLectura from '../games/RetoLectura.jsx'
+import LoginEstudiante from '../components/LoginEstudiante.jsx'
 
 const JUEGOS = [
   {
@@ -92,6 +93,8 @@ export default function Actividades() {
           Juega, practica y aprende. Cada actividad es corta y divertida.
         </p>
       </section>
+
+      <LoginEstudiante />
 
       <div className="flex flex-wrap gap-2">
         {MATERIAS.map((m) => (

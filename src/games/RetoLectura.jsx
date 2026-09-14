@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import lecturas from '../data/lecturas.json'
+import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
 
 const SEGUNDOS_LECTURA = 20
 
@@ -67,6 +68,14 @@ export default function RetoLectura({ onExit }) {
           {aciertos} de {preguntas.length} correctas
         </h2>
         <p className="text-gray-700 mb-6">{mensaje}</p>
+        <div className="mb-6">
+          <ResultadoPuntos
+            juegoId="reto-lectura"
+            juegoNombre="Reto de lectura"
+            aciertos={aciertos}
+            total={preguntas.length}
+          />
+        </div>
         <div className="flex flex-wrap gap-3 justify-center">
           <button onClick={() => window.location.reload()} className="btn-primary">Leer otra vez</button>
           <button onClick={onExit} className="btn-secondary">Volver</button>
