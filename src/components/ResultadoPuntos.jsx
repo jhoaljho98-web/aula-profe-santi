@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useEstudiante } from '../lib/estudiante'
 import { guardarPartida, calcularPuntos } from '../lib/puntajes'
 
-export default function ResultadoPuntos({ juegoId, juegoNombre, aciertos, total }) {
+export default function ResultadoPuntos({ juegoId, juegoNombre, materia, aciertos, total }) {
   const { estudiante } = useEstudiante()
   const [estado, setEstado] = useState('guardando')
   const [resultado, setResultado] = useState(null)
@@ -22,6 +22,7 @@ export default function ResultadoPuntos({ juegoId, juegoNombre, aciertos, total 
           nombre: estudiante.nombre,
           juegoId,
           juegoNombre,
+          materia,
           aciertos,
           total,
         })

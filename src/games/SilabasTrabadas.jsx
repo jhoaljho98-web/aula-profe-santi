@@ -102,6 +102,7 @@ export default function SilabasTrabadas({ onExit }) {
           <ResultadoPuntos
             juegoId="silabas-trabadas"
             juegoNombre="Sílabas trabadas"
+            materia="castellano"
             aciertos={aciertos}
             total={TOTAL_PREGUNTAS}
           />

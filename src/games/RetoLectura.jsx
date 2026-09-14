@@ -72,6 +72,7 @@ export default function RetoLectura({ onExit }) {
           <ResultadoPuntos
             juegoId="reto-lectura"
             juegoNombre="Reto de lectura"
+            materia="castellano"
             aciertos={aciertos}
             total={preguntas.length}
           />

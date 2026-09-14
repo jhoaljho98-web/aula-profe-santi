@@ -62,14 +62,19 @@ export default function LoginObligatorio({ onInvitado }) {
         </p>
       </div>
 
-      {/* Opción invitado — pequeña y discreta */}
+      {/* Opción invitado — botón visible pero secundario */}
       <div className="text-center">
+        <div className="text-xs text-gray-500 mb-2">— o si no eres estudiante de la clase —</div>
         <button
           onClick={onInvitado}
-          className="text-sm text-gray-500 hover:text-institucional-verdeOscuro underline"
+          className="inline-flex items-center gap-2 px-5 py-2 bg-white border-2 border-gray-300 text-gray-700 rounded-full font-semibold text-sm hover:border-institucional-verde hover:text-institucional-verdeOscuro transition-colors"
         >
-          Prefiero jugar como invitado (mis puntos no se guardarán)
+          <span>👤</span>
+          <span>Jugar como invitado</span>
         </button>
+        <div className="text-[11px] text-gray-500 mt-1">
+          (tus puntos no se guardarán en el podio)
+        </div>
       </div>
     </div>
   )

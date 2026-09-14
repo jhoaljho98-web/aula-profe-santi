@@ -189,6 +189,7 @@ export default function NumerosMagicos({ onExit }) {
           <ResultadoPuntos
             juegoId="numeros-magicos"
             juegoNombre="Números mágicos"
+            materia="matematicas"
             aciertos={aciertos}
             total={TOTAL_PREGUNTAS}
           />

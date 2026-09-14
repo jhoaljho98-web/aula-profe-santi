@@ -97,6 +97,7 @@ export default function PartesOracion({ onExit }) {
           <ResultadoPuntos
             juegoId="partes-oracion"
             juegoNombre="Partes de la oración"
+            materia="castellano"
             aciertos={aciertos}
             total={TOTAL}
           />

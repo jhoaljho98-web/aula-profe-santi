@@ -158,6 +158,7 @@ export default function TablasBatalla({ onExit }) {
           <ResultadoPuntos
             juegoId="tablas-batalla"
             juegoNombre="Batalla de Tablas"
+            materia="matematicas"
             aciertos={aciertos}
             total={TOTAL_PREGUNTAS}
           />

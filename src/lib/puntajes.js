@@ -28,7 +28,8 @@ export function calcularPuntos(aciertos, total) {
 
 // Guarda una partida y devuelve todo lo relevante para animar:
 // puntos, medallas nuevas, trofeos nuevos, evento de racha, etc.
-export async function guardarPartida({ hash, nombre, juegoId, juegoNombre, aciertos, total }) {
+// materia: 'matematicas' | 'castellano' | 'sociales' | 'naturales'
+export async function guardarPartida({ hash, nombre, juegoId, juegoNombre, materia, aciertos, total }) {
   const puntos = calcularPuntos(aciertos, total)
   const resultado = {
     puntos,
@@ -103,6 +104,7 @@ export async function guardarPartida({ hash, nombre, juegoId, juegoNombre, acier
     {
       juegoId,
       juegoNombre,
+      materia: materia ?? null,
       mejorPuntaje: nuevoMejor,
       ultimaPartida: puntos,
       vecesJugado: increment(1),
@@ -112,20 +114,21 @@ export async function guardarPartida({ hash, nombre, juegoId, juegoNombre, acier
   )
 
   // --- Escribir estudiante ---
-  await setDoc(
-    refEstudiante,
-    {
-      nombre,
-      puntosTotal: increment(puntos),
-      partidasTotal: increment(1),
-      ultimaFecha: serverTimestamp(),
-      ultimaFechaJuego: hoy,
-      racha: estadoRacha.racha,
-      rachaMax: estadoRacha.rachaMax,
-      escudos: escudosFinales,
-    },
-    { merge: true },
-  )
+  const datosEstudiante = {
+    nombre,
+    puntosTotal: increment(puntos),
+    partidasTotal: increment(1),
+    ultimaFecha: serverTimestamp(),
+    ultimaFechaJuego: hoy,
+    racha: estadoRacha.racha,
+    rachaMax: estadoRacha.rachaMax,
+    escudos: escudosFinales,
+  }
+  if (materia) {
+    datosEstudiante[`puntosPorMateria.${materia}`] = increment(puntos)
+    datosEstudiante[`partidasPorMateria.${materia}`] = increment(1)
+  }
+  await setDoc(refEstudiante, datosEstudiante, { merge: true })
 
   return {
     puntos,
@@ -143,6 +146,16 @@ export async function leerPodio(tope = 20) {
   const q = query(collection(db, 'estudiantes'), orderBy('puntosTotal', 'desc'), limit(tope))
   const snap = await getDocs(q)
   return snap.docs.map((d) => ({ hash: d.id, ...d.data() }))
+}
+
+export async function leerPodioPorMateria(materia, tope = 20) {
+  if (!firebaseHabilitado || !db) return []
+  const campo = `puntosPorMateria.${materia}`
+  const q = query(collection(db, 'estudiantes'), orderBy(campo, 'desc'), limit(tope))
+  const snap = await getDocs(q)
+  return snap.docs
+    .map((d) => ({ hash: d.id, ...d.data() }))
+    .filter((e) => (e.puntosPorMateria?.[materia] ?? 0) > 0)
 }
 
 export async function leerMisEstadisticas(hash) {

@@ -100,6 +100,7 @@ export default function MemoriaPalabras({ onExit }) {
             <ResultadoPuntos
               juegoId="memoria-palabras"
               juegoNombre="Memoria de palabras"
+              materia="castellano"
               aciertos={Math.max(0, CANTIDAD_PAREJAS * 2 - Math.max(0, intentos - CANTIDAD_PAREJAS))}
               total={CANTIDAD_PAREJAS * 2}
             />
