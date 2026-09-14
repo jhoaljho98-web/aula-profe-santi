@@ -1,0 +1,50 @@
+[
+  {
+    "texto": "El sábado por la mañana, mi abuela preparó una deliciosa arepa con queso mientras yo cortaba unas fresas rojas para el jugo del desayuno.",
+    "pregunta": "¿Qué preparó la abuela?",
+    "opciones": ["Arepa con queso", "Sopa de pollo", "Pan tostado", "Empanada de carne"],
+    "correcta": "Arepa con queso"
+  },
+  {
+    "texto": "En el bosque cerca de mi casa viven muchos pájaros de colores, como el colibrí verde brillante y el azulejo azul que canta todas las mañanas.",
+    "pregunta": "¿De qué color es el colibrí?",
+    "opciones": ["Verde brillante", "Rojo", "Amarillo", "Negro"],
+    "correcta": "Verde brillante"
+  },
+  {
+    "texto": "Mi papá trabaja en la mina de Marmato desde las seis de la mañana hasta las cinco de la tarde, buscando el oro que hay en las montañas.",
+    "pregunta": "¿A qué hora empieza a trabajar el papá?",
+    "opciones": ["Seis de la mañana", "Ocho de la mañana", "Cinco de la tarde", "Media noche"],
+    "correcta": "Seis de la mañana"
+  },
+  {
+    "texto": "El perro de mi vecino se llama Toby y es muy juguetón. Le encanta correr detrás de la pelota amarilla y también persigue mariposas por el jardín.",
+    "pregunta": "¿Cómo se llama el perro del vecino?",
+    "opciones": ["Toby", "Rex", "Firulais", "Max"],
+    "correcta": "Toby"
+  },
+  {
+    "texto": "En la clase de ciencias aprendimos que las hojas son verdes porque tienen clorofila y que las raíces absorben el agua del suelo para poder vivir.",
+    "pregunta": "¿Por qué las hojas son verdes?",
+    "opciones": ["Tienen clorofila", "Les da mucho sol", "Toman agua", "Están sanas"],
+    "correcta": "Tienen clorofila"
+  },
+  {
+    "texto": "La profesora nos contó que hace muchos años había un dragón amarillo que vivía en la montaña más alta y protegía un tesoro brillante de piedras preciosas.",
+    "pregunta": "¿De qué color era el dragón?",
+    "opciones": ["Amarillo", "Rojo", "Verde", "Azul"],
+    "correcta": "Amarillo"
+  },
+  {
+    "texto": "Los sábados vamos al parque con mi hermana y jugamos en los columpios, en el rodadero y compramos helado de chocolate en el carrito del señor Pedro.",
+    "pregunta": "¿De qué sabor era el helado?",
+    "opciones": ["Chocolate", "Vainilla", "Fresa", "Limón"],
+    "correcta": "Chocolate"
+  },
+  {
+    "texto": "El río que baja de las montañas tiene un agua muy fría y limpia. Mi mamá dice que allí viven peces plateados que a veces saltan sobre las piedras.",
+    "pregunta": "¿De qué color son los peces?",
+    "opciones": ["Plateados", "Dorados", "Rojos", "Azules"],
+    "correcta": "Plateados"
+  }
+]

@@ -4,6 +4,7 @@ import NumerosMagicos from '../games/NumerosMagicos.jsx'
 import MemoriaPalabras from '../games/MemoriaPalabras.jsx'
 import PartesOracion from '../games/PartesOracion.jsx'
 import SilabasTrabadas from '../games/SilabasTrabadas.jsx'
+import RetoLectura from '../games/RetoLectura.jsx'
 
 const JUEGOS = [
   {
@@ -45,6 +46,14 @@ const JUEGOS = [
     descripcion: 'Encuentra las palabras con BR, CL, FL, TR y más. Practica lectura.',
     icono: '📖',
     componente: SilabasTrabadas,
+  },
+  {
+    id: 'reto-lectura',
+    titulo: 'Reto de lectura',
+    materia: 'Castellano',
+    descripcion: 'Lee la oración en 20 segundos y responde una pregunta. ¿Podrás?',
+    icono: '⏱️',
+    componente: RetoLectura,
   },
 ]
 
