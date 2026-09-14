@@ -13,14 +13,18 @@
         "3": {
           "presente": 22,
           "tarde": 2,
-          "falta": 0,
-          "excusa": 1,
+          "falta": 1,
+          "excusa": 0,
           "total_dias": 25,
-          "porcentaje_asistencia": 100.0,
+          "porcentaje_asistencia": 96.0,
           "detalle": [
             {
               "fecha": "2026-07-07",
               "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "F"
             },
             {
               "fecha": "2026-07-10",
@@ -81,10 +85,6 @@
             {
               "fecha": "2026-08-06",
               "codigo": "P"
-            },
-            {
-              "fecha": "2026-08-10",
-              "codigo": "E"
             },
             {
               "fecha": "2026-08-24",
