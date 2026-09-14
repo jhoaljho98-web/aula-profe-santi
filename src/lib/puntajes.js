@@ -11,30 +11,93 @@ import {
   increment,
 } from 'firebase/firestore'
 import { db, firebaseHabilitado } from './firebase'
+import {
+  medallasGanadas,
+  trofeosGanados,
+  actualizarRacha,
+  fechaLocal,
+  TROFEOS_RACHA,
+} from './logros'
 
-// Guarda una partida y actualiza el mejor puntaje si aplica.
-// aciertos: número de aciertos en esta partida
-// total: número total de preguntas de la partida
+// 10 puntos por acierto + 50 de bonus si tuvo perfecta
+export function calcularPuntos(aciertos, total) {
+  const base = aciertos * 10
+  const bonus = total > 0 && aciertos === total ? 50 : 0
+  return base + bonus
+}
+
+// Guarda una partida y devuelve todo lo relevante para animar:
+// puntos, medallas nuevas, trofeos nuevos, evento de racha, etc.
 export async function guardarPartida({ hash, nombre, juegoId, juegoNombre, aciertos, total }) {
-  if (!firebaseHabilitado || !db) {
-    // Fallback local: solo devolvemos el cálculo
-    return calcularPuntos(aciertos, total)
+  const puntos = calcularPuntos(aciertos, total)
+  const resultado = {
+    puntos,
+    medallasNuevas: [],
+    trofeosNuevos: [],
+    eventoRacha: null,
+    racha: 0,
+    escudos: 1,
+    escudoGanado: false,
   }
 
-  const puntos = calcularPuntos(aciertos, total)
+  if (!firebaseHabilitado || !db) {
+    return resultado
+  }
 
   const refEstudiante = doc(db, 'estudiantes', hash)
   const refJuego = doc(db, 'estudiantes', hash, 'juegos', juegoId)
 
-  // Leer mejor puntaje previo para saber si actualizamos
+  // Estado previo del estudiante
+  let estadoPrevio = {}
+  try {
+    const snap = await getDoc(refEstudiante)
+    if (snap.exists()) estadoPrevio = snap.data()
+  } catch {}
+
+  // Mejor puntaje previo del juego
   let mejorAnterior = 0
   try {
     const snap = await getDoc(refJuego)
     if (snap.exists()) mejorAnterior = snap.data().mejorPuntaje ?? 0
   } catch {}
-
   const nuevoMejor = Math.max(mejorAnterior, puntos)
 
+  // --- Calcular racha ---
+  const hoy = fechaLocal()
+  const estadoRacha = actualizarRacha(
+    {
+      ultimaFecha: estadoPrevio.ultimaFechaJuego,
+      racha: estadoPrevio.racha,
+      rachaMax: estadoPrevio.rachaMax,
+      escudos: estadoPrevio.escudos,
+    },
+    hoy,
+  )
+
+  // --- Detectar nuevos trofeos de racha (por rachaMax) ---
+  const trofeosPrevios = trofeosGanados(estadoPrevio.rachaMax ?? 0)
+  const trofeosAhora = trofeosGanados(estadoRacha.rachaMax)
+  const trofeosNuevos = trofeosAhora.filter(
+    (t) => !trofeosPrevios.find((p) => p.id === t.id),
+  )
+
+  // Cada trofeo nuevo de racha te da un escudo extra (máx 3)
+  let escudosFinales = estadoRacha.escudos
+  const escudoGanado = trofeosNuevos.length > 0
+  if (escudoGanado) {
+    escudosFinales = Math.min(3, escudosFinales + trofeosNuevos.length)
+  }
+
+  // --- Detectar nuevas medallas (por puntosTotal) ---
+  const puntosPrevios = estadoPrevio.puntosTotal ?? 0
+  const puntosNuevos = puntosPrevios + puntos
+  const medallasPrevias = medallasGanadas(puntosPrevios)
+  const medallasAhora = medallasGanadas(puntosNuevos)
+  const medallasNuevas = medallasAhora.filter(
+    (m) => !medallasPrevias.find((p) => p.id === m.id),
+  )
+
+  // --- Escribir juego ---
   await setDoc(
     refJuego,
     {
@@ -48,6 +111,7 @@ export async function guardarPartida({ hash, nombre, juegoId, juegoNombre, acier
     { merge: true },
   )
 
+  // --- Escribir estudiante ---
   await setDoc(
     refEstudiante,
     {
@@ -55,18 +119,23 @@ export async function guardarPartida({ hash, nombre, juegoId, juegoNombre, acier
       puntosTotal: increment(puntos),
       partidasTotal: increment(1),
       ultimaFecha: serverTimestamp(),
+      ultimaFechaJuego: hoy,
+      racha: estadoRacha.racha,
+      rachaMax: estadoRacha.rachaMax,
+      escudos: escudosFinales,
     },
     { merge: true },
   )
 
-  return puntos
-}
-
-// 10 puntos por acierto + 50 de bonus si tuvo perfecta
-export function calcularPuntos(aciertos, total) {
-  const base = aciertos * 10
-  const bonus = total > 0 && aciertos === total ? 50 : 0
-  return base + bonus
+  return {
+    puntos,
+    medallasNuevas,
+    trofeosNuevos,
+    eventoRacha: estadoRacha.evento,
+    racha: estadoRacha.racha,
+    escudos: escudosFinales,
+    escudoGanado,
+  }
 }
 
 export async function leerPodio(tope = 20) {

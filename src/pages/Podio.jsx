@@ -2,14 +2,22 @@ import { useEffect, useState } from 'react'
 import { useEstudiante } from '../lib/estudiante'
 import { leerPodio, leerMisEstadisticas } from '../lib/puntajes'
 import { firebaseHabilitado } from '../lib/firebase'
+import {
+  medallasGanadas,
+  medallaActual,
+  siguienteMedalla,
+  trofeosGanados,
+  siguienteTrofeo,
+  MEDALLAS,
+  TROFEOS_RACHA,
+} from '../lib/logros'
 import LoginEstudiante from '../components/LoginEstudiante'
 
-const MEDALLAS = ['🥇', '🥈', '🥉']
+const POSICIONES = ['🥇', '🥈', '🥉']
 
 function primerNombre(nombre) {
   if (!nombre) return ''
   const partes = nombre.trim().split(/\s+/)
-  // Nombre + primer apellido para desambiguar
   const nombreP = partes.slice(0, 1).join(' ')
   const apellido = partes.slice(-2, -1).join(' ') || ''
   return `${nombreP} ${apellido}`.trim()
@@ -21,6 +29,7 @@ export default function Podio() {
   const [mis, setMis] = useState(null)
   const [cargando, setCargando] = useState(true)
   const [error, setError] = useState('')
+  const [vista, setVista] = useState('ranking')  // 'ranking' | 'mis-logros'
 
   useEffect(() => {
     let vivo = true
@@ -47,8 +56,7 @@ export default function Podio() {
     }
   }, [estudiante])
 
-  const posicionMia =
-    estudiante && podio.findIndex((p) => p.hash === estudiante.hash)
+  const posicionMia = estudiante && podio.findIndex((p) => p.hash === estudiante.hash)
 
   return (
     <div className="space-y-6">
@@ -71,18 +79,38 @@ export default function Podio() {
 
       {!estudiante && firebaseHabilitado && <LoginEstudiante />}
 
+      {/* Tarjeta con MI resumen */}
+      {mis && <MiResumen mis={mis} posicion={posicionMia} />}
+
+      {/* Selector de vista */}
       {mis && (
-        <div className="card bg-institucional-verde text-white">
-          <div className="text-sm opacity-90">Tu puntaje total</div>
-          <div className="font-display font-bold text-4xl">{mis.puntosTotal ?? 0} pts</div>
-          <div className="text-sm opacity-90 mt-1">
-            {mis.partidasTotal ?? 0} partidas jugadas
-            {posicionMia >= 0 ? ` · Puesto #${posicionMia + 1}` : ''}
-          </div>
+        <div className="flex gap-2">
+          <button
+            onClick={() => setVista('ranking')}
+            className={`px-4 py-2 rounded-full font-semibold text-sm ${
+              vista === 'ranking'
+                ? 'bg-institucional-verde text-white'
+                : 'bg-white text-gray-700 hover:bg-institucional-crema'
+            }`}
+          >
+            🏆 Ranking
+          </button>
+          <button
+            onClick={() => setVista('mis-logros')}
+            className={`px-4 py-2 rounded-full font-semibold text-sm ${
+              vista === 'mis-logros'
+                ? 'bg-institucional-verde text-white'
+                : 'bg-white text-gray-700 hover:bg-institucional-crema'
+            }`}
+          >
+            🎖️ Mis logros
+          </button>
         </div>
       )}
 
-      {cargando ? (
+      {vista === 'mis-logros' && mis ? (
+        <MisLogros mis={mis} />
+      ) : cargando ? (
         <div className="card">Cargando podio…</div>
       ) : error ? (
         <div className="card bg-red-100 text-red-700">{error}</div>
@@ -94,13 +122,16 @@ export default function Podio() {
         <div className="space-y-2">
           {podio.map((p, i) => {
             const soyYo = estudiante && p.hash === estudiante.hash
-            const fondo = i === 0
-              ? 'bg-yellow-100 border-yellow-400'
-              : i === 1
-              ? 'bg-gray-100 border-gray-400'
-              : i === 2
-              ? 'bg-orange-100 border-orange-400'
-              : 'bg-white border-gray-200'
+            const fondo =
+              i === 0
+                ? 'bg-yellow-100 border-yellow-400'
+                : i === 1
+                ? 'bg-gray-100 border-gray-400'
+                : i === 2
+                ? 'bg-orange-100 border-orange-400'
+                : 'bg-white border-gray-200'
+            const medallaP = medallaActual(p.puntosTotal ?? 0)
+            const trofeoRacha = trofeosGanados(p.rachaMax ?? 0).slice(-1)[0]
             return (
               <div
                 key={p.hash}
@@ -109,14 +140,29 @@ export default function Podio() {
                 }`}
               >
                 <div className="text-2xl w-10 text-center">
-                  {MEDALLAS[i] ?? <span className="text-gray-500 font-bold">#{i + 1}</span>}
+                  {POSICIONES[i] ?? <span className="text-gray-500 font-bold">#{i + 1}</span>}
                 </div>
-                <div className="flex-1">
-                  <div className="font-display font-bold text-lg">
+                <div className="flex-1 min-w-0">
+                  <div className="font-display font-bold text-lg truncate">
                     {primerNombre(p.nombre)}
-                    {soyYo && <span className="ml-2 text-sm text-institucional-verdeOscuro">(¡tú!)</span>}
+                    {soyYo && (
+                      <span className="ml-2 text-sm text-institucional-verdeOscuro">(¡tú!)</span>
+                    )}
                   </div>
-                  <div className="text-xs text-gray-600">{p.partidasTotal ?? 0} partidas</div>
+                  <div className="text-xs text-gray-600 flex items-center gap-2 flex-wrap">
+                    <span>{p.partidasTotal ?? 0} partidas</span>
+                    {(p.racha ?? 0) > 0 && (
+                      <span title={`Racha de ${p.racha} días`}>
+                        🔥 {p.racha}
+                      </span>
+                    )}
+                    {medallaP && (
+                      <span title={`Medalla ${medallaP.nombre}`}>{medallaP.icono}</span>
+                    )}
+                    {trofeoRacha && (
+                      <span title={`Trofeo ${trofeoRacha.nombre}`}>{trofeoRacha.icono}</span>
+                    )}
+                  </div>
                 </div>
                 <div className="text-right">
                   <div className="font-display font-bold text-2xl text-institucional-verdeOscuro">
@@ -128,6 +174,146 @@ export default function Podio() {
             )
           })}
         </div>
+      )}
+    </div>
+  )
+}
+
+function MiResumen({ mis, posicion }) {
+  const puntos = mis.puntosTotal ?? 0
+  const medalla = medallaActual(puntos)
+  const sig = siguienteMedalla(puntos)
+  const racha = mis.racha ?? 0
+  const rachaMax = mis.rachaMax ?? 0
+  const escudos = mis.escudos ?? 1
+
+  return (
+    <div className="card bg-institucional-verde text-white space-y-3">
+      <div className="flex items-center justify-between flex-wrap gap-2">
+        <div>
+          <div className="text-sm opacity-90">Tu puntaje total</div>
+          <div className="font-display font-bold text-4xl">{puntos} pts</div>
+          <div className="text-sm opacity-90">
+            {mis.partidasTotal ?? 0} partidas
+            {posicion >= 0 ? ` · Puesto #${posicion + 1}` : ''}
+          </div>
+        </div>
+        {medalla && (
+          <div className="text-center">
+            <div className="text-5xl">{medalla.icono}</div>
+            <div className="text-sm font-semibold">{medalla.nombre}</div>
+          </div>
+        )}
+      </div>
+
+      {sig && (
+        <div>
+          <div className="text-xs opacity-90 mb-1">
+            Próxima medalla: <b>{sig.nombre}</b> en {sig.min - puntos} pts
+          </div>
+          <div className="w-full h-2 bg-white bg-opacity-30 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-institucional-amarillo transition-all"
+              style={{
+                width: `${Math.min(100, ((puntos - (medalla?.min ?? 0)) / (sig.min - (medalla?.min ?? 0))) * 100)}%`,
+              }}
+            />
+          </div>
+        </div>
+      )}
+
+      <div className="grid grid-cols-3 gap-2 pt-2 border-t border-white border-opacity-30">
+        <div className="text-center">
+          <div className="text-2xl">🔥</div>
+          <div className="text-lg font-bold">{racha}</div>
+          <div className="text-[10px] opacity-90">Racha actual</div>
+        </div>
+        <div className="text-center">
+          <div className="text-2xl">🏅</div>
+          <div className="text-lg font-bold">{rachaMax}</div>
+          <div className="text-[10px] opacity-90">Racha máxima</div>
+        </div>
+        <div className="text-center">
+          <div className="text-2xl">🛡️</div>
+          <div className="text-lg font-bold">{escudos}</div>
+          <div className="text-[10px] opacity-90">Escudos</div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function MisLogros({ mis }) {
+  const puntos = mis.puntosTotal ?? 0
+  const rachaMax = mis.rachaMax ?? 0
+  const medallasGan = medallasGanadas(puntos)
+  const trofeosGan = trofeosGanados(rachaMax)
+
+  return (
+    <div className="space-y-6">
+      {/* Medallas */}
+      <section>
+        <h2 className="font-display font-bold text-xl text-institucional-verdeOscuro mb-3">
+          Medallas por puntaje ({medallasGan.length}/{MEDALLAS.length})
+        </h2>
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+          {MEDALLAS.map((m) => {
+            const desbloqueada = puntos >= m.min
+            return (
+              <div
+                key={m.id}
+                className={`card text-center ${desbloqueada ? '' : 'opacity-40 grayscale'}`}
+                style={desbloqueada ? { borderTop: `4px solid ${m.color}` } : {}}
+              >
+                <div className="text-4xl mb-1">{desbloqueada ? m.icono : '🔒'}</div>
+                <div className="font-display font-bold text-sm">{m.nombre}</div>
+                <div className="text-[10px] text-gray-600">{m.min} pts</div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* Trofeos de racha */}
+      <section>
+        <h2 className="font-display font-bold text-xl text-institucional-verdeOscuro mb-3">
+          Trofeos de racha ({trofeosGan.length}/{TROFEOS_RACHA.length})
+        </h2>
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3">
+          {TROFEOS_RACHA.map((t) => {
+            const desbloqueado = rachaMax >= t.min
+            return (
+              <div
+                key={t.id}
+                className={`card text-center ${desbloqueado ? 'bg-yellow-50' : 'opacity-40 grayscale'}`}
+              >
+                <div className="text-4xl mb-1">{desbloqueado ? t.icono : '🔒'}</div>
+                <div className="font-display font-bold text-sm">{t.nombre}</div>
+                <div className="text-[10px] text-gray-600">{t.min} días</div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* Detalle por juego */}
+      {mis.juegos && Object.keys(mis.juegos).length > 0 && (
+        <section>
+          <h2 className="font-display font-bold text-xl text-institucional-verdeOscuro mb-3">
+            Detalle por juego
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {Object.values(mis.juegos).map((j) => (
+              <div key={j.juegoId} className="card">
+                <div className="font-display font-bold">{j.juegoNombre}</div>
+                <div className="text-sm text-gray-700 mt-1">
+                  Mejor puntaje: <b>{j.mejorPuntaje ?? 0}</b> pts · Jugado {j.vecesJugado ?? 0} vez
+                  {(j.vecesJugado ?? 0) === 1 ? '' : 'es'}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       )}
     </div>
   )
