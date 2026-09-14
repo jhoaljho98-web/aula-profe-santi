@@ -28,7 +28,7 @@ export function EstudianteProvider({ children }) {
     if (!doc) return { ok: false, error: 'Escribe tu número de documento.' }
     const hash = await sha256(doc)
     if (hash === notas.docente_hash) {
-      const info = { hash, nombre: 'Jhonatan Santiago Álvarez (Docente)', foto: 'foto-docente.jpeg', esDocente: true }
+      const info = { hash, nombre: 'Profe Santi', foto: 'foto-docente.jpeg', esDocente: true }
       setEstudiante(info)
       return { ok: true, ...info }
     }
