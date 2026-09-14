@@ -17,50 +17,53 @@ function generarPregunta() {
   return { a, b, correcta, opciones }
 }
 
-function LineasVisualizacion({ a, b }) {
-  if (a === 0 || b === 0) {
-    return (
-      <div className="text-center text-gray-600 py-8 italic">
-        Cuando alguno es 0, no hay cruces. Por eso {a} × {b} = 0.
-      </div>
-    )
-  }
+function LineasVisualizacion() {
+  const [verdes, setVerdes] = useState(0)
+  const [amarillas, setAmarillas] = useState(0)
+
   const size = 260
   const pad = 30
   const inner = size - pad * 2
-  const spacingA = inner / (a + 1)  // líneas verticales
-  const spacingB = inner / (b + 1)  // líneas horizontales
+  const spacingV = inner / (verdes + 1)
+  const spacingA = inner / (amarillas + 1)
   const puntos = []
-  for (let i = 1; i <= a; i++) {
-    for (let j = 1; j <= b; j++) {
-      puntos.push({ x: pad + spacingA * i, y: pad + spacingB * j })
+  if (verdes > 0 && amarillas > 0) {
+    for (let i = 1; i <= verdes; i++) {
+      for (let j = 1; j <= amarillas; j++) {
+        puntos.push({ x: pad + spacingV * i, y: pad + spacingA * j })
+      }
     }
   }
+
   return (
     <div className="flex flex-col items-center gap-3">
-      <svg width={size} height={size} className="rounded-xl bg-white shadow-inner">
-        {/* Líneas verticales — factor A */}
-        {Array.from({ length: a }, (_, i) => (
+      <p className="text-sm text-gray-700 italic">
+        Dibuja las líneas que necesites y cuenta los puntos rojos.
+      </p>
+
+      <svg width={size} height={size} className="rounded-xl bg-white shadow-inner border-2 border-gray-200">
+        {/* Verticales verdes */}
+        {Array.from({ length: verdes }, (_, i) => (
           <line
             key={`v${i}`}
-            x1={pad + spacingA * (i + 1)}
+            x1={pad + spacingV * (i + 1)}
             y1={pad}
-            x2={pad + spacingA * (i + 1)}
+            x2={pad + spacingV * (i + 1)}
             y2={size - pad}
             stroke="#2E7D32"
             strokeWidth="3"
             strokeLinecap="round"
           />
         ))}
-        {/* Líneas horizontales — factor B */}
-        {Array.from({ length: b }, (_, i) => (
+        {/* Horizontales amarillas */}
+        {Array.from({ length: amarillas }, (_, i) => (
           <line
             key={`h${i}`}
             x1={pad}
-            y1={pad + spacingB * (i + 1)}
+            y1={pad + spacingA * (i + 1)}
             x2={size - pad}
-            y2={pad + spacingB * (i + 1)}
-            stroke="#FFD400"
+            y2={pad + spacingA * (i + 1)}
+            stroke="#E5C000"
             strokeWidth="3"
             strokeLinecap="round"
           />
@@ -70,13 +73,39 @@ function LineasVisualizacion({ a, b }) {
           <circle key={i} cx={p.x} cy={p.y} r="5" fill="#DC2626" />
         ))}
       </svg>
-      <p className="text-sm text-gray-700 text-center">
-        <span className="text-institucional-verdeOscuro font-semibold">{a} líneas verdes</span>
-        {' × '}
-        <span className="text-institucional-amarilloOscuro font-semibold">{b} líneas amarillas</span>
-        {' = '}
-        <span className="text-red-600 font-bold">{a * b} cruces rojos</span>
-      </p>
+
+      {/* Controles */}
+      <div className="grid grid-cols-2 gap-2 w-full max-w-xs">
+        <div className="flex items-center justify-between rounded-xl bg-institucional-verde bg-opacity-10 px-2 py-2">
+          <button
+            onClick={() => setVerdes(v => Math.max(0, v - 1))}
+            className="w-8 h-8 rounded-full bg-institucional-verde text-white font-bold text-lg"
+          >−</button>
+          <span className="text-institucional-verdeOscuro font-bold">🟩 {verdes}</span>
+          <button
+            onClick={() => setVerdes(v => Math.min(10, v + 1))}
+            className="w-8 h-8 rounded-full bg-institucional-verde text-white font-bold text-lg"
+          >+</button>
+        </div>
+        <div className="flex items-center justify-between rounded-xl bg-institucional-amarillo bg-opacity-20 px-2 py-2">
+          <button
+            onClick={() => setAmarillas(a => Math.max(0, a - 1))}
+            className="w-8 h-8 rounded-full bg-institucional-amarilloOscuro text-white font-bold text-lg"
+          >−</button>
+          <span className="text-institucional-amarilloOscuro font-bold">🟨 {amarillas}</span>
+          <button
+            onClick={() => setAmarillas(a => Math.min(10, a + 1))}
+            className="w-8 h-8 rounded-full bg-institucional-amarilloOscuro text-white font-bold text-lg"
+          >+</button>
+        </div>
+      </div>
+
+      <button
+        onClick={() => { setVerdes(0); setAmarillas(0) }}
+        className="text-xs text-gray-500 hover:text-gray-800 underline"
+      >
+        Borrar todas
+      </button>
     </div>
   )
 }
@@ -167,7 +196,7 @@ export default function TablasBatalla({ onExit }) {
         )}
         {mostrarLineas && (
           <div className="mb-6">
-            <LineasVisualizacion a={p.a} b={p.b} />
+            <LineasVisualizacion key={i} />
           </div>
         )}
 
