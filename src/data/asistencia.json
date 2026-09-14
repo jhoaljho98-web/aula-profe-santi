@@ -6,6 +6,7 @@
       "nombre": "Arenas Ossa Salomé",
       "grado": "2B",
       "anio": 2026,
+      "foto": null,
       "periodos": {
         "1": null,
         "2": null,
@@ -66,55 +67,55 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-08-10",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-08-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-08-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-08-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-08-27",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
               "fecha": "2026-09-10",
-              "codigo": "E"
-            },
-            {
-              "fecha": "2026-09-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
-              "codigo": "P"
-            },
-            {
-              "fecha": "2026-09-26",
-              "codigo": "P"
-            },
-            {
-              "fecha": "2026-09-27",
-              "codigo": "P"
-            },
-            {
-              "fecha": "2026-10-07",
-              "codigo": "P"
-            },
-            {
-              "fecha": "2026-10-08",
-              "codigo": "P"
-            },
-            {
-              "fecha": "2026-10-10",
-              "codigo": "P"
-            },
-            {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -126,6 +127,7 @@
       "nombre": "Arias Romero Enderlis De Jesús",
       "grado": "2B",
       "anio": 2026,
+      "foto": null,
       "periodos": {
         "1": null,
         "2": null,
@@ -190,51 +192,51 @@
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "E"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "E"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "E"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "E"
             }
           ]
@@ -246,6 +248,7 @@
       "nombre": "Casares Rodríguez Lian Jerónimo",
       "grado": "2B",
       "anio": 2026,
+      "foto": null,
       "periodos": {
         "1": null,
         "2": null,
@@ -310,51 +313,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "E"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -366,6 +369,7 @@
       "nombre": "Clavijo Moreno Anthony",
       "grado": "2B",
       "anio": 2026,
+      "foto": null,
       "periodos": {
         "1": null,
         "2": null,
@@ -430,51 +434,51 @@
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "E"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "F"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "F"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "E"
             }
           ]
@@ -486,6 +490,7 @@
       "nombre": "Correa Giraldo Daniel",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/f9c471fbcf0a04965a0190875af1673bff9cff5c8d3762e660d23aa508766ac5.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -550,51 +555,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -606,6 +611,7 @@
       "nombre": "De Ávila Paternina Kiara",
       "grado": "2B",
       "anio": 2026,
+      "foto": null,
       "periodos": {
         "1": null,
         "2": null,
@@ -670,51 +676,51 @@
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -726,6 +732,7 @@
       "nombre": "Durango Ramos Monserrath",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/ff4e93b54e057f1c0ff55488e980d7a266a393d97d5b9145976564e2ccfa904e.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -790,51 +797,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -846,6 +853,7 @@
       "nombre": "Escobar Salamanda Charid Antonia",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/e0372ca5f9d64af276c6362e996de6c4a40a7a33b75557be36a4c8484606001a.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -910,51 +918,51 @@
               "codigo": "E"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "R"
             }
           ]
@@ -966,6 +974,7 @@
       "nombre": "Escobar Vasquez Emiliano",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/c9b70b1badc053f9f0bb4fb98fdd07692b6d039c50b3c33c10f9a743767916ae.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -1030,51 +1039,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -1086,6 +1095,7 @@
       "nombre": "Garcia Andradez Eduangelalexander",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/5693e2a632a2337f94fa85830cd47c5f63c5798344316e65785e73e0f1c01ef6.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -1150,51 +1160,51 @@
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "R"
             }
           ]
@@ -1206,6 +1216,7 @@
       "nombre": "Giraldo Ladino Josué",
       "grado": "2B",
       "anio": 2026,
+      "foto": null,
       "periodos": {
         "1": null,
         "2": null,
@@ -1270,51 +1281,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "R"
             }
           ]
@@ -1326,6 +1337,7 @@
       "nombre": "Gonzalez Gomez Franklin Amir",
       "grado": "2B",
       "anio": 2026,
+      "foto": null,
       "periodos": {
         "1": null,
         "2": null,
@@ -1390,51 +1402,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -1446,6 +1458,7 @@
       "nombre": "Guapacha Moreno Isabel Sahiany",
       "grado": "2B",
       "anio": 2026,
+      "foto": null,
       "periodos": {
         "1": null,
         "2": null,
@@ -1510,51 +1523,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -1566,6 +1579,7 @@
       "nombre": "Guerrero Briceño Nain Alessandro",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/5038cb1d995157425c13747f090c4ead7f4fc7db231b11e74a141cd0b10a9aae.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -1630,52 +1644,173 @@
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "F"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "R"
+            }
+          ]
+        },
+        "4": null
+      }
+    },
+    "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9": {
+      "nombre": "Gutierrez Corona Ambar Valentina",
+      "grado": "2B",
+      "anio": 2026,
+      "foto": null,
+      "periodos": {
+        "1": null,
+        "2": null,
+        "3": {
+          "presente": 23,
+          "tarde": 1,
+          "falta": 1,
+          "excusa": 0,
+          "total_dias": 25,
+          "porcentaje_asistencia": 96.0,
+          "detalle": [
+            {
+              "fecha": "2026-07-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-15",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-16",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-21",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-22",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-23",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-27",
+              "codigo": "F"
+            },
+            {
+              "fecha": "2026-07-28",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-29",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-07-31",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-08-03",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-08-04",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-08-05",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-08-06",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-08-24",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-08-25",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-08-26",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-08-27",
+              "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-07",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-08",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-10",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-11",
+              "codigo": "P"
             }
           ]
         },
@@ -1686,6 +1821,7 @@
       "nombre": "Henriquez Añez Sebastian Jose",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/bf9e4107daa2d38c3dc01eaeac9318fd694c750658559d0ff22b783f179fe89d.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -1750,51 +1886,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -1806,6 +1942,7 @@
       "nombre": "Maurera Planchard Ethan Gael",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/bcfa67d7fb53acc9b0e2e8dd6a918183798187317f49f301ae3f5596a9bf6efe.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -1870,51 +2007,51 @@
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "F"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "F"
             }
           ]
@@ -1926,6 +2063,7 @@
       "nombre": "Mejia Contreras Samuel Andres",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/9c997d9481c926ef6cc454602fa07b50c19ae8c1f011529182b1ad9432f72f1a.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -1990,51 +2128,51 @@
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "F"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "R"
             }
           ]
@@ -2046,6 +2184,7 @@
       "nombre": "Mendez Espinoza Deriannys Sofia",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/70f1497aa9698bda03a0c75aa792025692b4b32d41ff915cfc8ecbc1c1d604b1.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -2110,51 +2249,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -2166,6 +2305,7 @@
       "nombre": "Motato Torres Emiliano",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/b5109ff99fbd03a3617e7b880b00fbd68d2cb78787f71b120b819ee417495e30.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -2230,51 +2370,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -2286,6 +2426,7 @@
       "nombre": "Muñoz Medina Tania Alejandra",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/0d2817ee0d85fd64d1115de0a783f1856e61d0091c9c1037bca42d8d8877b74d.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -2350,51 +2491,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -2406,6 +2547,7 @@
       "nombre": "Ospina Cristancho Heylin Luciana",
       "grado": "2B",
       "anio": 2026,
+      "foto": null,
       "periodos": {
         "1": null,
         "2": null,
@@ -2470,51 +2612,51 @@
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "F"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "R"
             }
           ]
@@ -2526,6 +2668,7 @@
       "nombre": "Ospino Lopez Santiago",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/3bd47ca6782f526a2669221323a22106438df8f2b23cb3e90a8b7c5495b0894a.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -2590,51 +2733,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -2646,6 +2789,7 @@
       "nombre": "Otalvaro Betancur Santiago",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/bbe791da5ad91e44963f9f8d27e45d1160b62c7ce262825f194273583374ca20.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -2710,51 +2854,51 @@
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "F"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "F"
             }
           ]
@@ -2766,6 +2910,7 @@
       "nombre": "Pertuz Ferreira Thiago Andres",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/c36a8c8677efdccf2f268478090473c7ec6fb4a13ae1ead73ca04c83914aea73.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -2830,51 +2975,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "R"
             }
           ]
@@ -2886,6 +3031,7 @@
       "nombre": "Rivas Araujo Anyhelo Jhosep",
       "grado": "2B",
       "anio": 2026,
+      "foto": null,
       "periodos": {
         "1": null,
         "2": null,
@@ -2950,51 +3096,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "F"
             }
           ]
@@ -3006,6 +3152,7 @@
       "nombre": "Tapias Sanchez Mariangel",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/6a9c40dbef47c157e316c74bf310b6aece09fd875df02c83c0e98be0f357024d.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -3070,51 +3217,51 @@
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "F"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "R"
             }
           ]
@@ -3126,6 +3273,7 @@
       "nombre": "Tobon Ramos Thiago",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/16a2c12e1e41f8d203166d0ae9e1d5a845235fdbbacb060f6463dac53f6bfcff.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -3190,51 +3338,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "F"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "F"
             }
           ]
@@ -3246,6 +3394,7 @@
       "nombre": "Valencia Mesa Ana Lucia",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/c67362ded555f3f61a0befcfe0431218e7a5b950fad6c647cec8033e6d0e1233.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -3310,51 +3459,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "F"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "R"
             }
           ]
@@ -3366,6 +3515,7 @@
       "nombre": "Vargas Rojas Fhabyan Moyses",
       "grado": "2B",
       "anio": 2026,
+      "foto": null,
       "periodos": {
         "1": null,
         "2": null,
@@ -3430,51 +3580,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "F"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "F"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "F"
             }
           ]
@@ -3486,6 +3636,7 @@
       "nombre": "Vega Aguirre Dulce Nataly",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/26e4fa461fbcdbe71cb0a4fe2b1fe8d32651c3dca4342de4e0e438fa85d30db2.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -3550,51 +3701,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]
@@ -3606,6 +3757,7 @@
       "nombre": "Villalobos Rios Maria Carlota",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/2cefedefc562805beba1cbec316e63e607be0ae41bdef4339faabe27aa916ca8.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -3670,51 +3822,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "R"
             }
           ]
@@ -3726,6 +3878,7 @@
       "nombre": "Zapata Galindo Yuliannys Valentina",
       "grado": "2B",
       "anio": 2026,
+      "foto": "fotos-estudiantes/25029c5b4b1f5cc26fd5153738a99d88676bf4eec8fd3bd914671b4a1eb7f0b1.jpeg",
       "periodos": {
         "1": null,
         "2": null,
@@ -3790,51 +3943,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "F"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "R"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "F"
             }
           ]
@@ -3846,6 +3999,7 @@
       "nombre": "Gonzales Medina Edmary Luciana",
       "grado": "2B",
       "anio": 2026,
+      "foto": null,
       "periodos": {
         "1": null,
         "2": null,
@@ -3910,51 +4064,51 @@
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-03",
+              "fecha": "2026-08-03",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-04",
+              "fecha": "2026-08-04",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-05",
+              "fecha": "2026-08-05",
               "codigo": "R"
             },
             {
-              "fecha": "2026-09-06",
+              "fecha": "2026-08-06",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-24",
+              "fecha": "2026-08-24",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-25",
+              "fecha": "2026-08-25",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-26",
+              "fecha": "2026-08-26",
               "codigo": "P"
             },
             {
-              "fecha": "2026-09-27",
+              "fecha": "2026-08-27",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-07",
+              "fecha": "2026-09-07",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-08",
+              "fecha": "2026-09-08",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-10",
+              "fecha": "2026-09-10",
               "codigo": "P"
             },
             {
-              "fecha": "2026-10-11",
+              "fecha": "2026-09-11",
               "codigo": "P"
             }
           ]

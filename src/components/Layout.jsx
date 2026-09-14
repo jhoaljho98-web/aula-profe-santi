@@ -10,6 +10,7 @@ const NAV = [
   { to: '/padres', label: 'Para los padres', icon: '👨‍👩‍👧' },
   { to: '/notas', label: 'Notas', icon: '📊' },
   { to: '/asistencia', label: 'Asistencia', icon: '✅' },
+  { to: '/galeria', label: 'Galería', icon: '📸' },
   { to: '/contacto', label: 'Contacto', icon: '📞' },
 ]
 

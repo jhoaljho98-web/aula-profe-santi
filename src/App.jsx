@@ -8,6 +8,7 @@ import Actividades from './pages/Actividades.jsx'
 import Padres from './pages/Padres.jsx'
 import Notas from './pages/Notas.jsx'
 import Asistencia from './pages/Asistencia.jsx'
+import Galeria from './pages/Galeria.jsx'
 import Contacto from './pages/Contacto.jsx'
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/padres" element={<Padres />} />
         <Route path="/notas" element={<Notas />} />
         <Route path="/asistencia" element={<Asistencia />} />
+        <Route path="/galeria" element={<Galeria />} />
         <Route path="/contacto" element={<Contacto />} />
       </Routes>
     </Layout>

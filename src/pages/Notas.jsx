@@ -21,13 +21,26 @@ function VistaEstudiante({ estudiante }) {
 
   return (
     <section className="space-y-4">
-      <div className="card">
-        <h2 className="font-display font-bold text-2xl text-institucional-verdeOscuro">
-          {estudiante.nombre}
-        </h2>
-        <p className="text-gray-600">
-          Grado {estudiante.grado} · Año {estudiante.anio}
-        </p>
+      <div className="card flex items-center gap-4">
+        {estudiante.foto ? (
+          <img
+            src={`${import.meta.env.BASE_URL}${estudiante.foto}`}
+            alt={estudiante.nombre}
+            className="w-24 h-24 rounded-full object-cover border-4 border-institucional-amarillo shrink-0"
+          />
+        ) : (
+          <div className="w-24 h-24 rounded-full bg-institucional-verde text-white flex items-center justify-center text-3xl font-bold shrink-0">
+            {estudiante.nombre.split(' ').slice(0,2).map(n => n[0]).join('')}
+          </div>
+        )}
+        <div>
+          <h2 className="font-display font-bold text-2xl text-institucional-verdeOscuro">
+            {estudiante.nombre}
+          </h2>
+          <p className="text-gray-600">
+            Grado {estudiante.grado} · Año {estudiante.anio}
+          </p>
+        </div>
       </div>
 
       {materias.length === 0 ? (

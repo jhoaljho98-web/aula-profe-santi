@@ -9,6 +9,7 @@ const SECCIONES = [
   { to: '/padres', titulo: 'Para los padres', desc: 'Recomendaciones y comunicados.', icon: '👨‍👩‍👧', color: 'bg-institucional-amarillo' },
   { to: '/notas', titulo: 'Consulta de notas', desc: 'Ver notas con documento del estudiante.', icon: '📊', color: 'bg-institucional-verdeClaro' },
   { to: '/asistencia', titulo: 'Consulta de asistencia', desc: 'Ver asistencia por periodo con documento.', icon: '✅', color: 'bg-institucional-verde' },
+  { to: '/galeria', titulo: 'Galería del periodo', desc: 'Fotos del tablero y cuadernos por materia.', icon: '📸', color: 'bg-institucional-amarillo' },
 ]
 
 export default function Inicio() {

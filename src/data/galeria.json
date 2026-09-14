@@ -1,0 +1,146 @@
+{
+  "Artística": {
+    "slug": "artistica",
+    "total": 3,
+    "fotos": [
+      "galeria/artistica/001.jpeg",
+      "galeria/artistica/002.jpeg",
+      "galeria/artistica/003.jpeg"
+    ]
+  },
+  "Castellano": {
+    "slug": "castellano",
+    "total": 27,
+    "fotos": [
+      "galeria/castellano/001.jpeg",
+      "galeria/castellano/002.jpeg",
+      "galeria/castellano/003.jpeg",
+      "galeria/castellano/004.jpeg",
+      "galeria/castellano/005.jpeg",
+      "galeria/castellano/006.jpeg",
+      "galeria/castellano/007.jpeg",
+      "galeria/castellano/008.jpeg",
+      "galeria/castellano/009.jpeg",
+      "galeria/castellano/010.jpeg",
+      "galeria/castellano/011.jpeg",
+      "galeria/castellano/012.jpeg",
+      "galeria/castellano/013.jpeg",
+      "galeria/castellano/014.jpeg",
+      "galeria/castellano/015.jpeg",
+      "galeria/castellano/016.jpeg",
+      "galeria/castellano/017.jpeg",
+      "galeria/castellano/018.jpeg",
+      "galeria/castellano/019.jpeg",
+      "galeria/castellano/020.jpeg",
+      "galeria/castellano/021.jpeg",
+      "galeria/castellano/022.jpeg",
+      "galeria/castellano/023.jpeg",
+      "galeria/castellano/024.jpeg",
+      "galeria/castellano/025.jpeg",
+      "galeria/castellano/026.jpeg",
+      "galeria/castellano/027.jpeg"
+    ]
+  },
+  "Ética y Religión": {
+    "slug": "etica-y-religion",
+    "total": 5,
+    "fotos": [
+      "galeria/etica-y-religion/001.jpeg",
+      "galeria/etica-y-religion/002.jpeg",
+      "galeria/etica-y-religion/003.jpeg",
+      "galeria/etica-y-religion/004.jpeg",
+      "galeria/etica-y-religion/005.jpeg"
+    ]
+  },
+  "Inglés": {
+    "slug": "ingles",
+    "total": 7,
+    "fotos": [
+      "galeria/ingles/001.jpeg",
+      "galeria/ingles/002.jpeg",
+      "galeria/ingles/003.jpeg",
+      "galeria/ingles/004.jpeg",
+      "galeria/ingles/005.jpeg",
+      "galeria/ingles/006.jpeg",
+      "galeria/ingles/007.jpeg"
+    ]
+  },
+  "Matemáticas": {
+    "slug": "matematicas",
+    "total": 34,
+    "fotos": [
+      "galeria/matematicas/001.jpeg",
+      "galeria/matematicas/002.jpeg",
+      "galeria/matematicas/003.jpeg",
+      "galeria/matematicas/004.jpeg",
+      "galeria/matematicas/005.jpeg",
+      "galeria/matematicas/006.jpeg",
+      "galeria/matematicas/007.jpeg",
+      "galeria/matematicas/008.jpeg",
+      "galeria/matematicas/009.jpeg",
+      "galeria/matematicas/010.jpeg",
+      "galeria/matematicas/011.jpeg",
+      "galeria/matematicas/012.jpeg",
+      "galeria/matematicas/013.jpeg",
+      "galeria/matematicas/014.jpeg",
+      "galeria/matematicas/015.jpeg",
+      "galeria/matematicas/016.jpeg",
+      "galeria/matematicas/017.jpeg",
+      "galeria/matematicas/018.jpeg",
+      "galeria/matematicas/019.jpeg",
+      "galeria/matematicas/020.jpeg",
+      "galeria/matematicas/021.jpeg",
+      "galeria/matematicas/022.jpeg",
+      "galeria/matematicas/023.jpeg",
+      "galeria/matematicas/024.jpeg",
+      "galeria/matematicas/025.jpeg",
+      "galeria/matematicas/026.jpeg",
+      "galeria/matematicas/027.jpeg",
+      "galeria/matematicas/028.jpeg",
+      "galeria/matematicas/029.jpeg",
+      "galeria/matematicas/030.jpeg",
+      "galeria/matematicas/031.jpeg",
+      "galeria/matematicas/032.jpeg",
+      "galeria/matematicas/033.jpeg",
+      "galeria/matematicas/034.jpeg"
+    ]
+  },
+  "Ciencias Naturales": {
+    "slug": "naturales",
+    "total": 14,
+    "fotos": [
+      "galeria/naturales/001.jpeg",
+      "galeria/naturales/002.jpeg",
+      "galeria/naturales/003.jpeg",
+      "galeria/naturales/004.jpeg",
+      "galeria/naturales/005.jpeg",
+      "galeria/naturales/006.jpeg",
+      "galeria/naturales/007.jpeg",
+      "galeria/naturales/008.jpeg",
+      "galeria/naturales/009.jpeg",
+      "galeria/naturales/010.jpeg",
+      "galeria/naturales/011.jpeg",
+      "galeria/naturales/012.jpeg",
+      "galeria/naturales/013.jpeg",
+      "galeria/naturales/014.jpeg"
+    ]
+  },
+  "Ciencias Sociales": {
+    "slug": "sociales",
+    "total": 12,
+    "fotos": [
+      "galeria/sociales/001.jpeg",
+      "galeria/sociales/002.jpeg",
+      "galeria/sociales/003.jpeg",
+      "galeria/sociales/004.jpeg",
+      "galeria/sociales/005.jpeg",
+      "galeria/sociales/006.jpeg",
+      "galeria/sociales/007.jpeg",
+      "galeria/sociales/008.jpeg",
+      "galeria/sociales/009.jpeg",
+      "galeria/sociales/010.jpeg",
+      "galeria/sociales/011.jpeg",
+      "galeria/sociales/012.jpeg"
+    ]
+  }
+}
