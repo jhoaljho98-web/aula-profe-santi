@@ -24,7 +24,7 @@ export default function Layout({ children }) {
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <img
-              src={`${import.meta.env.BASE_URL}escudo.png`}
+              src={`${import.meta.env.BASE_URL}escudo.jpg`}
               alt="Escudo IE El Llano"
               className="w-11 h-11 object-contain drop-shadow"
             />

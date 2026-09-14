@@ -17,7 +17,7 @@ export default function Inicio() {
       {/* Hero */}
       <section className="text-center py-8">
         <img
-          src={`${import.meta.env.BASE_URL}escudo.png`}
+          src={`${import.meta.env.BASE_URL}escudo.jpg`}
           alt="Escudo IE El Llano"
           className="w-24 h-24 mx-auto mb-4 object-contain drop-shadow-lg"
         />

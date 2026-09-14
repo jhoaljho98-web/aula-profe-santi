@@ -1,12 +1,3 @@
-const HORARIO = [
-  { hora: '7:00 - 8:00', lunes: 'Matemáticas', martes: 'Castellano', miercoles: 'Matemáticas', jueves: 'Ciencias', viernes: 'Artística' },
-  { hora: '8:00 - 9:00', lunes: 'Castellano', martes: 'Matemáticas', miercoles: 'Sociales', jueves: 'Castellano', viernes: 'Ed. Física' },
-  { hora: '9:00 - 9:30', lunes: 'DESCANSO', martes: 'DESCANSO', miercoles: 'DESCANSO', jueves: 'DESCANSO', viernes: 'DESCANSO' },
-  { hora: '9:30 - 10:30', lunes: 'Ciencias', martes: 'Sociales', miercoles: 'Inglés', jueves: 'Matemáticas', viernes: 'Castellano' },
-  { hora: '10:30 - 11:30', lunes: 'Ética/Religión', martes: 'Inglés', miercoles: 'Castellano', jueves: 'Sociales', viernes: 'Tecnología' },
-  { hora: '11:30 - 12:00', lunes: 'Lectura libre', martes: 'Lectura libre', miercoles: 'Lectura libre', jueves: 'Lectura libre', viernes: 'Lectura libre' },
-]
-
 export default function Aula() {
   return (
     <div className="space-y-10">
@@ -56,35 +47,13 @@ export default function Aula() {
         <h2 className="font-display font-bold text-2xl mb-4 text-institucional-verdeOscuro">
           Horario semanal
         </h2>
-        <div className="card overflow-x-auto p-0">
-          <table className="w-full text-sm">
-            <thead className="bg-institucional-verde text-white">
-              <tr>
-                <th className="p-3 text-left">Hora</th>
-                <th className="p-3">Lunes</th>
-                <th className="p-3">Martes</th>
-                <th className="p-3">Miércoles</th>
-                <th className="p-3">Jueves</th>
-                <th className="p-3">Viernes</th>
-              </tr>
-            </thead>
-            <tbody>
-              {HORARIO.map((fila, i) => (
-                <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-institucional-crema'}>
-                  <td className="p-3 font-semibold">{fila.hora}</td>
-                  <td className="p-3 text-center">{fila.lunes}</td>
-                  <td className="p-3 text-center">{fila.martes}</td>
-                  <td className="p-3 text-center">{fila.miercoles}</td>
-                  <td className="p-3 text-center">{fila.jueves}</td>
-                  <td className="p-3 text-center">{fila.viernes}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="card p-4 sm:p-6">
+          <img
+            src={`${import.meta.env.BASE_URL}horario-2b.jpeg`}
+            alt="Horario Grado 2B"
+            className="w-full h-auto rounded-2xl shadow-soft"
+          />
         </div>
-        <p className="text-xs text-gray-500 mt-2">
-          Horario de ejemplo. Actualiza en <code>src/pages/Aula.jsx</code>.
-        </p>
       </section>
     </div>
   )
