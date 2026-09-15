@@ -25,12 +25,25 @@ const MATERIAS = [
   { id: 'ingles',      nombre: 'Inglés',       icono: '🌎', color: 'bg-red-500' },
 ]
 
+// Los datos guardan "APELLIDO1 APELLIDO2 NOMBRE1 [NOMBRE2]".
+// Mostramos "Apellido Nombre" — apellido = primer apellido (puede ser
+// compuesto: "De Ávila", "Del Río", etc.), nombre = primer nombre.
+const PREFIJOS_APELLIDO = new Set(['de', 'del', 'da', 'los', 'las', 'van', 'von', 'la', 'le'])
+
 function primerNombre(nombre) {
   if (!nombre) return ''
   const partes = nombre.trim().split(/\s+/)
-  const nombreP = partes.slice(0, 1).join(' ')
-  const apellido = partes.slice(-2, -1).join(' ') || ''
-  return `${nombreP} ${apellido}`.trim()
+  const inicioApellido = 0
+  let finApellido = 1
+  if (partes.length >= 4 && PREFIJOS_APELLIDO.has(partes[0].toLowerCase())) {
+    finApellido = 2  // apellido compuesto: "De Ávila"
+  }
+  const apellido = partes.slice(inicioApellido, finApellido).join(' ')
+  // Primer nombre = primera palabra después del apellido materno
+  // (o última palabra si no hay margen)
+  const posNombre = finApellido + 1
+  const nombreP = partes[posNombre] || partes[partes.length - 1] || ''
+  return `${apellido} ${nombreP}`.trim()
 }
 
 export default function Podio() {
