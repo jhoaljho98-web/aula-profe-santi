@@ -5,6 +5,10 @@ import MemoriaPalabras from '../games/MemoriaPalabras.jsx'
 import PartesOracion from '../games/PartesOracion.jsx'
 import SilabasTrabadas from '../games/SilabasTrabadas.jsx'
 import RetoLectura from '../games/RetoLectura.jsx'
+import GeneroNumero from '../games/GeneroNumero.jsx'
+import SistemasCuerpo from '../games/SistemasCuerpo.jsx'
+import Territorio from '../games/Territorio.jsx'
+import ColoresIngles from '../games/ColoresIngles.jsx'
 import LoginObligatorio from '../components/LoginObligatorio.jsx'
 import Avatar from '../components/Avatar.jsx'
 import { useEstudiante } from '../lib/estudiante'
@@ -58,9 +62,41 @@ const JUEGOS = [
     icono: '⏱️',
     componente: RetoLectura,
   },
+  {
+    id: 'genero-numero',
+    titulo: 'Género y número',
+    materia: 'Castellano',
+    descripcion: 'Masculino o femenino, singular o plural. Practica clasificar palabras.',
+    icono: '🚻',
+    componente: GeneroNumero,
+  },
+  {
+    id: 'sistemas-cuerpo',
+    titulo: 'Sistemas del cuerpo',
+    materia: 'Naturales',
+    descripcion: 'Digestivo, circulatorio, óseo, muscular y nervioso. ¿Cuál hace qué?',
+    icono: '🧠',
+    componente: SistemasCuerpo,
+  },
+  {
+    id: 'territorio',
+    titulo: 'Territorio y ubicación',
+    materia: 'Sociales',
+    descripcion: 'Puntos cardinales, mi municipio, mi departamento y mi país.',
+    icono: '🗺️',
+    componente: Territorio,
+  },
+  {
+    id: 'colores-ingles',
+    titulo: 'Los colores en inglés',
+    materia: 'Inglés',
+    descripcion: 'Aprende cómo se dicen los colores en inglés jugando.',
+    icono: '🎨',
+    componente: ColoresIngles,
+  },
 ]
 
-const MATERIAS = ['Todas', 'Matemáticas', 'Castellano']
+const MATERIAS = ['Todas', 'Matemáticas', 'Castellano', 'Naturales', 'Sociales', 'Inglés']
 
 export default function Actividades() {
   const { estudiante, cerrarSesion } = useEstudiante()
