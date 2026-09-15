@@ -77,9 +77,12 @@ export default function Podio() {
           }
           return { hash, nombre: info.nombre, foto: info.foto ?? null, puntosTotal: 0, partidasTotal: 0, puntosPorMateria: {}, partidasPorMateria: {} }
         })
-        // Añadir docente y cualquier otro que este en Firebase pero no en notas.estudiantes
+        // Solo añadir el docente. Otros hashes desconocidos (p.ej. hashes
+        // legados de un doc que cambio) se ocultan para no duplicar filas.
         desdeFirebase.forEach((e) => {
-          if (!hashesEstudiantes.has(e.hash)) todos.push({ ...e, esDocente: e.hash === notas.docente_hash })
+          if (e.hash === notas.docente_hash && !hashesEstudiantes.has(e.hash)) {
+            todos.push({ ...e, esDocente: true })
+          }
         })
         const puntosDe = (e) =>
           materia === 'general' ? e.puntosTotal ?? 0 : e.puntosPorMateria?.[materia] ?? 0
