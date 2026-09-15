@@ -25,6 +25,6 @@ function aleatorio(prefijo, cantidad) {
 }
 
 export const sonarCorrecto = () => aleatorio('correcto', 3)
-export const sonarIncorrecto = () => aleatorio('incorrecto', 3)
+export const sonarIncorrecto = () => reproducir('incorrecto-1')
 export const sonarGanaste = () => aleatorio('ganaste', 3)
 export const sonarMedalla = () => reproducir('medalla')
