@@ -22,6 +22,7 @@ const MATERIAS = [
   { id: 'castellano',  nombre: 'Castellano',   icono: '📖', color: 'bg-pink-500' },
   { id: 'sociales',    nombre: 'Sociales',     icono: '🗺️', color: 'bg-amber-500' },
   { id: 'naturales',   nombre: 'Naturales',    icono: '🌱', color: 'bg-emerald-500' },
+  { id: 'ingles',      nombre: 'Inglés',       icono: '🌎', color: 'bg-red-500' },
 ]
 
 function primerNombre(nombre) {
@@ -172,7 +173,7 @@ export default function Podio() {
           <p className="font-semibold text-gray-700">
             {materia === 'general'
               ? 'Aún nadie ha jugado. ¡Sé el primero en aparecer en el podio! 🎯'
-              : materia === 'sociales' || materia === 'naturales'
+              : ['sociales', 'naturales', 'ingles'].includes(materia)
               ? `Todavía no hay juegos de ${materiaActual.nombre}. Muy pronto los agregaremos y aquí verás a las reinas y reyes del área.`
               : `Nadie tiene puntos en ${materiaActual.nombre} todavía. ¡Sé el primero!`}
           </p>

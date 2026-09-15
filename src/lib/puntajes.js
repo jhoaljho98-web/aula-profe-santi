@@ -126,8 +126,11 @@ export async function guardarPartida({ hash, nombre, foto, juegoId, juegoNombre,
     escudos: escudosFinales,
   }
   if (materia) {
-    datosEstudiante[`puntosPorMateria.${materia}`] = increment(puntos)
-    datosEstudiante[`partidasPorMateria.${materia}`] = increment(1)
+    // Objeto anidado (con merge:true) para que el increment aplique
+    // al campo nested. Firebase JS trata las claves con "." como
+    // literales dentro de setDoc, no como paths — por eso usamos objetos.
+    datosEstudiante.puntosPorMateria = { [materia]: increment(puntos) }
+    datosEstudiante.partidasPorMateria = { [materia]: increment(1) }
   }
   await setDoc(refEstudiante, datosEstudiante, { merge: true })
 
