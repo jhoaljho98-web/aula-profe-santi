@@ -310,7 +310,7 @@
       "meses_pagados": 4,
       "total_pagado": 20000
     },
-    "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9": {
+    "40232ef415c0abd2c919484397aee2ac08d976d3a8a2c11f60c3c5d5d5398b51": {
       "nombre": "Gutierrez Corona Ambar Valentina",
       "grado": "2B",
       "anio": 2026,
@@ -342,15 +342,15 @@
         "marzo": true,
         "abril": true,
         "mayo": true,
-        "junio": false,
-        "julio": false,
+        "junio": true,
+        "julio": true,
         "agosto": false,
         "septiembre": false,
         "octubre": false,
         "noviembre": false
       },
-      "meses_pagados": 5,
-      "total_pagado": 25000
+      "meses_pagados": 6,
+      "total_pagado": 30000
     },
     "bcfa67d7fb53acc9b0e2e8dd6a918183798187317f49f301ae3f5596a9bf6efe": {
       "nombre": "Maurera Planchard Ethan Gael",
