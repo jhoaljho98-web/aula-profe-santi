@@ -71,7 +71,10 @@ export default function Podio() {
         const porHash = new Map(desdeFirebase.map((e) => [e.hash, e]))
         const hashesEstudiantes = new Set(Object.keys(notas.estudiantes || {}))
         const todos = Object.entries(notas.estudiantes || {}).map(([hash, info]) => {
-          if (porHash.has(hash)) return porHash.get(hash)
+          if (porHash.has(hash)) {
+            // Usar nombre y foto siempre de notas.json (fuente de verdad)
+            return { ...porHash.get(hash), nombre: info.nombre, foto: info.foto ?? porHash.get(hash).foto ?? null }
+          }
           return { hash, nombre: info.nombre, foto: info.foto ?? null, puntosTotal: 0, partidasTotal: 0, puntosPorMateria: {}, partidasPorMateria: {} }
         })
         // Añadir docente y cualquier otro que este en Firebase pero no en notas.estudiantes
