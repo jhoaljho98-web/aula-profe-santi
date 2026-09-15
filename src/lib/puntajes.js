@@ -69,6 +69,65 @@ async function migrarEstudiante(hash, data) {
   return true
 }
 
+// Estudiantes cuyo documento cambio y tienen datos huerfanos bajo
+// el hash antiguo. Fusiona (suma) al hash nuevo.
+const HASHES_LEGADOS = [
+  {
+    // Ambar Valentina Gutierrez Corona: doc paso de "0" a "7048876"
+    viejo: '5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9',
+    nuevo: '40232ef415c0abd2c919484397aee2ac08d976d3a8a2c11f60c3c5d5d5398b51',
+    nombre: 'Gutierrez Corona Ambar Valentina',
+  },
+]
+
+export async function migrarHashesLegados() {
+  if (!firebaseHabilitado || !db) return { ok: false }
+  const resultados = []
+  for (const m of HASHES_LEGADOS) {
+    const refViejo = doc(db, 'estudiantes', m.viejo)
+    const refNuevo = doc(db, 'estudiantes', m.nuevo)
+    const snapViejo = await getDoc(refViejo)
+    if (!snapViejo.exists()) { resultados.push({ nombre: m.nombre, motivo: 'sin datos viejos' }); continue }
+    const dv = snapViejo.data()
+    const snapNuevo = await getDoc(refNuevo)
+    const dn = snapNuevo.exists() ? snapNuevo.data() : {}
+    const sumaMap = (a, b) => {
+      const out = { ...a }
+      for (const [k, v] of Object.entries(b || {})) out[k] = (out[k] ?? 0) + v
+      return out
+    }
+    await setDoc(refNuevo, {
+      nombre: m.nombre,
+      foto: dn.foto ?? dv.foto ?? null,
+      puntosTotal: (dn.puntosTotal ?? 0) + (dv.puntosTotal ?? 0),
+      partidasTotal: (dn.partidasTotal ?? 0) + (dv.partidasTotal ?? 0),
+      puntosPorMateria: sumaMap(dn.puntosPorMateria, dv.puntosPorMateria),
+      partidasPorMateria: sumaMap(dn.partidasPorMateria, dv.partidasPorMateria),
+      racha: Math.max(dn.racha ?? 0, dv.racha ?? 0),
+      rachaMax: Math.max(dn.rachaMax ?? 0, dv.rachaMax ?? 0),
+      escudos: Math.max(dn.escudos ?? 1, dv.escudos ?? 1),
+      _migradoV2: true,
+    }, { merge: true })
+    // Copiar juegos
+    const juegosViejos = await getDocs(collection(db, 'estudiantes', m.viejo, 'juegos'))
+    for (const j of juegosViejos.docs) {
+      const jd = j.data()
+      const refJnuevo = doc(db, 'estudiantes', m.nuevo, 'juegos', j.id)
+      const snapJn = await getDoc(refJnuevo)
+      const jdn = snapJn.exists() ? snapJn.data() : {}
+      await setDoc(refJnuevo, {
+        ...jd,
+        mejorPuntaje: Math.max(jd.mejorPuntaje ?? 0, jdn.mejorPuntaje ?? 0),
+        vecesJugado: (jd.vecesJugado ?? 0) + (jdn.vecesJugado ?? 0),
+      }, { merge: true })
+    }
+    // Marcar el viejo como fusionado (no se borra por seguridad)
+    await setDoc(refViejo, { _fusionadoEn: m.nuevo }, { merge: true })
+    resultados.push({ nombre: m.nombre, ok: true, puntos: (dn.puntosTotal ?? 0) + (dv.puntosTotal ?? 0) })
+  }
+  return { ok: true, resultados }
+}
+
 // Migra a todos los estudiantes que aun no lo esten. Corre en paralelo
 // pero con limite pequeno para no saturar.
 export async function migrarHistorico() {

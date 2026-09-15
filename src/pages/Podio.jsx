@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useEstudiante } from '../lib/estudiante'
-import { leerPodio, leerPodioPorMateria, leerMisEstadisticas, migrarHistorico } from '../lib/puntajes'
+import { leerPodio, leerPodioPorMateria, leerMisEstadisticas, migrarHistorico, migrarHashesLegados } from '../lib/puntajes'
 import { firebaseHabilitado } from '../lib/firebase'
 import {
   medallasGanadas,
@@ -426,9 +426,11 @@ function BotonMigracion() {
     setEstado('corriendo')
     setMensaje('Migrando estudiantes… puede tomar unos segundos.')
     try {
+      const legado = await migrarHashesLegados()
       const r = await migrarHistorico()
+      const fusionados = legado.resultados?.filter((x) => x.ok).length ?? 0
       setEstado('listo')
-      setMensaje(`✅ ${r.migrados} de ${r.revisados} estudiantes migrados. Recargando…`)
+      setMensaje(`✅ ${r.migrados} migrados por materia + ${fusionados} hashes legados fusionados. Recargando…`)
       setTimeout(() => window.location.reload(), 1500)
     } catch (e) {
       setEstado('error')
