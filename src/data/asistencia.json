@@ -121,16 +121,20 @@
           ]
         },
         "4": {
-          "presente": 0,
+          "presente": 1,
           "tarde": 0,
           "falta": 1,
           "excusa": 0,
-          "total_dias": 1,
-          "porcentaje_asistencia": 0.0,
+          "total_dias": 2,
+          "porcentaje_asistencia": 50.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
               "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-15",
+              "codigo": "P"
             }
           ]
         }
@@ -258,12 +262,16 @@
           "presente": 0,
           "tarde": 0,
           "falta": 0,
-          "excusa": 1,
-          "total_dias": 1,
+          "excusa": 2,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "E"
             }
           ]
@@ -389,16 +397,20 @@
           ]
         },
         "4": {
-          "presente": 0,
+          "presente": 1,
           "tarde": 0,
           "falta": 1,
           "excusa": 0,
-          "total_dias": 1,
-          "porcentaje_asistencia": 0.0,
+          "total_dias": 2,
+          "porcentaje_asistencia": 50.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
               "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-15",
+              "codigo": "P"
             }
           ]
         }
@@ -523,16 +535,20 @@
           ]
         },
         "4": {
-          "presente": 0,
+          "presente": 1,
           "tarde": 1,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
               "codigo": "R"
+            },
+            {
+              "fecha": "2026-09-15",
+              "codigo": "P"
             }
           ]
         }
@@ -657,15 +673,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -791,15 +811,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -925,15 +949,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -1060,15 +1088,19 @@
         },
         "4": {
           "presente": 0,
-          "tarde": 0,
-          "falta": 1,
-          "excusa": 0,
-          "total_dias": 1,
-          "porcentaje_asistencia": 0.0,
+          "tarde": 1,
+          "falta": 0,
+          "excusa": 1,
+          "total_dias": 2,
+          "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
-              "codigo": "F"
+              "codigo": "E"
+            },
+            {
+              "fecha": "2026-09-15",
+              "codigo": "R"
             }
           ]
         }
@@ -1193,15 +1225,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -1328,15 +1364,19 @@
         },
         "4": {
           "presente": 1,
-          "tarde": 0,
+          "tarde": 1,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
               "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
+              "codigo": "R"
             }
           ]
         }
@@ -1461,15 +1501,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -1595,15 +1639,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -1732,13 +1780,17 @@
           "presente": 1,
           "tarde": 0,
           "falta": 0,
-          "excusa": 0,
-          "total_dias": 1,
+          "excusa": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
               "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
+              "codigo": "E"
             }
           ]
         }
@@ -1863,15 +1915,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -1997,15 +2053,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -2134,13 +2194,17 @@
           "presente": 1,
           "tarde": 0,
           "falta": 0,
-          "excusa": 0,
-          "total_dias": 1,
+          "excusa": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
               "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
+              "codigo": "E"
             }
           ]
         }
@@ -2265,15 +2329,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -2399,15 +2467,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -2533,15 +2605,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -2667,15 +2743,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -2801,15 +2881,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -2935,15 +3019,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -3069,15 +3157,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -3204,15 +3296,19 @@
         },
         "4": {
           "presente": 0,
-          "tarde": 0,
+          "tarde": 1,
           "falta": 1,
           "excusa": 0,
-          "total_dias": 1,
-          "porcentaje_asistencia": 0.0,
+          "total_dias": 2,
+          "porcentaje_asistencia": 50.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
               "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-15",
+              "codigo": "R"
             }
           ]
         }
@@ -3337,15 +3433,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -3471,16 +3571,20 @@
           ]
         },
         "4": {
-          "presente": 0,
+          "presente": 1,
           "tarde": 0,
           "falta": 0,
           "excusa": 1,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
               "codigo": "E"
+            },
+            {
+              "fecha": "2026-09-15",
+              "codigo": "P"
             }
           ]
         }
@@ -3605,16 +3709,20 @@
           ]
         },
         "4": {
-          "presente": 0,
+          "presente": 1,
           "tarde": 0,
           "falta": 1,
           "excusa": 0,
-          "total_dias": 1,
-          "porcentaje_asistencia": 0.0,
+          "total_dias": 2,
+          "porcentaje_asistencia": 50.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
               "codigo": "F"
+            },
+            {
+              "fecha": "2026-09-15",
+              "codigo": "P"
             }
           ]
         }
@@ -3739,15 +3847,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -3873,15 +3985,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -4007,15 +4123,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -4141,15 +4261,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -4275,15 +4399,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
@@ -4410,15 +4538,19 @@
         },
         "4": {
           "presente": 1,
-          "tarde": 0,
+          "tarde": 1,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
               "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
+              "codigo": "R"
             }
           ]
         }
@@ -4543,15 +4675,19 @@
           ]
         },
         "4": {
-          "presente": 1,
+          "presente": 2,
           "tarde": 0,
           "falta": 0,
           "excusa": 0,
-          "total_dias": 1,
+          "total_dias": 2,
           "porcentaje_asistencia": 100.0,
           "detalle": [
             {
               "fecha": "2026-09-14",
+              "codigo": "P"
+            },
+            {
+              "fecha": "2026-09-15",
               "codigo": "P"
             }
           ]
