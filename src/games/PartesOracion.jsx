@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import palabras from '../data/palabras.json'
 import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
+import { sonarCorrecto, sonarIncorrecto } from '../lib/sonidos'
 
 const TOTAL = 8
 
@@ -67,7 +68,7 @@ export default function PartesOracion({ onExit }) {
       const chunkCorrecto = chunksMezclados.find(c => c.correcta === parte.key)?.texto
       if (chunkAsignado !== chunkCorrecto) ok = false
     }
-    if (ok) setAciertos((a) => a + 1)
+    if (ok) { setAciertos((a) => a + 1); sonarCorrecto() } else sonarIncorrecto()
     setMostrarResultado(true)
     setTimeout(() => {
       if (i + 1 >= TOTAL) setTerminado(true)

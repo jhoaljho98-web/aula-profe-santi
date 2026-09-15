@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
+import { sonarCorrecto, sonarIncorrecto } from '../lib/sonidos'
 
 const PALABRAS_POR_TRABADA = {
   BL: ['blanco', 'blusa', 'bloque', 'pueblo', 'tabla'],
@@ -67,7 +68,7 @@ export default function SilabasTrabadas({ onExit }) {
     setSeleccion(op)
     const ok = op === p.correcta
     setTimeout(() => {
-      if (ok) setAciertos((a) => a + 1)
+      if (ok) { setAciertos((a) => a + 1); sonarCorrecto() } else sonarIncorrecto()
       if (i + 1 >= TOTAL_PREGUNTAS) setTerminado(true)
       else { setI(v => v + 1); setSeleccion(null) }
     }, 900)

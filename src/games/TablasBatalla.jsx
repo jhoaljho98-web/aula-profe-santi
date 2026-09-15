@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
+import { sonarCorrecto, sonarIncorrecto } from '../lib/sonidos'
 
 const TOTAL_PREGUNTAS = 15
 
@@ -128,7 +129,7 @@ export default function TablasBatalla({ onExit }) {
     setSeleccion(op)
     const ok = op === p.correcta
     setTimeout(() => {
-      if (ok) setAciertos((a) => a + 1)
+      if (ok) { setAciertos((a) => a + 1); sonarCorrecto() } else sonarIncorrecto()
       if (i + 1 >= TOTAL_PREGUNTAS) {
         setTiempoFinal(Math.floor((Date.now() - inicio) / 1000))
         setTerminado(true)

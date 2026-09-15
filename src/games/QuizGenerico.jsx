@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
+import { sonarCorrecto, sonarIncorrecto } from '../lib/sonidos'
 
 export default function QuizGenerico({ juegoId, juegoNombre, materia, preguntas, onExit }) {
   const [i, setI] = useState(0)
@@ -38,7 +39,8 @@ export default function QuizGenerico({ juegoId, juegoNombre, materia, preguntas,
     if (respondido) return
     setSeleccion(idx)
     setRespondido(true)
-    if (idx === p.correcta) setAciertos((a) => a + 1)
+    if (idx === p.correcta) { setAciertos((a) => a + 1); sonarCorrecto() }
+    else sonarIncorrecto()
     setTimeout(() => {
       if (i + 1 >= preguntas.length) setTerminado(true)
       else {

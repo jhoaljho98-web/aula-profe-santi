@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
+import { sonarCorrecto, sonarIncorrecto } from '../lib/sonidos'
 
 const TOTAL_PREGUNTAS = 12
 
@@ -145,7 +146,7 @@ export default function NumerosMagicos({ onExit }) {
 
   function siguiente(ok) {
     setTimeout(() => {
-      if (ok) setAciertos((a) => a + 1)
+      if (ok) { setAciertos((a) => a + 1); sonarCorrecto() } else sonarIncorrecto()
       if (i + 1 >= TOTAL_PREGUNTAS) setTerminado(true)
       else {
         setI((v) => v + 1)

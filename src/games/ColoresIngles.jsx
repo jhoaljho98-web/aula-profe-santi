@@ -16,21 +16,38 @@ const COLORES = [
   { es: 'Gris',      en: 'Gray',   hex: '#6b7280' },
 ]
 
+function CuadroColor({ hex }) {
+  return (
+    <span
+      className="inline-block w-24 h-24 rounded-2xl shadow-lg border-2 border-gray-300"
+      style={{ backgroundColor: hex }}
+    />
+  )
+}
+
 function generarBanco() {
   const banco = []
-  // Tipo 1: mostrar el color como cuadro, elegir el nombre en inglés
+  // Tipo 1: color visual -> nombre en inglés
   for (const c of COLORES) {
     const otros = COLORES.filter((x) => x.en !== c.en).sort(() => Math.random() - 0.5).slice(0, 3)
     const opciones = [c, ...otros].sort(() => Math.random() - 0.5)
     banco.push({
-      enunciado: `¿Cómo se dice "${c.es}" en inglés?`,
-      pregunta: (
-        <span
-          className="inline-block w-24 h-24 rounded-2xl shadow-lg border-2 border-gray-300"
-          style={{ backgroundColor: c.hex }}
-        />
-      ),
+      enunciado: 'Mira el color: ¿cómo se dice en inglés?',
+      pregunta: <CuadroColor hex={c.hex} />,
       opciones: opciones.map((o) => o.en),
+      correcta: opciones.findIndex((o) => o.en === c.en),
+    })
+  }
+  // Tipo 2: nombre en inglés -> elegir el cuadro de color
+  for (const c of COLORES) {
+    const otros = COLORES.filter((x) => x.en !== c.en).sort(() => Math.random() - 0.5).slice(0, 3)
+    const opciones = [c, ...otros].sort(() => Math.random() - 0.5)
+    banco.push({
+      enunciado: `Elige el color que corresponde a esta palabra en inglés:`,
+      pregunta: <span className="uppercase tracking-wide">{c.en}</span>,
+      opciones: opciones.map((o) => (
+        <CuadroColor key={o.en} hex={o.hex} />
+      )),
       correcta: opciones.findIndex((o) => o.en === c.en),
     })
   }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import palabras from '../data/palabras.json'
 import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
+import { sonarCorrecto, sonarIncorrecto } from '../lib/sonidos'
 
 const CANTIDAD_PAREJAS = 6
 
@@ -50,11 +51,13 @@ export default function MemoriaPalabras({ onExit }) {
     if (nuevas.length === 2) {
       setIntentos(i => i + 1)
       if (nuevas[0].parejaId === nuevas[1].parejaId) {
+        sonarCorrecto()
         setTimeout(() => {
           setEmparejadas(e => [...e, nuevas[0].parejaId])
           setVolteadas([])
         }, 700)
       } else {
+        sonarIncorrecto()
         setTimeout(() => setVolteadas([]), 1100)
       }
     }

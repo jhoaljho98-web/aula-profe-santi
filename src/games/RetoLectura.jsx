@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import lecturas from '../data/lecturas.json'
 import ResultadoPuntos from '../components/ResultadoPuntos.jsx'
+import { sonarCorrecto, sonarIncorrecto } from '../lib/sonidos'
 
 const SEGUNDOS_LECTURA = 20
 
@@ -43,7 +44,7 @@ export default function RetoLectura({ onExit }) {
     setSeleccion(op)
     const ok = op === l.correcta
     setTimeout(() => {
-      if (ok) setAciertos((a) => a + 1)
+      if (ok) { setAciertos((a) => a + 1); sonarCorrecto() } else sonarIncorrecto()
       if (i + 1 >= preguntas.length) {
         setTerminado(true)
       } else {

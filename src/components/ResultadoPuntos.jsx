@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useEstudiante } from '../lib/estudiante'
 import { guardarPartida, calcularPuntos } from '../lib/puntajes'
+import { sonarGanaste, sonarMedalla } from '../lib/sonidos'
 
 export default function ResultadoPuntos({ juegoId, juegoNombre, materia, aciertos, total }) {
   const { estudiante } = useEstudiante()
@@ -12,6 +13,7 @@ export default function ResultadoPuntos({ juegoId, juegoNombre, materia, acierto
   useEffect(() => {
     let vivo = true
     async function guardar() {
+      sonarGanaste()
       if (!estudiante) {
         setEstado('sin-sesion')
         return
@@ -30,6 +32,9 @@ export default function ResultadoPuntos({ juegoId, juegoNombre, materia, acierto
         if (vivo) {
           setResultado(r)
           setEstado('guardado')
+          if ((r?.medallasNuevas?.length ?? 0) > 0 || (r?.trofeosNuevos?.length ?? 0) > 0) {
+            setTimeout(() => sonarMedalla(), 900)
+          }
         }
       } catch (e) {
         if (vivo) setEstado('error')
