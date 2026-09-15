@@ -12,6 +12,7 @@ import {
 } from '../lib/logros'
 import LoginEstudiante from '../components/LoginEstudiante'
 import Avatar from '../components/Avatar'
+import notas from '../data/notas.json'
 
 const POSICIONES = ['🥇', '🥈', '🥉']
 
@@ -46,12 +47,22 @@ export default function Podio() {
       setCargando(true)
       setError('')
       try {
-        const lista =
+        const desdeFirebase =
           materia === 'general'
-            ? await leerPodio(20)
-            : await leerPodioPorMateria(materia, 20)
+            ? await leerPodio(100)
+            : await leerPodioPorMateria(materia, 100)
         if (!vivo) return
-        setPodio(lista)
+        // Combinar con la lista completa de estudiantes de notas.json
+        // para que aparezcan TODOS, incluso quienes no han jugado.
+        const porHash = new Map(desdeFirebase.map((e) => [e.hash, e]))
+        const todos = Object.entries(notas.estudiantes || {}).map(([hash, info]) => {
+          if (porHash.has(hash)) return porHash.get(hash)
+          return { hash, nombre: info.nombre, foto: info.foto ?? null, puntosTotal: 0, partidasTotal: 0, puntosPorMateria: {}, partidasPorMateria: {} }
+        })
+        const puntosDe = (e) =>
+          materia === 'general' ? e.puntosTotal ?? 0 : e.puntosPorMateria?.[materia] ?? 0
+        todos.sort((a, b) => puntosDe(b) - puntosDe(a) || (a.nombre || '').localeCompare(b.nombre || ''))
+        setPodio(todos)
         if (estudiante) {
           const mias = await leerMisEstadisticas(estudiante.hash)
           if (vivo) setMis(mias)
