@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useEstudiante } from '../lib/estudiante'
-import { leerPodio, leerPodioPorMateria, leerMisEstadisticas } from '../lib/puntajes'
+import { leerPodio, leerPodioPorMateria, leerMisEstadisticas, migrarHistorico } from '../lib/puntajes'
 import { firebaseHabilitado } from '../lib/firebase'
 import {
   medallasGanadas,
@@ -114,6 +114,8 @@ export default function Podio() {
       )}
 
       {!estudiante && firebaseHabilitado && <LoginEstudiante />}
+
+      {estudiante?.esDocente && <BotonMigracion />}
 
       {mis && <MiResumen mis={mis} posicion={posicionMia} materia={materia} estudiante={estudiante} />}
 
@@ -403,6 +405,47 @@ function MisLogros({ mis }) {
           </div>
         </section>
       )}
+    </div>
+  )
+}
+
+function BotonMigracion() {
+  const [estado, setEstado] = useState('idle')
+  const [mensaje, setMensaje] = useState('')
+
+  async function ejecutar() {
+    if (!confirm('Esto reasignará los puntos ya jugados a cada materia. ¿Continuar?')) return
+    setEstado('corriendo')
+    setMensaje('Migrando estudiantes… puede tomar unos segundos.')
+    try {
+      const r = await migrarHistorico()
+      setEstado('listo')
+      setMensaje(`✅ ${r.migrados} de ${r.revisados} estudiantes migrados. Recargando…`)
+      setTimeout(() => window.location.reload(), 1500)
+    } catch (e) {
+      setEstado('error')
+      setMensaje('❌ Error al migrar. Revisa la consola.')
+    }
+  }
+
+  return (
+    <div className="card bg-purple-100 border-2 border-purple-400 flex flex-col sm:flex-row items-center gap-3">
+      <div className="text-3xl">🛠️</div>
+      <div className="flex-1 text-sm">
+        <div className="font-display font-bold text-purple-900">
+          Modo docente: migrar puntos históricos por materia
+        </div>
+        <div className="text-purple-800">
+          {mensaje || 'Reparte los puntos ya jugados en cada materia (una sola vez).'}
+        </div>
+      </div>
+      <button
+        onClick={ejecutar}
+        disabled={estado === 'corriendo' || estado === 'listo'}
+        className="px-4 py-2 bg-purple-600 text-white rounded-lg font-semibold text-sm hover:bg-purple-700 disabled:opacity-60"
+      >
+        {estado === 'corriendo' ? 'Migrando…' : 'Migrar ahora'}
+      </button>
     </div>
   )
 }

@@ -19,6 +19,69 @@ import {
   TROFEOS_RACHA,
 } from './logros'
 
+// Mapeo juegoId -> materia (para migrar historicos donde no se guardo)
+const JUEGO_A_MATERIA = {
+  'tablas-batalla': 'matematicas',
+  'numeros-magicos': 'matematicas',
+  'memoria-palabras': 'castellano',
+  'partes-oracion': 'castellano',
+  'silabas-trabadas': 'castellano',
+  'reto-lectura': 'castellano',
+}
+
+// Migra un estudiante: reconstruye puntosPorMateria/partidasPorMateria
+// a partir de su subcoleccion juegos, escala para que sume puntosTotal.
+// Marca _migradoV2=true para no repetir. Devuelve true si migro algo.
+async function migrarEstudiante(hash, data) {
+  if (data._migradoV2) return false
+  const juegosSnap = await getDocs(collection(db, 'estudiantes', hash, 'juegos'))
+  if (juegosSnap.empty) {
+    await setDoc(doc(db, 'estudiantes', hash), { _migradoV2: true }, { merge: true })
+    return false
+  }
+  const puntosPorMateria = {}
+  const partidasPorMateria = {}
+  let pesoTotal = 0
+  juegosSnap.forEach((j) => {
+    const jd = j.data()
+    const materia = jd.materia ?? JUEGO_A_MATERIA[jd.juegoId] ?? null
+    if (!materia) return
+    const veces = jd.vecesJugado ?? 0
+    const mejor = jd.mejorPuntaje ?? 0
+    const peso = mejor * veces
+    puntosPorMateria[materia] = (puntosPorMateria[materia] ?? 0) + peso
+    partidasPorMateria[materia] = (partidasPorMateria[materia] ?? 0) + veces
+    pesoTotal += peso
+  })
+  // Escalar a puntosTotal para que sume exacto
+  const total = data.puntosTotal ?? 0
+  if (pesoTotal > 0 && total > 0) {
+    const factor = total / pesoTotal
+    Object.keys(puntosPorMateria).forEach((m) => {
+      puntosPorMateria[m] = Math.round(puntosPorMateria[m] * factor)
+    })
+  }
+  await setDoc(
+    doc(db, 'estudiantes', hash),
+    { puntosPorMateria, partidasPorMateria, _migradoV2: true },
+    { merge: true },
+  )
+  return true
+}
+
+// Migra a todos los estudiantes que aun no lo esten. Corre en paralelo
+// pero con limite pequeno para no saturar.
+export async function migrarHistorico() {
+  if (!firebaseHabilitado || !db) return { ok: false }
+  const snap = await getDocs(collection(db, 'estudiantes'))
+  let migrados = 0
+  for (const d of snap.docs) {
+    const cambio = await migrarEstudiante(d.id, d.data())
+    if (cambio) migrados++
+  }
+  return { ok: true, migrados, revisados: snap.docs.length }
+}
+
 // 10 puntos por acierto + 50 de bonus si tuvo perfecta
 export function calcularPuntos(aciertos, total) {
   const base = aciertos * 10
