@@ -56,9 +56,14 @@ export default function Podio() {
         // Combinar con la lista completa de estudiantes de notas.json
         // para que aparezcan TODOS, incluso quienes no han jugado.
         const porHash = new Map(desdeFirebase.map((e) => [e.hash, e]))
+        const hashesEstudiantes = new Set(Object.keys(notas.estudiantes || {}))
         const todos = Object.entries(notas.estudiantes || {}).map(([hash, info]) => {
           if (porHash.has(hash)) return porHash.get(hash)
           return { hash, nombre: info.nombre, foto: info.foto ?? null, puntosTotal: 0, partidasTotal: 0, puntosPorMateria: {}, partidasPorMateria: {} }
+        })
+        // Añadir docente y cualquier otro que este en Firebase pero no en notas.estudiantes
+        desdeFirebase.forEach((e) => {
+          if (!hashesEstudiantes.has(e.hash)) todos.push({ ...e, esDocente: e.hash === notas.docente_hash })
         })
         const puntosDe = (e) =>
           materia === 'general' ? e.puntosTotal ?? 0 : e.puntosPorMateria?.[materia] ?? 0
@@ -222,6 +227,9 @@ export default function Podio() {
                   <div className="flex-1 min-w-0">
                     <div className="font-display font-bold text-lg truncate">
                       {primerNombre(p.nombre)}
+                      {p.esDocente && (
+                        <span className="ml-2 text-xs bg-institucional-verdeOscuro text-white px-2 py-0.5 rounded-full">Docente</span>
+                      )}
                       {soyYo && (
                         <span className="ml-2 text-sm text-institucional-verdeOscuro">(¡tú!)</span>
                       )}
