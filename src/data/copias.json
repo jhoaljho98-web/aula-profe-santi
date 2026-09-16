@@ -286,8 +286,8 @@
         "octubre": false,
         "noviembre": false
       },
-      "meses_pagados": 5,
-      "total_pagado": 25000
+      "meses_pagados": 7,
+      "total_pagado": 35000
     },
     "5038cb1d995157425c13747f090c4ead7f4fc7db231b11e74a141cd0b10a9aae": {
       "nombre": "Guerrero Briceño Nain Alessandro",
@@ -601,8 +601,8 @@
         "octubre": true,
         "noviembre": true
       },
-      "meses_pagados": 6,
-      "total_pagado": 30000
+      "meses_pagados": 11,
+      "total_pagado": 55000
     },
     "c67362ded555f3f61a0befcfe0431218e7a5b950fad6c647cec8033e6d0e1233": {
       "nombre": "Valencia Mesa Ana Lucia",
@@ -727,8 +727,8 @@
         "octubre": true,
         "noviembre": true
       },
-      "meses_pagados": 6,
-      "total_pagado": 30000
+      "meses_pagados": 11,
+      "total_pagado": 55000
     }
   }
 }

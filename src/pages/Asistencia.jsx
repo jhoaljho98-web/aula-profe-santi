@@ -31,8 +31,9 @@ function formatearMoneda(n) {
 function CopiasEstudiante({ estudiante }) {
   const meses = copiasData.meses
   const cuota = copiasData.cuota_mensual
-  const total = estudiante.total_pagado
-  const pagados = estudiante.meses_pagados
+  // Calcular al vuelo desde pagos para evitar inconsistencias
+  const pagados = Object.values(estudiante.pagos ?? {}).filter(Boolean).length
+  const total = pagados * cuota
   const pendientes = meses.length - pagados
 
   return (
@@ -305,9 +306,10 @@ function VistaDocenteCopias() {
   const meses = copiasData.meses
   const cuota = copiasData.cuota_mensual
 
-  const estudiantes = Object.entries(copiasData.estudiantes).map(([hash, e]) => ({
-    hash, ...e,
-  }))
+  const estudiantes = Object.entries(copiasData.estudiantes).map(([hash, e]) => {
+    const mesesPagados = Object.values(e.pagos ?? {}).filter(Boolean).length
+    return { hash, ...e, meses_pagados: mesesPagados, total_pagado: mesesPagados * cuota }
+  })
 
   estudiantes.sort((a, b) => {
     if (ordenar === 'nombre') return a.nombre.localeCompare(b.nombre)
