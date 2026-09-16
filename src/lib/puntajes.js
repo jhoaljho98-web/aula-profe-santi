@@ -141,6 +141,33 @@ export async function migrarHistorico() {
   return { ok: true, migrados, revisados: snap.docs.length }
 }
 
+// --- SEMANA ISO (lunes como inicio de semana) ---
+const MATERIAS_TODAS = ['matematicas', 'castellano', 'sociales', 'naturales', 'ingles']
+
+export function claveSemana(fechaLocalStr) {
+  const d = new Date(fechaLocalStr + 'T00:00:00')
+  const dia = d.getDay()
+  const diff = dia === 0 ? -6 : 1 - dia
+  d.setDate(d.getDate() + diff)
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
+export function claveSemanaHoy() {
+  return claveSemana(fechaLocal())
+}
+
+// Cero puntos semanales si su semanaActual no coincide con la actual
+export function ajustarSemana(e, semanaHoy) {
+  if (e.semanaActual === semanaHoy) return e
+  return {
+    ...e,
+    puntosSemana: 0,
+    partidasSemana: 0,
+    puntosPorMateriaSemana: {},
+    partidasPorMateriaSemana: {},
+  }
+}
+
 // 10 puntos por acierto + 50 de bonus si tuvo perfecta
 export function calcularPuntos(aciertos, total) {
   const base = aciertos * 10
@@ -254,6 +281,32 @@ export async function guardarPartida({ hash, nombre, foto, juegoId, juegoNombre,
     datosEstudiante.puntosPorMateria = { [materia]: increment(puntos) }
     datosEstudiante.partidasPorMateria = { [materia]: increment(1) }
   }
+
+  // --- Puntaje semanal ---
+  const semanaHoy = claveSemana(hoy)
+  const mismaSemana = estadoPrevio.semanaActual === semanaHoy
+  if (mismaSemana) {
+    datosEstudiante.puntosSemana = increment(puntos)
+    datosEstudiante.partidasSemana = increment(1)
+    if (materia) {
+      datosEstudiante.puntosPorMateriaSemana = { [materia]: increment(puntos) }
+      datosEstudiante.partidasPorMateriaSemana = { [materia]: increment(1) }
+    }
+  } else {
+    // Semana nueva: reset explicito de cada materia a 0
+    datosEstudiante.puntosSemana = puntos
+    datosEstudiante.partidasSemana = 1
+    datosEstudiante.semanaActual = semanaHoy
+    const semMat = {}
+    const parMat = {}
+    for (const m of MATERIAS_TODAS) {
+      semMat[m] = m === materia ? puntos : 0
+      parMat[m] = m === materia ? 1 : 0
+    }
+    datosEstudiante.puntosPorMateriaSemana = semMat
+    datosEstudiante.partidasPorMateriaSemana = parMat
+  }
+
   await setDoc(refEstudiante, datosEstudiante, { merge: true })
 
   return {
@@ -267,21 +320,17 @@ export async function guardarPartida({ hash, nombre, foto, juegoId, juegoNombre,
   }
 }
 
-export async function leerPodio(tope = 20) {
+// Devuelve todos los estudiantes con puntosSemana ajustado a 0 si su
+// semanaActual no coincide con la semana actual. Ordenar es tarea del cliente.
+export async function leerPodio() {
   if (!firebaseHabilitado || !db) return []
-  const q = query(collection(db, 'estudiantes'), orderBy('puntosTotal', 'desc'), limit(tope))
-  const snap = await getDocs(q)
-  return snap.docs.map((d) => ({ hash: d.id, ...d.data() }))
+  const snap = await getDocs(collection(db, 'estudiantes'))
+  const semanaHoy = claveSemanaHoy()
+  return snap.docs.map((d) => ajustarSemana({ hash: d.id, ...d.data() }, semanaHoy))
 }
 
-export async function leerPodioPorMateria(materia, tope = 20) {
-  if (!firebaseHabilitado || !db) return []
-  const campo = `puntosPorMateria.${materia}`
-  const q = query(collection(db, 'estudiantes'), orderBy(campo, 'desc'), limit(tope))
-  const snap = await getDocs(q)
-  return snap.docs
-    .map((d) => ({ hash: d.id, ...d.data() }))
-    .filter((e) => (e.puntosPorMateria?.[materia] ?? 0) > 0)
+export async function leerPodioPorMateria() {
+  return await leerPodio()
 }
 
 export async function leerMisEstadisticas(hash) {
@@ -289,7 +338,7 @@ export async function leerMisEstadisticas(hash) {
   const refEst = doc(db, 'estudiantes', hash)
   const snap = await getDoc(refEst)
   if (!snap.exists()) return null
-  const base = snap.data()
+  const base = ajustarSemana(snap.data(), claveSemanaHoy())
 
   const juegosSnap = await getDocs(collection(db, 'estudiantes', hash, 'juegos'))
   const juegos = {}

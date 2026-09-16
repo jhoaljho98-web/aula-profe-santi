@@ -279,8 +279,8 @@
         "marzo": true,
         "abril": true,
         "mayo": true,
-        "junio": false,
-        "julio": false,
+        "junio": true,
+        "julio": true,
         "agosto": false,
         "septiembre": false,
         "octubre": false,
@@ -721,11 +721,11 @@
         "abril": true,
         "mayo": true,
         "junio": true,
-        "julio": false,
-        "agosto": false,
-        "septiembre": false,
-        "octubre": false,
-        "noviembre": false
+        "julio": true,
+        "agosto": true,
+        "septiembre": true,
+        "octubre": true,
+        "noviembre": true
       },
       "meses_pagados": 6,
       "total_pagado": 30000

@@ -54,6 +54,7 @@ export default function Podio() {
   const [cargando, setCargando] = useState(true)
   const [error, setError] = useState('')
   const [vista, setVista] = useState('ranking')
+  const [rango, setRango] = useState('semana')  // 'semana' | 'historico'
 
   useEffect(() => {
     let vivo = true
@@ -75,7 +76,7 @@ export default function Podio() {
             // Usar nombre y foto siempre de notas.json (fuente de verdad)
             return { ...porHash.get(hash), nombre: info.nombre, foto: info.foto ?? porHash.get(hash).foto ?? null }
           }
-          return { hash, nombre: info.nombre, foto: info.foto ?? null, puntosTotal: 0, partidasTotal: 0, puntosPorMateria: {}, partidasPorMateria: {} }
+          return { hash, nombre: info.nombre, foto: info.foto ?? null, puntosTotal: 0, partidasTotal: 0, puntosPorMateria: {}, partidasPorMateria: {}, puntosSemana: 0, partidasSemana: 0, puntosPorMateriaSemana: {}, partidasPorMateriaSemana: {} }
         })
         // Solo añadir el docente. Otros hashes desconocidos (p.ej. hashes
         // legados de un doc que cambio) se ocultan para no duplicar filas.
@@ -84,9 +85,13 @@ export default function Podio() {
             todos.push({ ...e, esDocente: true })
           }
         })
-        const puntosDe = (e) =>
-          materia === 'general' ? e.puntosTotal ?? 0 : e.puntosPorMateria?.[materia] ?? 0
-        todos.sort((a, b) => puntosDe(b) - puntosDe(a) || (a.nombre || '').localeCompare(b.nombre || ''))
+        const puntosSort = (e) => {
+          if (rango === 'semana') {
+            return materia === 'general' ? (e.puntosSemana ?? 0) : (e.puntosPorMateriaSemana?.[materia] ?? 0)
+          }
+          return materia === 'general' ? (e.puntosTotal ?? 0) : (e.puntosPorMateria?.[materia] ?? 0)
+        }
+        todos.sort((a, b) => puntosSort(b) - puntosSort(a) || (a.nombre || '').localeCompare(b.nombre || ''))
         setPodio(todos)
         if (estudiante) {
           const mias = await leerMisEstadisticas(estudiante.hash)
@@ -102,16 +107,24 @@ export default function Podio() {
     return () => {
       vivo = false
     }
-  }, [estudiante, materia])
+  }, [estudiante, materia, rango])
 
   const posicionMia = estudiante && podio.findIndex((p) => p.hash === estudiante.hash)
 
   function puntosDe(estudianteDoc, materiaId) {
+    if (rango === 'semana') {
+      if (materiaId === 'general') return estudianteDoc.puntosSemana ?? 0
+      return estudianteDoc.puntosPorMateriaSemana?.[materiaId] ?? 0
+    }
     if (materiaId === 'general') return estudianteDoc.puntosTotal ?? 0
     return estudianteDoc.puntosPorMateria?.[materiaId] ?? 0
   }
 
   function partidasDe(estudianteDoc, materiaId) {
+    if (rango === 'semana') {
+      if (materiaId === 'general') return estudianteDoc.partidasSemana ?? 0
+      return estudianteDoc.partidasPorMateriaSemana?.[materiaId] ?? 0
+    }
     if (materiaId === 'general') return estudianteDoc.partidasTotal ?? 0
     return estudianteDoc.partidasPorMateria?.[materiaId] ?? 0
   }
@@ -141,7 +154,7 @@ export default function Podio() {
 
       {estudiante?.esDocente && <BotonMigracion />}
 
-      {mis && <MiResumen mis={mis} posicion={posicionMia} materia={materia} estudiante={estudiante} />}
+      {mis && <MiResumen mis={mis} posicion={posicionMia} materia={materia} estudiante={estudiante} rango={rango} />}
 
       {mis && (
         <div className="flex gap-2">
@@ -164,6 +177,29 @@ export default function Podio() {
             }`}
           >
             🎖️ Mis logros
+          </button>
+        </div>
+      )}
+
+      {/* Toggle Semana / Historico */}
+      {vista === 'ranking' && (
+        <div className="flex gap-2 items-center">
+          <span className="text-xs text-gray-600 mr-1">Ranking:</span>
+          <button
+            onClick={() => setRango('semana')}
+            className={`px-3 py-1.5 rounded-full text-sm font-semibold ${
+              rango === 'semana' ? 'bg-institucional-verdeOscuro text-white' : 'bg-white text-gray-700 border border-gray-300'
+            }`}
+          >
+            📅 Esta semana
+          </button>
+          <button
+            onClick={() => setRango('historico')}
+            className={`px-3 py-1.5 rounded-full text-sm font-semibold ${
+              rango === 'historico' ? 'bg-institucional-verdeOscuro text-white' : 'bg-white text-gray-700 border border-gray-300'
+            }`}
+          >
+            🏛️ Histórico
           </button>
         </div>
       )}
@@ -282,16 +318,15 @@ export default function Podio() {
   )
 }
 
-function MiResumen({ mis, posicion, materia, estudiante }) {
+function MiResumen({ mis, posicion, materia, estudiante, rango }) {
   const materiaObj = MATERIAS.find((m) => m.id === materia)
-  const puntos =
-    materia === 'general'
-      ? mis.puntosTotal ?? 0
-      : mis.puntosPorMateria?.[materia] ?? 0
-  const partidas =
-    materia === 'general'
-      ? mis.partidasTotal ?? 0
-      : mis.partidasPorMateria?.[materia] ?? 0
+  const esSemana = rango === 'semana'
+  const puntos = esSemana
+    ? (materia === 'general' ? (mis.puntosSemana ?? 0) : (mis.puntosPorMateriaSemana?.[materia] ?? 0))
+    : (materia === 'general' ? (mis.puntosTotal ?? 0) : (mis.puntosPorMateria?.[materia] ?? 0))
+  const partidas = esSemana
+    ? (materia === 'general' ? (mis.partidasSemana ?? 0) : (mis.partidasPorMateriaSemana?.[materia] ?? 0))
+    : (materia === 'general' ? (mis.partidasTotal ?? 0) : (mis.partidasPorMateria?.[materia] ?? 0))
   const medalla = medallaActual(mis.puntosTotal ?? 0)
   const sig = siguienteMedalla(mis.puntosTotal ?? 0)
   const racha = mis.racha ?? 0
@@ -305,9 +340,9 @@ function MiResumen({ mis, posicion, materia, estudiante }) {
           {estudiante && <Avatar foto={estudiante.foto} nombre={estudiante.nombre} tamano={72} />}
         <div>
           <div className="text-sm opacity-90">
-            {materia === 'general'
-              ? 'Tu puntaje total'
-              : `Tus puntos en ${materiaObj?.nombre}`}
+            {esSemana ? '📅 Esta semana' : '🏛️ Histórico'}
+            {' · '}
+            {materia === 'general' ? 'Tu puntaje' : `Tus puntos en ${materiaObj?.nombre}`}
           </div>
           <div className="font-display font-bold text-4xl">{puntos} pts</div>
           <div className="text-sm opacity-90">
