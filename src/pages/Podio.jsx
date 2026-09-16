@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useEstudiante } from '../lib/estudiante'
-import { leerPodio, leerPodioPorMateria, leerMisEstadisticas, migrarHistorico, migrarHashesLegados } from '../lib/puntajes'
+import { leerPodio, leerPodioPorMateria, leerMisEstadisticas, migrarHistorico, migrarHashesLegados, iniciarNuevaSemana } from '../lib/puntajes'
 import { firebaseHabilitado } from '../lib/firebase'
 import {
   medallasGanadas,
@@ -153,6 +153,7 @@ export default function Podio() {
       {!estudiante && firebaseHabilitado && <LoginEstudiante />}
 
       {estudiante?.esDocente && <BotonMigracion />}
+      {estudiante?.esDocente && <BotonNuevaSemana />}
 
       {mis && <MiResumen mis={mis} posicion={posicionMia} materia={materia} estudiante={estudiante} rango={rango} />}
 
@@ -300,6 +301,19 @@ export default function Podio() {
                       {materia === 'general' && trofeoRacha && (
                         <span title={`Trofeo ${trofeoRacha.nombre}`}>{trofeoRacha.icono}</span>
                       )}
+                      {/* Medallas del podio (semanas ganadas en esta materia) */}
+                      {(() => {
+                        const mp = p.medallasPodio?.[materia] ?? {}
+                        const oro = mp.oro ?? 0, plata = mp.plata ?? 0, bronce = mp.bronce ?? 0
+                        if (oro + plata + bronce === 0) return null
+                        return (
+                          <span title="Medallas semanales" className="flex items-center gap-1">
+                            {oro > 0 && <span>🥇×{oro}</span>}
+                            {plata > 0 && <span>🥈×{plata}</span>}
+                            {bronce > 0 && <span>🥉×{bronce}</span>}
+                          </span>
+                        )
+                      })()}
                     </div>
                   </div>
                   <div className="text-right">
@@ -403,9 +417,39 @@ function MisLogros({ mis }) {
   const rachaMax = mis.rachaMax ?? 0
   const medallasGan = medallasGanadas(puntos)
   const trofeosGan = trofeosGanados(rachaMax)
+  const medallasPodio = mis.medallasPodio ?? {}
+  const totalMedallasPodio = MATERIAS.reduce((s, m) => {
+    const mp = medallasPodio[m.id] ?? {}
+    return s + (mp.oro ?? 0) + (mp.plata ?? 0) + (mp.bronce ?? 0)
+  }, 0)
 
   return (
     <div className="space-y-6">
+      {totalMedallasPodio > 0 && (
+        <section>
+          <h2 className="font-display font-bold text-xl text-institucional-verdeOscuro mb-3">
+            🏅 Medallas de podio semanal ({totalMedallasPodio})
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {MATERIAS.map((m) => {
+              const mp = medallasPodio[m.id] ?? {}
+              const oro = mp.oro ?? 0, plata = mp.plata ?? 0, bronce = mp.bronce ?? 0
+              if (oro + plata + bronce === 0) return null
+              return (
+                <div key={m.id} className={`card ${m.color} text-white`}>
+                  <div className="text-sm font-semibold">{m.icono} {m.nombre}</div>
+                  <div className="text-lg font-bold flex gap-3 mt-1">
+                    {oro > 0 && <span>🥇 {oro}</span>}
+                    {plata > 0 && <span>🥈 {plata}</span>}
+                    {bronce > 0 && <span>🥉 {bronce}</span>}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+      )}
+
       <section>
         <h2 className="font-display font-bold text-xl text-institucional-verdeOscuro mb-3">
           Medallas por puntaje ({medallasGan.length}/{MEDALLAS.length})
@@ -509,6 +553,47 @@ function BotonMigracion() {
         className="px-4 py-2 bg-purple-600 text-white rounded-lg font-semibold text-sm hover:bg-purple-700 disabled:opacity-60"
       >
         {estado === 'corriendo' ? 'Migrando…' : 'Migrar ahora'}
+      </button>
+    </div>
+  )
+}
+
+function BotonNuevaSemana() {
+  const [estado, setEstado] = useState('idle')
+  const [mensaje, setMensaje] = useState('')
+
+  async function ejecutar() {
+    if (!confirm('¿Comenzar una nueva semana? Se otorgarán las medallas de podio a los top 3 y se reiniciarán los contadores semanales.')) return
+    setEstado('corriendo')
+    setMensaje('Otorgando medallas y guardando snapshot…')
+    try {
+      const r = await iniciarNuevaSemana()
+      setEstado('listo')
+      setMensaje(`🏅 ${r.estudiantesConMedalla} estudiantes recibieron medallas. Recargando…`)
+      setTimeout(() => window.location.reload(), 1500)
+    } catch (e) {
+      setEstado('error')
+      setMensaje('❌ Error. Revisa la consola.')
+    }
+  }
+
+  return (
+    <div className="card bg-orange-100 border-2 border-orange-400 flex flex-col sm:flex-row items-center gap-3">
+      <div className="text-3xl">🏁</div>
+      <div className="flex-1 text-sm">
+        <div className="font-display font-bold text-orange-900">
+          Modo docente: comenzar nueva semana
+        </div>
+        <div className="text-orange-800">
+          {mensaje || 'Otorga medallas 🥇🥈🥉 al top 3 en cada podio y reinicia el ranking semanal.'}
+        </div>
+      </div>
+      <button
+        onClick={ejecutar}
+        disabled={estado === 'corriendo' || estado === 'listo'}
+        className="px-4 py-2 bg-orange-600 text-white rounded-lg font-semibold text-sm hover:bg-orange-700 disabled:opacity-60"
+      >
+        {estado === 'corriendo' ? 'Guardando…' : 'Comenzar semana'}
       </button>
     </div>
   )

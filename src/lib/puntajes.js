@@ -282,31 +282,7 @@ export async function guardarPartida({ hash, nombre, foto, juegoId, juegoNombre,
     datosEstudiante.partidasPorMateria = { [materia]: increment(1) }
   }
 
-  // --- Puntaje semanal ---
-  const semanaHoy = claveSemana(hoy)
-  const mismaSemana = estadoPrevio.semanaActual === semanaHoy
-  if (mismaSemana) {
-    datosEstudiante.puntosSemana = increment(puntos)
-    datosEstudiante.partidasSemana = increment(1)
-    if (materia) {
-      datosEstudiante.puntosPorMateriaSemana = { [materia]: increment(puntos) }
-      datosEstudiante.partidasPorMateriaSemana = { [materia]: increment(1) }
-    }
-  } else {
-    // Semana nueva: reset explicito de cada materia a 0
-    datosEstudiante.puntosSemana = puntos
-    datosEstudiante.partidasSemana = 1
-    datosEstudiante.semanaActual = semanaHoy
-    const semMat = {}
-    const parMat = {}
-    for (const m of MATERIAS_TODAS) {
-      semMat[m] = m === materia ? puntos : 0
-      parMat[m] = m === materia ? 1 : 0
-    }
-    datosEstudiante.puntosPorMateriaSemana = semMat
-    datosEstudiante.partidasPorMateriaSemana = parMat
-  }
-
+  // El puntaje semanal se calcula al leer (actual - baseline del podio/config)
   await setDoc(refEstudiante, datosEstudiante, { merge: true })
 
   return {
@@ -320,25 +296,93 @@ export async function guardarPartida({ hash, nombre, foto, juegoId, juegoNombre,
   }
 }
 
-// Devuelve todos los estudiantes con puntosSemana ajustado a 0 si su
-// semanaActual no coincide con la semana actual. Ordenar es tarea del cliente.
+// Lee el snapshot congelado del inicio de la semana. Weekly = actual - baseline.
+export async function leerConfigPodio() {
+  if (!firebaseHabilitado || !db) return { fechaInicioSemana: null, baselines: {} }
+  try {
+    const snap = await getDoc(doc(db, 'podio', 'config'))
+    return snap.exists() ? snap.data() : { fechaInicioSemana: null, baselines: {} }
+  } catch {
+    return { fechaInicioSemana: null, baselines: {} }
+  }
+}
+
+function conSemana(data, base) {
+  const b = base ?? {}
+  data.puntosSemana = Math.max(0, (data.puntosTotal ?? 0) - (b.puntosTotal ?? 0))
+  data.partidasSemana = Math.max(0, (data.partidasTotal ?? 0) - (b.partidasTotal ?? 0))
+  data.puntosPorMateriaSemana = {}
+  data.partidasPorMateriaSemana = {}
+  for (const m of MATERIAS_TODAS) {
+    data.puntosPorMateriaSemana[m] = Math.max(0, (data.puntosPorMateria?.[m] ?? 0) - (b.puntosPorMateria?.[m] ?? 0))
+    data.partidasPorMateriaSemana[m] = Math.max(0, (data.partidasPorMateria?.[m] ?? 0) - (b.partidasPorMateria?.[m] ?? 0))
+  }
+  return data
+}
+
 export async function leerPodio() {
   if (!firebaseHabilitado || !db) return []
-  const snap = await getDocs(collection(db, 'estudiantes'))
-  const semanaHoy = claveSemanaHoy()
-  return snap.docs.map((d) => ajustarSemana({ hash: d.id, ...d.data() }, semanaHoy))
+  const [snap, cfg] = await Promise.all([getDocs(collection(db, 'estudiantes')), leerConfigPodio()])
+  return snap.docs.map((d) => conSemana({ hash: d.id, ...d.data() }, cfg.baselines?.[d.id]))
 }
 
 export async function leerPodioPorMateria() {
   return await leerPodio()
 }
 
+// Snapshot congelado del inicio de la semana + medallas de podio para top 3
+export async function iniciarNuevaSemana() {
+  if (!firebaseHabilitado || !db) return { ok: false }
+  const estudiantes = await leerPodio()
+  const PODIOS = ['general', ...MATERIAS_TODAS]
+  const puntosDe = (e, pod) =>
+    pod === 'general' ? e.puntosSemana : e.puntosPorMateriaSemana?.[pod] ?? 0
+
+  const medallasPorEstudiante = {}
+  for (const pod of PODIOS) {
+    const rank = [...estudiantes]
+      .filter((e) => puntosDe(e, pod) > 0)
+      .sort((a, b) => puntosDe(b, pod) - puntosDe(a, pod))
+      .slice(0, 3)
+    rank.forEach((e, i) => {
+      const tipo = ['oro', 'plata', 'bronce'][i]
+      if (!medallasPorEstudiante[e.hash]) medallasPorEstudiante[e.hash] = {}
+      if (!medallasPorEstudiante[e.hash][pod]) medallasPorEstudiante[e.hash][pod] = {}
+      medallasPorEstudiante[e.hash][pod][tipo] = increment(1)
+    })
+  }
+
+  // Escribir medallas por estudiante
+  const escrituras = []
+  for (const [hash, meds] of Object.entries(medallasPorEstudiante)) {
+    escrituras.push(setDoc(doc(db, 'estudiantes', hash), { medallasPodio: meds }, { merge: true }))
+  }
+  await Promise.all(escrituras)
+
+  // Snapshot: baselines = totales actuales
+  const baselines = {}
+  for (const e of estudiantes) {
+    baselines[e.hash] = {
+      puntosTotal: e.puntosTotal ?? 0,
+      partidasTotal: e.partidasTotal ?? 0,
+      puntosPorMateria: { ...(e.puntosPorMateria ?? {}) },
+      partidasPorMateria: { ...(e.partidasPorMateria ?? {}) },
+    }
+  }
+  await setDoc(doc(db, 'podio', 'config'), {
+    fechaInicioSemana: fechaLocal(),
+    baselines,
+  })
+
+  return { ok: true, estudiantesConMedalla: Object.keys(medallasPorEstudiante).length }
+}
+
 export async function leerMisEstadisticas(hash) {
   if (!firebaseHabilitado || !db) return null
   const refEst = doc(db, 'estudiantes', hash)
-  const snap = await getDoc(refEst)
+  const [snap, cfg] = await Promise.all([getDoc(refEst), leerConfigPodio()])
   if (!snap.exists()) return null
-  const base = ajustarSemana(snap.data(), claveSemanaHoy())
+  const base = conSemana({ hash, ...snap.data() }, cfg.baselines?.[hash])
 
   const juegosSnap = await getDocs(collection(db, 'estudiantes', hash, 'juegos'))
   const juegos = {}

@@ -105,7 +105,8 @@ export default function Actividades() {
   const [juegoActivo, setJuegoActivo] = useState(null)
 
   const lista = useMemo(
-    () => JUEGOS.filter((j) => filtro === 'Todas' || j.materia === filtro),
+    // Los más nuevos van al principio (más abajo en el array = agregado después)
+    () => JUEGOS.filter((j) => filtro === 'Todas' || j.materia === filtro).slice().reverse(),
     [filtro],
   )
 
