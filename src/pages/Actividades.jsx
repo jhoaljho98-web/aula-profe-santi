@@ -10,6 +10,7 @@ import SistemasCuerpo from '../games/SistemasCuerpo.jsx'
 import Territorio from '../games/Territorio.jsx'
 import ColoresIngles from '../games/ColoresIngles.jsx'
 import NumerosIngles from '../games/NumerosIngles.jsx'
+import ProfesionesComunidad from '../games/ProfesionesComunidad.jsx'
 import LoginObligatorio from '../components/LoginObligatorio.jsx'
 import Avatar from '../components/Avatar.jsx'
 import { useEstudiante } from '../lib/estudiante'
@@ -102,6 +103,14 @@ const JUEGOS = [
     descripcion: 'Del 1 al 10 con audio, secuencias y sumas. ¡Escucha y aprende!',
     icono: '🔢',
     componente: NumerosIngles,
+  },
+  {
+    id: 'profesiones-comunidad',
+    titulo: 'Profesiones en mi comunidad',
+    materia: 'Sociales',
+    descripcion: 'Mineros, barequeros, arrieros, profes… ¿quién hace qué en Marmato?',
+    icono: '⛏️',
+    componente: ProfesionesComunidad,
   },
 ]
 
