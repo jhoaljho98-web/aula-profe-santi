@@ -9,6 +9,7 @@ import GeneroNumero from '../games/GeneroNumero.jsx'
 import SistemasCuerpo from '../games/SistemasCuerpo.jsx'
 import Territorio from '../games/Territorio.jsx'
 import ColoresIngles from '../games/ColoresIngles.jsx'
+import NumerosIngles from '../games/NumerosIngles.jsx'
 import LoginObligatorio from '../components/LoginObligatorio.jsx'
 import Avatar from '../components/Avatar.jsx'
 import { useEstudiante } from '../lib/estudiante'
@@ -93,6 +94,14 @@ const JUEGOS = [
     descripcion: 'Aprende cómo se dicen los colores en inglés jugando.',
     icono: '🎨',
     componente: ColoresIngles,
+  },
+  {
+    id: 'numeros-ingles',
+    titulo: 'Los números en inglés',
+    materia: 'Inglés',
+    descripcion: 'Del 1 al 10 con audio, secuencias y sumas. ¡Escucha y aprende!',
+    icono: '🔢',
+    componente: NumerosIngles,
   },
 ]
 

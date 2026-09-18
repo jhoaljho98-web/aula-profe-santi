@@ -1,7 +1,6 @@
 import QuizGenerico from './QuizGenerico.jsx'
+import { hablarEn } from '../lib/hablar'
 
-// Cada pregunta muestra el color como una "muestra" grande + pregunta en español,
-// las opciones son los nombres en inglés
 const COLORES = [
   { es: 'Rojo',      en: 'Red',    hex: '#dc2626' },
   { es: 'Azul',      en: 'Blue',   hex: '#2563eb' },
@@ -16,46 +15,68 @@ const COLORES = [
   { es: 'Gris',      en: 'Gray',   hex: '#6b7280' },
 ]
 
-function CuadroColor({ hex }) {
+function CuadroColor({ hex, size = 96 }) {
   return (
     <span
-      className="inline-block w-24 h-24 rounded-2xl shadow-lg border-2 border-gray-300"
-      style={{ backgroundColor: hex }}
+      className="inline-block rounded-2xl shadow-lg border-2 border-gray-300"
+      style={{ backgroundColor: hex, width: size, height: size }}
     />
   )
 }
 
+function BotonAudio({ palabra }) {
+  return (
+    <button
+      onClick={(e) => { e.stopPropagation(); hablarEn(palabra) }}
+      className="text-5xl bg-red-500 hover:bg-red-600 text-white rounded-full w-28 h-28 flex items-center justify-center shadow-xl mx-auto transition-transform active:scale-95"
+      title="Escuchar"
+    >
+      🔊
+    </button>
+  )
+}
+
+function otros(c, k = 3) {
+  return COLORES.filter((x) => x.en !== c.en).sort(() => Math.random() - 0.5).slice(0, k)
+}
+
 function generarBanco() {
   const banco = []
-  // Tipo 1: color visual -> nombre en inglés
+  // 🎨 Modo 1: color visual → palabra
   for (const c of COLORES) {
-    const otros = COLORES.filter((x) => x.en !== c.en).sort(() => Math.random() - 0.5).slice(0, 3)
-    const opciones = [c, ...otros].sort(() => Math.random() - 0.5)
+    const ops = [c, ...otros(c)].sort(() => Math.random() - 0.5)
     banco.push({
-      enunciado: 'Mira el color: ¿cómo se dice en inglés?',
+      enunciado: '🎨 Mira el color y elige la palabra en inglés',
       pregunta: <CuadroColor hex={c.hex} />,
-      opciones: opciones.map((o) => o.en),
-      correcta: opciones.findIndex((o) => o.en === c.en),
+      opciones: ops.map((o) => o.en),
+      correcta: ops.findIndex((o) => o.en === c.en),
     })
   }
-  // Tipo 2: nombre en inglés -> elegir el cuadro de color
+  // 🔤 Modo 2: palabra en inglés → color
   for (const c of COLORES) {
-    const otros = COLORES.filter((x) => x.en !== c.en).sort(() => Math.random() - 0.5).slice(0, 3)
-    const opciones = [c, ...otros].sort(() => Math.random() - 0.5)
+    const ops = [c, ...otros(c)].sort(() => Math.random() - 0.5)
     banco.push({
-      enunciado: `Elige el color que corresponde a esta palabra en inglés:`,
-      pregunta: <span className="uppercase tracking-wide">{c.en}</span>,
-      opciones: opciones.map((o) => (
-        <CuadroColor key={o.en} hex={o.hex} />
-      )),
-      correcta: opciones.findIndex((o) => o.en === c.en),
+      enunciado: '🔤 Elige el color que corresponde a esta palabra',
+      pregunta: <span className="uppercase tracking-widest">{c.en}</span>,
+      opciones: ops.map((o) => <CuadroColor key={o.en} hex={o.hex} size={72} />),
+      correcta: ops.findIndex((o) => o.en === c.en),
+    })
+  }
+  // 🔊 Modo 3: escucha → color
+  for (const c of COLORES) {
+    const ops = [c, ...otros(c)].sort(() => Math.random() - 0.5)
+    banco.push({
+      enunciado: '🔊 Escucha la palabra y elige el color',
+      pregunta: <BotonAudio palabra={c.en} />,
+      opciones: ops.map((o) => <CuadroColor key={o.en} hex={o.hex} size={72} />),
+      correcta: ops.findIndex((o) => o.en === c.en),
     })
   }
   return banco
 }
 
 export default function ColoresIngles({ onExit }) {
-  const preguntas = generarBanco().sort(() => Math.random() - 0.5).slice(0, 10)
+  const preguntas = generarBanco().sort(() => Math.random() - 0.5).slice(0, 15)
   return (
     <QuizGenerico
       juegoId="colores-ingles"
