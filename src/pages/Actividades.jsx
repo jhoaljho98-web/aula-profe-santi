@@ -19,6 +19,7 @@ import FamiliaIngles from '../games/FamiliaIngles.jsx'
 import PresentacionIngles from '../games/PresentacionIngles.jsx'
 import UnidadesMil from '../games/UnidadesMil.jsx'
 import RetoExperto from '../games/RetoExperto.jsx'
+import EscrituraCastellano from '../games/EscrituraCastellano.jsx'
 import LoginObligatorio from '../components/LoginObligatorio.jsx'
 import Avatar from '../components/Avatar.jsx'
 import { useEstudiante } from '../lib/estudiante'
@@ -199,6 +200,14 @@ const JUEGOS = [
     descripcion: '🏆 ¡El desafío más grande! Números del 1.000 al 999.999. ¿Puedes con esto?',
     icono: '🏆',
     componente: RetoExperto,
+  },
+  {
+    id: 'escritura-castellano',
+    titulo: 'Escribo lo que veo y escucho',
+    materia: 'Castellano',
+    descripcion: '✍️ Ve imágenes o escucha dictados y escribe. ¡Cuida la ortografía!',
+    icono: '✍️',
+    componente: EscrituraCastellano,
   },
 ]
 
