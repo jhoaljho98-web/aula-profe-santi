@@ -25,7 +25,7 @@ const PROFESIONES = [
 // Descripciones (para el modo "adivina la profesión")
 const DESCRIPCIONES = {
   Minero: 'Baja a los socavones a sacar oro con pica y linterna.',
-  Barequero: 'Trabaja al pie de las quebradas y ríos con un cajón y una malla buscando oro.',
+  Barequero: 'Trabaja al pie de la quebrada o el río con un cajón y una malla buscando oro.',
   Agricultor: 'Siembra semillas, cuida las plantas y recoge la cosecha.',
   Conductor: 'Maneja volquetas, retroexcavadoras o buses para transportar.',
   Arriero: 'Lleva cargas de un lugar a otro con mulas y caballos por los caminos.',
