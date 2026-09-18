@@ -3,7 +3,7 @@ import QuizGenerico from './QuizGenerico.jsx'
 // Profesiones con emoji y contexto local de Marmato
 const PROFESIONES = [
   { nombre: 'Minero',       emoji: '⛏️',   lugar: 'La mina',        herramienta: 'Pica y linterna',       marmato: true  },
-  { nombre: 'Barequero',    emoji: '🪙',   lugar: 'Quebradas o ríos',herramienta: 'Cajón y malla',         marmato: true  },
+  { nombre: 'Barequero',    emoji: '🌊🪙',   lugar: 'Quebradas o ríos',herramienta: 'Cajón y malla',         marmato: true  },
   { nombre: 'Agricultor',   emoji: '🌾',   lugar: 'El campo',        herramienta: 'Azadón',                marmato: true  },
   { nombre: 'Conductor',    emoji: '🚛',   lugar: 'En las calles',   herramienta: 'Volante',               marmato: true  },
   { nombre: 'Arriero',      emoji: '🐴',   lugar: 'Los caminos',     herramienta: 'Mulas y bultos',        marmato: true  },
@@ -112,13 +112,13 @@ function generarBanco() {
   const marmatoPreguntas = [
     {
       enunciado: '🏘️ En Marmato es MUY común esta profesión porque el pueblo es minero:',
-      pregunta: '⛏️🪙 Sacar oro de la tierra',
+      pregunta: '⛏️🌊🪙 Sacar oro de la tierra',
       opciones: ['Minero', 'Panadero', 'Bombero', 'Ingeniero'],
       correcta: 0,
     },
     {
       enunciado: '🌊 El barequero trabaja con...',
-      pregunta: '🪙 Herramientas artesanales',
+      pregunta: '🌊🪙 Herramientas artesanales',
       opciones: ['Un cajón y una malla en quebradas o ríos', 'Un martillo grande', 'Una computadora', 'Un tractor'],
       correcta: 0,
     },
