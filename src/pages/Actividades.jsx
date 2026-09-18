@@ -17,6 +17,8 @@ import {
 } from '../games/SistemasEspecificos.jsx'
 import FamiliaIngles from '../games/FamiliaIngles.jsx'
 import PresentacionIngles from '../games/PresentacionIngles.jsx'
+import UnidadesMil from '../games/UnidadesMil.jsx'
+import RetoExperto from '../games/RetoExperto.jsx'
 import LoginObligatorio from '../components/LoginObligatorio.jsx'
 import Avatar from '../components/Avatar.jsx'
 import { useEstudiante } from '../lib/estudiante'
@@ -181,6 +183,22 @@ const JUEGOS = [
     descripcion: 'Hello, my name is… Good morning, goodbye. ¡Aprende a saludar!',
     icono: '👋',
     componente: PresentacionIngles,
+  },
+  {
+    id: 'unidades-mil',
+    titulo: 'Unidades, decenas y centenas de mil',
+    materia: 'Matemáticas',
+    descripcion: 'Aprende el valor posicional en números de 5 y 6 cifras.',
+    icono: '🔢',
+    componente: UnidadesMil,
+  },
+  {
+    id: 'reto-experto',
+    titulo: 'Reto nivel experto',
+    materia: 'Matemáticas',
+    descripcion: '🏆 ¡El desafío más grande! Números del 1.000 al 999.999. ¿Puedes con esto?',
+    icono: '🏆',
+    componente: RetoExperto,
   },
 ]
 
