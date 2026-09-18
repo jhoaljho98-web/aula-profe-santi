@@ -63,8 +63,12 @@ export default function QuizGenerico({ juegoId, juegoNombre, materia, preguntas,
         <div className="h-full bg-institucional-verde transition-all" style={{ width: `${((i + 1) / preguntas.length) * 100}%` }} />
       </div>
       <div className="card text-center py-6">
-        {p.enunciado && <p className="text-sm text-gray-600 mb-2">{p.enunciado}</p>}
-        <div className="font-display font-bold text-3xl md:text-4xl text-institucional-verdeOscuro py-3">
+        {p.enunciado && (
+          <p className="font-display font-bold text-xl md:text-2xl text-institucional-verdeOscuro leading-snug mb-3 px-2">
+            {p.enunciado}
+          </p>
+        )}
+        <div className="text-2xl md:text-3xl text-gray-700 py-2">
           {p.pregunta}
         </div>
       </div>
