@@ -23,13 +23,16 @@ function otrosNum(n, k = 3) {
 
 function BotonAudio({ palabra }) {
   return (
-    <button
-      onClick={(e) => { e.stopPropagation(); hablarEn(palabra) }}
-      className="text-5xl bg-red-500 hover:bg-red-600 text-white rounded-full w-28 h-28 flex items-center justify-center shadow-xl mx-auto transition-transform active:scale-95"
-      title="Escuchar"
-    >
-      🔊
-    </button>
+    <div className="flex flex-col items-center gap-3">
+      <button
+        onClick={(e) => { e.stopPropagation(); hablarEn(palabra) }}
+        className="text-4xl bg-red-500 hover:bg-red-600 text-white rounded-full w-24 h-24 flex items-center justify-center shadow-xl transition-transform active:scale-95"
+        title="Tocar para volver a escuchar"
+      >
+        🔊
+      </button>
+      <span className="font-display font-bold text-3xl uppercase tracking-widest text-institucional-verdeOscuro">{palabra}</span>
+    </div>
   )
 }
 
