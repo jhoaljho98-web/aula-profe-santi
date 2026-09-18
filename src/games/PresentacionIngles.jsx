@@ -1,5 +1,48 @@
+import { useState } from 'react'
 import QuizGenerico from './QuizGenerico.jsx'
 import { hablarEn } from '../lib/hablar'
+import PalabraAudio from '../components/PalabraAudio.jsx'
+import TarjetasAprendizaje from '../components/TarjetasAprendizaje.jsx'
+
+const TARJETAS = [
+  // Saludos
+  { visual: <div className="text-8xl">👋</div>, en: 'Hello', es: 'Hola', audio: 'Hello' },
+  { visual: <div className="text-8xl">🙋</div>, en: 'Hi', es: 'Hola (informal)', audio: 'Hi' },
+  { visual: <div className="text-8xl">🌅</div>, en: 'Good morning', es: 'Buenos días', audio: 'Good morning' },
+  { visual: <div className="text-8xl">☀️</div>, en: 'Good afternoon', es: 'Buenas tardes', audio: 'Good afternoon' },
+  { visual: <div className="text-8xl">🌇</div>, en: 'Good evening', es: 'Buenas noches (al llegar)', audio: 'Good evening' },
+  { visual: <div className="text-8xl">😴</div>, en: 'Good night', es: 'Buenas noches (al dormir)', audio: 'Good night' },
+  // Cortesía
+  { visual: <div className="text-8xl">🤝</div>, en: 'How are you?', es: '¿Cómo estás?', audio: 'How are you?' },
+  { visual: <div className="text-8xl">😊</div>, en: "I'm fine, thank you", es: 'Estoy bien, gracias', audio: "I'm fine, thank you" },
+  { visual: <div className="text-8xl">🤗</div>, en: 'Nice to meet you', es: 'Encantado(a) de conocerte', audio: 'Nice to meet you' },
+  // Presentación
+  { visual: <div className="text-8xl">👤</div>, en: 'What is your name?', es: '¿Cómo te llamas?', audio: 'What is your name?' },
+  { visual: <div className="text-8xl">👤</div>, en: 'My name is…', es: 'Mi nombre es…', audio: 'My name is' },
+  { visual: <div className="text-8xl">🎂</div>, en: 'How old are you?', es: '¿Cuántos años tienes?', audio: 'How old are you?' },
+  { visual: <div className="text-8xl">🎂</div>, en: "I'm 7 years old", es: 'Tengo 7 años', audio: "I'm 7 years old" },
+  // Despedidas
+  { visual: <div className="text-8xl">👋</div>, en: 'Goodbye', es: 'Adiós', audio: 'Goodbye' },
+  { visual: <div className="text-8xl">👋</div>, en: 'Bye', es: 'Chao (informal)', audio: 'Bye' },
+  { visual: <div className="text-8xl">🕐</div>, en: 'See you later', es: 'Hasta luego', audio: 'See you later' },
+  { visual: <div className="text-8xl">📅</div>, en: 'See you tomorrow', es: 'Nos vemos mañana', audio: 'See you tomorrow' },
+  // Palabras mágicas
+  { visual: <div className="text-8xl">🙏</div>, en: 'Thank you', es: 'Gracias', audio: 'Thank you' },
+  { visual: <div className="text-8xl">🙏</div>, en: 'Thanks', es: 'Gracias (informal)', audio: 'Thanks' },
+  { visual: <div className="text-8xl">🎁</div>, en: "You're welcome", es: 'De nada', audio: "You're welcome" },
+  { visual: <div className="text-8xl">🙏</div>, en: 'Please', es: 'Por favor', audio: 'Please' },
+  { visual: <div className="text-8xl">😔</div>, en: 'Sorry', es: 'Disculpa / Lo siento', audio: 'Sorry' },
+  { visual: <div className="text-8xl">🚶</div>, en: 'Excuse me', es: 'Con permiso', audio: 'Excuse me' },
+]
+
+// Detecta si una cadena parece inglés (para envolver con audio automáticamente)
+const RE_ES = /[áéíóúñ¿¡]|hola|adiós|encantado|buenos días|buenas noches|buenas tardes|gracias|cómo|estás|mi nombre|mi profe|cuál|cuántos|años|significa|traducción|dice|respondo|disculpa|con permiso|lo siento|nos vemos|hasta|de nada|por favor|no,|sí,|apellido|chao/i
+function esIngles(s) {
+  return typeof s === 'string' && !RE_ES.test(s)
+}
+function autoAudio(arr) {
+  return arr.map((o) => (esIngles(o) ? <PalabraAudio texto={o} /> : o))
+}
 
 function BotonAudio({ palabra }) {
   return (
@@ -81,7 +124,24 @@ const BANCO = [
 ]
 
 export default function PresentacionIngles({ onExit }) {
-  const preguntas = [...BANCO].sort(() => Math.random() - 0.5).slice(0, 15)
+  const [enJuego, setEnJuego] = useState(false)
+  const [preguntas] = useState(() => (
+    [...BANCO].sort(() => Math.random() - 0.5).slice(0, 15)
+      .map((q) => ({ ...q, opciones: autoAudio(q.opciones) }))
+  ))
+
+  if (!enJuego) {
+    return (
+      <TarjetasAprendizaje
+        titulo="Saludos y presentación en inglés"
+        subtitulo="Aprende las frases más importantes. Toca 🔊 para escuchar."
+        tarjetas={TARJETAS}
+        onListo={() => setEnJuego(true)}
+        onExit={onExit}
+      />
+    )
+  }
+
   return (
     <QuizGenerico
       juegoId="presentacion-ingles"

@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import QuizGenerico from './QuizGenerico.jsx'
 import { hablarEn } from '../lib/hablar'
+import PalabraAudio from '../components/PalabraAudio.jsx'
+import TarjetasAprendizaje from '../components/TarjetasAprendizaje.jsx'
 
 const NUMEROS = [
   { num: 1, en: 'one', emoji: '⭐' },
@@ -13,6 +16,18 @@ const NUMEROS = [
   { num: 9, en: 'nine', emoji: '⚽' },
   { num: 10, en: 'ten', emoji: '🐟' },
 ]
+
+const TARJETAS = NUMEROS.map((n) => ({
+  visual: (
+    <div className="flex items-center justify-center gap-4">
+      <span className="text-8xl font-black text-institucional-verdeOscuro">{n.num}</span>
+      <span className="text-6xl">{n.emoji}</span>
+    </div>
+  ),
+  en: n.en.toUpperCase(),
+  es: `${n.num} en español`,
+  audio: n.en,
+}))
 
 function otrosEn(n, k = 3) {
   return NUMEROS.filter((x) => x.en !== n.en).sort(() => Math.random() - 0.5).slice(0, k)
@@ -39,34 +54,30 @@ function BotonAudio({ palabra }) {
 function generarBanco() {
   const banco = []
 
-  // 🧮 Modo 1: Cuenta los objetos → elige la palabra en inglés
   for (const n of NUMEROS) {
     const ops = [n, ...otrosEn(n)].sort(() => Math.random() - 0.5)
-    const grid = (
-      <div className="flex flex-wrap justify-center gap-1 text-4xl md:text-5xl px-4 max-w-md mx-auto">
-        {Array.from({ length: n.num }).map((_, i) => <span key={i}>{n.emoji}</span>)}
-      </div>
-    )
     banco.push({
       enunciado: '🧮 Cuenta y elige el número en inglés',
-      pregunta: grid,
-      opciones: ops.map((o) => o.en),
+      pregunta: (
+        <div className="flex flex-wrap justify-center gap-1 text-4xl md:text-5xl px-4 max-w-md mx-auto">
+          {Array.from({ length: n.num }).map((_, i) => <span key={i}>{n.emoji}</span>)}
+        </div>
+      ),
+      opciones: ops.map((o) => <PalabraAudio texto={o.en} />),
       correcta: ops.findIndex((o) => o.en === n.en),
     })
   }
 
-  // 🔤 Modo 2: Palabra en inglés → dígito
   for (const n of NUMEROS) {
     const ops = [n, ...otrosNum(n)].sort(() => Math.random() - 0.5)
     banco.push({
       enunciado: '🔤 Elige el número que corresponde a esta palabra',
-      pregunta: <span className="uppercase tracking-widest">{n.en}</span>,
+      pregunta: <PalabraAudio texto={n.en} size="lg" />,
       opciones: ops.map((o) => String(o.num)),
       correcta: ops.findIndex((o) => o.num === n.num),
     })
   }
 
-  // 🔊 Modo 3: Audio → dígito
   for (const n of NUMEROS) {
     const ops = [n, ...otrosNum(n)].sort(() => Math.random() - 0.5)
     banco.push({
@@ -77,25 +88,22 @@ function generarBanco() {
     })
   }
 
-  // 🔢 Modo 4: Secuencia — llena el hueco
   for (const n of NUMEROS.slice(1, 9)) {
     const ops = [n, ...otrosEn(n)].sort(() => Math.random() - 0.5)
-    const secuencia = (
-      <div className="flex items-center justify-center gap-3 text-4xl md:text-5xl">
-        <span className="text-gray-600">{n.num - 1}</span>
-        <span className="text-institucional-verde font-black text-6xl md:text-7xl">?</span>
-        <span className="text-gray-600">{n.num + 1}</span>
-      </div>
-    )
     banco.push({
       enunciado: '🔢 ¿Qué número va en el medio? (Responde en inglés)',
-      pregunta: secuencia,
-      opciones: ops.map((o) => o.en),
+      pregunta: (
+        <div className="flex items-center justify-center gap-3 text-4xl md:text-5xl">
+          <span className="text-gray-600">{n.num - 1}</span>
+          <span className="text-institucional-verde font-black text-6xl md:text-7xl">?</span>
+          <span className="text-gray-600">{n.num + 1}</span>
+        </div>
+      ),
+      opciones: ops.map((o) => <PalabraAudio texto={o.en} />),
       correcta: ops.findIndex((o) => o.en === n.en),
     })
   }
 
-  // ➕ Modo 5: Mini-sumas con respuesta en inglés
   for (let i = 0; i < 8; i++) {
     const a = Math.floor(Math.random() * 5) + 1
     const b = Math.floor(Math.random() * (10 - a)) + 1
@@ -105,7 +113,7 @@ function generarBanco() {
     banco.push({
       enunciado: '➕ Suma y elige el resultado en inglés',
       pregunta: <span className="font-black">{a} + {b} = ?</span>,
-      opciones: ops.map((o) => o.en),
+      opciones: ops.map((o) => <PalabraAudio texto={o.en} />),
       correcta: ops.findIndex((o) => o.en === resultado.en),
     })
   }
@@ -114,7 +122,21 @@ function generarBanco() {
 }
 
 export default function NumerosIngles({ onExit }) {
-  const preguntas = generarBanco().sort(() => Math.random() - 0.5).slice(0, 15)
+  const [enJuego, setEnJuego] = useState(false)
+  const [preguntas] = useState(() => generarBanco().sort(() => Math.random() - 0.5).slice(0, 15))
+
+  if (!enJuego) {
+    return (
+      <TarjetasAprendizaje
+        titulo="Los números del 1 al 10 en inglés"
+        subtitulo="Antes de jugar, aprende cada número. Toca 🔊 para escuchar."
+        tarjetas={TARJETAS}
+        onListo={() => setEnJuego(true)}
+        onExit={onExit}
+      />
+    )
+  }
+
   return (
     <QuizGenerico
       juegoId="numeros-ingles"

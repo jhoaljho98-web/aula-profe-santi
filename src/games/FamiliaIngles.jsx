@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import QuizGenerico from './QuizGenerico.jsx'
 import { hablarEn } from '../lib/hablar'
+import PalabraAudio from '../components/PalabraAudio.jsx'
+import TarjetasAprendizaje from '../components/TarjetasAprendizaje.jsx'
 
 const FAMILIA = [
   { es: 'Padre / Papá',    en: 'Father',       emoji: '👨' },
@@ -19,6 +22,13 @@ const FAMILIA = [
   { es: 'Bebé',            en: 'Baby',         emoji: '👶' },
   { es: 'Familia',         en: 'Family',       emoji: '👨‍👩‍👧‍👦' },
 ]
+
+const TARJETAS = FAMILIA.map((f) => ({
+  visual: <div className="text-8xl">{f.emoji}</div>,
+  en: f.en.toUpperCase(),
+  es: f.es,
+  audio: f.en,
+}))
 
 function BotonAudio({ palabra }) {
   return (
@@ -42,29 +52,26 @@ function otros(f, campo = 'en', k = 3) {
 function generarBanco() {
   const banco = []
 
-  // 🎭 Modo 1: emoji → nombre en inglés
   for (const f of FAMILIA) {
     const ops = [f, ...otros(f)].sort(() => Math.random() - 0.5)
     banco.push({
       enunciado: '🎭 Elige la palabra en inglés que representa a esta persona',
       pregunta: <span className="text-7xl md:text-8xl">{f.emoji}</span>,
-      opciones: ops.map((o) => o.en),
+      opciones: ops.map((o) => <PalabraAudio texto={o.en} />),
       correcta: ops.findIndex((o) => o.en === f.en),
     })
   }
 
-  // 🔤 Modo 2: palabra en inglés → traducción al español
   for (const f of FAMILIA) {
     const ops = [f, ...otros(f, 'es')].sort(() => Math.random() - 0.5)
     banco.push({
       enunciado: '🔤 ¿Qué significa esta palabra en español?',
-      pregunta: <span className="uppercase tracking-widest">{f.en}</span>,
+      pregunta: <PalabraAudio texto={f.en} size="lg" />,
       opciones: ops.map((o) => o.es),
       correcta: ops.findIndex((o) => o.es === f.es),
     })
   }
 
-  // 🔊 Modo 3: escuchar → elegir el familiar (emoji + nombre)
   for (const f of FAMILIA) {
     const ops = [f, ...otros(f)].sort(() => Math.random() - 0.5)
     banco.push({
@@ -80,7 +87,6 @@ function generarBanco() {
     })
   }
 
-  // 👨‍👩‍👧‍👦 Modo 4: relaciones familiares
   const relaciones = [
     { enunciado: 'El padre de mi padre es mi...', pregunta: '👴', opciones: ['Grandfather', 'Uncle', 'Cousin', 'Brother'], correcta: 0 },
     { enunciado: 'La madre de mi madre es mi...', pregunta: '👵', opciones: ['Grandmother', 'Aunt', 'Sister', 'Daughter'], correcta: 0 },
@@ -88,18 +94,37 @@ function generarBanco() {
     { enunciado: 'El hermano de mi papá es mi...', pregunta: '🧔', opciones: ['Uncle', 'Grandfather', 'Brother', 'Husband'], correcta: 0 },
     { enunciado: 'El hijo de mi tío es mi...', pregunta: '🧒', opciones: ['Cousin', 'Brother', 'Uncle', 'Father'], correcta: 0 },
     { enunciado: 'La hija de mis papás (y hermana mía) es mi...', pregunta: '👧', opciones: ['Sister', 'Cousin', 'Aunt', 'Mother'], correcta: 0 },
-    { enunciado: 'Yo soy el ___ de mis padres:', pregunta: '¿Qué soy?', opciones: ['Son (si es niño) / Daughter (si es niña)', 'Uncle', 'Cousin', 'Husband'], correcta: 0 },
     { enunciado: 'La esposa de mi papá es mi...', pregunta: '👩', opciones: ['Mother', 'Sister', 'Aunt', 'Grandmother'], correcta: 0 },
     { enunciado: 'Un grupo de familiares se llama en inglés:', pregunta: '👨‍👩‍👧‍👦', opciones: ['Family', 'Team', 'School', 'City'], correcta: 0 },
     { enunciado: 'My father and my mother are my...', pregunta: '¿En inglés?', opciones: ['Parents', 'Cousins', 'Brothers', 'Grandparents'], correcta: 0 },
   ]
-  banco.push(...relaciones.map((p) => ({ ...p, pregunta: typeof p.pregunta === 'string' ? <span className="text-5xl">{p.pregunta}</span> : p.pregunta })))
+  banco.push(...relaciones.map((p) => ({
+    ...p,
+    pregunta: typeof p.pregunta === 'string' && p.pregunta.length <= 3
+      ? <span className="text-6xl">{p.pregunta}</span>
+      : <span>{p.pregunta}</span>,
+    opciones: p.opciones.map((op) => <PalabraAudio texto={op} />),
+  })))
 
   return banco
 }
 
 export default function FamiliaIngles({ onExit }) {
-  const preguntas = generarBanco().sort(() => Math.random() - 0.5).slice(0, 15)
+  const [enJuego, setEnJuego] = useState(false)
+  const [preguntas] = useState(() => generarBanco().sort(() => Math.random() - 0.5).slice(0, 15))
+
+  if (!enJuego) {
+    return (
+      <TarjetasAprendizaje
+        titulo="La familia en inglés"
+        subtitulo="Aprende los miembros de tu familia. Toca 🔊 para escuchar."
+        tarjetas={TARJETAS}
+        onListo={() => setEnJuego(true)}
+        onExit={onExit}
+      />
+    )
+  }
+
   return (
     <QuizGenerico
       juegoId="familia-ingles"

@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import QuizGenerico from './QuizGenerico.jsx'
 import { hablarEn } from '../lib/hablar'
+import PalabraAudio from '../components/PalabraAudio.jsx'
+import TarjetasAprendizaje from '../components/TarjetasAprendizaje.jsx'
 
 const COLORES = [
   { es: 'Rojo',      en: 'Red',    hex: '#dc2626' },
@@ -24,6 +27,13 @@ function CuadroColor({ hex, size = 96 }) {
   )
 }
 
+const TARJETAS = COLORES.map((c) => ({
+  visual: <CuadroColor hex={c.hex} size={140} />,
+  en: c.en.toUpperCase(),
+  es: c.es,
+  audio: c.en,
+}))
+
 function BotonAudio({ palabra }) {
   return (
     <div className="flex flex-col items-center gap-3">
@@ -45,27 +55,24 @@ function otros(c, k = 3) {
 
 function generarBanco() {
   const banco = []
-  // 🎨 Modo 1: color visual → palabra
   for (const c of COLORES) {
     const ops = [c, ...otros(c)].sort(() => Math.random() - 0.5)
     banco.push({
       enunciado: '🎨 Mira el color y elige la palabra en inglés',
       pregunta: <CuadroColor hex={c.hex} />,
-      opciones: ops.map((o) => o.en),
+      opciones: ops.map((o) => <PalabraAudio texto={o.en} />),
       correcta: ops.findIndex((o) => o.en === c.en),
     })
   }
-  // 🔤 Modo 2: palabra en inglés → color
   for (const c of COLORES) {
     const ops = [c, ...otros(c)].sort(() => Math.random() - 0.5)
     banco.push({
       enunciado: '🔤 Elige el color que corresponde a esta palabra',
-      pregunta: <span className="uppercase tracking-widest">{c.en}</span>,
+      pregunta: <PalabraAudio texto={c.en} size="lg" />,
       opciones: ops.map((o) => <CuadroColor key={o.en} hex={o.hex} size={72} />),
       correcta: ops.findIndex((o) => o.en === c.en),
     })
   }
-  // 🔊 Modo 3: escucha → color
   for (const c of COLORES) {
     const ops = [c, ...otros(c)].sort(() => Math.random() - 0.5)
     banco.push({
@@ -79,7 +86,21 @@ function generarBanco() {
 }
 
 export default function ColoresIngles({ onExit }) {
-  const preguntas = generarBanco().sort(() => Math.random() - 0.5).slice(0, 15)
+  const [enJuego, setEnJuego] = useState(false)
+  const [preguntas] = useState(() => generarBanco().sort(() => Math.random() - 0.5).slice(0, 15))
+
+  if (!enJuego) {
+    return (
+      <TarjetasAprendizaje
+        titulo="Los colores en inglés"
+        subtitulo="Aprende cómo se dice cada color. Toca 🔊 para escuchar."
+        tarjetas={TARJETAS}
+        onListo={() => setEnJuego(true)}
+        onExit={onExit}
+      />
+    )
+  }
+
   return (
     <QuizGenerico
       juegoId="colores-ingles"
