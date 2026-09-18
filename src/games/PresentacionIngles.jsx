@@ -58,6 +58,26 @@ const BANCO = [
   { enunciado: '📝 Ordena mentalmente y elige la oración correcta para presentarse:', pregunta: 'Presentación', opciones: ['Hello, my name is Camila', 'Hello, name my Camila is', 'Camila hello is name', 'My hello Camila name is'], correcta: 0 },
   { enunciado: '📝 ¿Cuál es la respuesta CORRECTA a "Hello, how are you?"', pregunta: 'Diálogo', opciones: ["Hello! I'm fine, thank you", 'Yes I have', 'Good bye teacher', 'My name is teacher'], correcta: 0 },
   { enunciado: '📝 Elige el diálogo correcto:', pregunta: 'Nos presentamos', opciones: ['—What is your name? —My name is Luis', '—My name Luis? —What is your', '—Hello name Luis. —My what is', '—Fine Luis is'], correcta: 0 },
+
+  // ========== PALABRAS MÁGICAS ==========
+  { enunciado: '🙏 ¿Cómo se dice "Gracias" en inglés?', pregunta: 'Gracias', opciones: ['Thank you', 'Please', 'Sorry', 'Hello'], correcta: 0 },
+  { enunciado: '🙏 Una forma corta de decir "Gracias":', pregunta: 'Informal', opciones: ['Thanks', 'Bye', 'Yes', 'Good'], correcta: 0 },
+  { enunciado: '🎁 ¿Cómo respondes cuando alguien te dice "Thank you"?', pregunta: 'De nada', opciones: ["You're welcome", "Thank you", "Please", "Goodbye"], correcta: 0 },
+  { enunciado: '🙏 ¿Cómo se dice "Por favor" en inglés?', pregunta: 'Por favor', opciones: ['Please', 'Thanks', 'Sorry', 'Hi'], correcta: 0 },
+  { enunciado: '😔 ¿Cómo se dice "Disculpa" o "Perdón"?', pregunta: 'Disculpa', opciones: ['Sorry', 'Please', 'Thanks', 'Hello'], correcta: 0 },
+  { enunciado: '🚶 ¿Cómo pides "Con permiso" para pasar?', pregunta: 'Con permiso', opciones: ['Excuse me', 'Sorry', 'Please', 'Thank you'], correcta: 0 },
+  { enunciado: '🙋 ¿Cómo llamas la atención de tu profe educadamente?', pregunta: '¡Profe!', opciones: ['Excuse me, teacher', 'Hey teacher', 'Bye teacher', 'Good teacher'], correcta: 0 },
+  { enunciado: '"Yes, please" significa:', pregunta: 'Traducción', opciones: ['Sí, por favor', 'No, gracias', 'Adiós', 'Disculpa'], correcta: 0 },
+  { enunciado: '"No, thank you" significa:', pregunta: 'Traducción', opciones: ['No, gracias', 'Sí, por favor', 'Disculpa', 'Buenos días'], correcta: 0 },
+  { enunciado: '🍎 La profe te da una manzana, ¿qué dices?', pregunta: 'Educación', opciones: ['Thank you', 'Sorry', 'Please', 'Goodbye'], correcta: 0 },
+  { enunciado: '💥 Choqué a mi compañero sin querer, ¿qué digo?', pregunta: 'Educación', opciones: ["I'm sorry", 'Thank you', 'Hello', 'Please'], correcta: 0 },
+  { enunciado: '📖 Quiero pedir un lápiz prestado. Digo:', pregunta: 'Educación', opciones: ['Can you help me, please?', 'Goodbye lápiz', 'My name is lápiz', 'Sorry lápiz'], correcta: 0 },
+
+  // ========== ESCUCHA — palabras mágicas ==========
+  { enunciado: '🔊 Escucha y elige lo que significa:', pregunta: <BotonAudio palabra="Thank you very much" />, opciones: ['Muchas gracias', 'Buenos días', 'De nada', 'Disculpa'], correcta: 0 },
+  { enunciado: '🔊 Escucha y responde:', pregunta: <BotonAudio palabra="You're welcome" />, opciones: ['De nada', 'Gracias', 'Adiós', 'Encantado'], correcta: 0 },
+  { enunciado: '🔊 Escucha:', pregunta: <BotonAudio palabra="Excuse me, please" />, opciones: ['Con permiso, por favor', 'Muchas gracias', 'Hasta mañana', 'Buenas noches'], correcta: 0 },
+  { enunciado: '🔊 Escucha:', pregunta: <BotonAudio palabra="I'm sorry" />, opciones: ['Lo siento / Disculpa', 'Buenos días', 'Encantado', 'Estoy bien'], correcta: 0 },
 ]
 
 export default function PresentacionIngles({ onExit }) {
