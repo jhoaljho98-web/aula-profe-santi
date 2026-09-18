@@ -15,6 +15,8 @@ import {
   JuegoDigestivo, JuegoOseo, JuegoMuscular,
   JuegoCirculatorio, JuegoNervioso, JuegoRespiratorio,
 } from '../games/SistemasEspecificos.jsx'
+import FamiliaIngles from '../games/FamiliaIngles.jsx'
+import PresentacionIngles from '../games/PresentacionIngles.jsx'
 import LoginObligatorio from '../components/LoginObligatorio.jsx'
 import Avatar from '../components/Avatar.jsx'
 import { useEstudiante } from '../lib/estudiante'
@@ -163,6 +165,22 @@ const JUEGOS = [
     descripcion: 'Pulmones, nariz, tráquea. ¡Aprende cómo respiras!',
     icono: '🫁',
     componente: JuegoRespiratorio,
+  },
+  {
+    id: 'familia-ingles',
+    titulo: 'La familia en inglés',
+    materia: 'Inglés',
+    descripcion: 'Father, mother, brother, sister… ¡Aprende a tu familia en inglés!',
+    icono: '👨‍👩‍👧‍👦',
+    componente: FamiliaIngles,
+  },
+  {
+    id: 'presentacion-ingles',
+    titulo: 'Saludos y presentación en inglés',
+    materia: 'Inglés',
+    descripcion: 'Hello, my name is… Good morning, goodbye. ¡Aprende a saludar!',
+    icono: '👋',
+    componente: PresentacionIngles,
   },
 ]
 
