@@ -3,7 +3,7 @@ import QuizGenerico from './QuizGenerico.jsx'
 // Profesiones con emoji y contexto local de Marmato
 const PROFESIONES = [
   { nombre: 'Minero',       emoji: '⛏️',   lugar: 'La mina',        herramienta: 'Pica y linterna',       marmato: true  },
-  { nombre: 'Barequero',    emoji: '🪙',   lugar: 'El río',          herramienta: 'Cajón y malla',         marmato: true  },
+  { nombre: 'Barequero',    emoji: '🪙',   lugar: 'Quebradas o ríos',herramienta: 'Cajón y malla',         marmato: true  },
   { nombre: 'Agricultor',   emoji: '🌾',   lugar: 'El campo',        herramienta: 'Azadón',                marmato: true  },
   { nombre: 'Conductor',    emoji: '🚛',   lugar: 'En las calles',   herramienta: 'Volante',               marmato: true  },
   { nombre: 'Arriero',      emoji: '🐴',   lugar: 'Los caminos',     herramienta: 'Mulas y bultos',        marmato: true  },
@@ -25,7 +25,7 @@ const PROFESIONES = [
 // Descripciones (para el modo "adivina la profesión")
 const DESCRIPCIONES = {
   Minero: 'Baja a los socavones a sacar oro con pica y linterna.',
-  Barequero: 'Trabaja al pie del río con un cajón y una malla buscando oro.',
+  Barequero: 'Trabaja al pie de las quebradas y ríos con un cajón y una malla buscando oro.',
   Agricultor: 'Siembra semillas, cuida las plantas y recoge la cosecha.',
   Conductor: 'Maneja volquetas, retroexcavadoras o buses para transportar.',
   Arriero: 'Lleva cargas de un lugar a otro con mulas y caballos por los caminos.',
@@ -119,7 +119,7 @@ function generarBanco() {
     {
       enunciado: '🌊 El barequero trabaja con...',
       pregunta: '🪙 Herramientas artesanales',
-      opciones: ['Un cajón y una malla', 'Un martillo grande', 'Una computadora', 'Un tractor'],
+      opciones: ['Un cajón y una malla en quebradas o ríos', 'Un martillo grande', 'Una computadora', 'Un tractor'],
       correcta: 0,
     },
     {

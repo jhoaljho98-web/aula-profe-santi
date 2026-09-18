@@ -11,6 +11,10 @@ import Territorio from '../games/Territorio.jsx'
 import ColoresIngles from '../games/ColoresIngles.jsx'
 import NumerosIngles from '../games/NumerosIngles.jsx'
 import ProfesionesComunidad from '../games/ProfesionesComunidad.jsx'
+import {
+  JuegoDigestivo, JuegoOseo, JuegoMuscular,
+  JuegoCirculatorio, JuegoNervioso, JuegoRespiratorio,
+} from '../games/SistemasEspecificos.jsx'
 import LoginObligatorio from '../components/LoginObligatorio.jsx'
 import Avatar from '../components/Avatar.jsx'
 import { useEstudiante } from '../lib/estudiante'
@@ -111,6 +115,54 @@ const JUEGOS = [
     descripcion: 'Mineros, barequeros, arrieros, profes… ¿quién hace qué en Marmato?',
     icono: '⛏️',
     componente: ProfesionesComunidad,
+  },
+  {
+    id: 'sistema-digestivo',
+    titulo: 'Sistema digestivo',
+    materia: 'Naturales',
+    descripcion: 'Boca, estómago, intestinos… ¿cómo viaja la comida por tu cuerpo?',
+    icono: '🍎',
+    componente: JuegoDigestivo,
+  },
+  {
+    id: 'sistema-oseo',
+    titulo: 'Sistema óseo',
+    materia: 'Naturales',
+    descripcion: '206 huesos, cráneo, columna, fémur y más. ¡Conoce tu esqueleto!',
+    icono: '🦴',
+    componente: JuegoOseo,
+  },
+  {
+    id: 'sistema-muscular',
+    titulo: 'Sistema muscular',
+    materia: 'Naturales',
+    descripcion: 'Bíceps, cuádriceps, corazón… más de 600 músculos que te mueven.',
+    icono: '💪',
+    componente: JuegoMuscular,
+  },
+  {
+    id: 'sistema-circulatorio',
+    titulo: 'Sistema circulatorio',
+    materia: 'Naturales',
+    descripcion: 'Corazón, sangre, venas y arterias. ¡El transporte del cuerpo!',
+    icono: '❤️',
+    componente: JuegoCirculatorio,
+  },
+  {
+    id: 'sistema-nervioso',
+    titulo: 'Sistema nervioso',
+    materia: 'Naturales',
+    descripcion: 'Cerebro, nervios y los 5 sentidos. El "director" del cuerpo.',
+    icono: '🧠',
+    componente: JuegoNervioso,
+  },
+  {
+    id: 'sistema-respiratorio',
+    titulo: 'Sistema respiratorio',
+    materia: 'Naturales',
+    descripcion: 'Pulmones, nariz, tráquea. ¡Aprende cómo respiras!',
+    icono: '🫁',
+    componente: JuegoRespiratorio,
   },
 ]
 

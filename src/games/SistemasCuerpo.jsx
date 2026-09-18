@@ -1,6 +1,6 @@
 import QuizGenerico from './QuizGenerico.jsx'
 
-const S = ['Digestivo', 'Circulatorio', 'Óseo', 'Muscular', 'Nervioso']
+const S = ['Digestivo', 'Circulatorio', 'Óseo', 'Muscular', 'Nervioso', 'Respiratorio']
 
 const BANCO = [
   // Función principal
@@ -9,6 +9,13 @@ const BANCO = [
   { enunciado: '🦴 ¿Qué sistema da forma y sostiene el cuerpo?', pregunta: 'Función principal', opciones: S, correcta: 2 },
   { enunciado: '💪 ¿Qué sistema nos permite movernos y tener fuerza?', pregunta: 'Función principal', opciones: S, correcta: 3 },
   { enunciado: '🧠 ¿Qué sistema controla lo que sentimos y pensamos?', pregunta: 'Función principal', opciones: S, correcta: 4 },
+  { enunciado: '🫁 ¿Qué sistema nos permite respirar?', pregunta: 'Función principal', opciones: S, correcta: 5 },
+  { enunciado: 'Los pulmones son los órganos principales del sistema...', pregunta: '🫁🫁', opciones: S, correcta: 5 },
+  { enunciado: 'La tráquea es el tubo que lleva el aire y pertenece al sistema...', pregunta: 'Tráquea', opciones: S, correcta: 5 },
+  { enunciado: '¿Qué sistema toma oxígeno y expulsa dióxido de carbono?', pregunta: '💨', opciones: S, correcta: 5 },
+  { enunciado: 'La nariz es la entrada principal del sistema...', pregunta: '👃', opciones: S, correcta: 5 },
+  { enunciado: 'El diafragma es un músculo que ayuda al sistema...', pregunta: '🫁💪', opciones: S, correcta: 5 },
+  { enunciado: 'Para cuidar el sistema respiratorio hay que evitar...', pregunta: 'Cuidado', opciones: ['El humo del cigarrillo', 'Correr', 'Reír', 'Tomar agua'], correcta: 0 },
 
   // Órganos principales
   { enunciado: 'El corazón es el órgano principal del sistema...', pregunta: '❤️ Corazón', opciones: S, correcta: 1 },
