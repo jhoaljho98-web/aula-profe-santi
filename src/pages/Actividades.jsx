@@ -20,6 +20,7 @@ import PresentacionIngles from '../games/PresentacionIngles.jsx'
 import UnidadesMil from '../games/UnidadesMil.jsx'
 import RetoExperto from '../games/RetoExperto.jsx'
 import EscrituraCastellano from '../games/EscrituraCastellano.jsx'
+import CombinacionesConsonantes from '../games/CombinacionesConsonantes.jsx'
 import LoginObligatorio from '../components/LoginObligatorio.jsx'
 import Avatar from '../components/Avatar.jsx'
 import { useEstudiante } from '../lib/estudiante'
@@ -208,6 +209,14 @@ const JUEGOS = [
     descripcion: '✍️ Ve imágenes o escucha dictados y escribe. ¡Cuida la ortografía!',
     icono: '✍️',
     componente: EscrituraCastellano,
+  },
+  {
+    id: 'combinaciones-consonantes',
+    titulo: 'Combinaciones de consonantes',
+    materia: 'Castellano',
+    descripcion: '🔤 BR, PL, TR, GR… Aprende y practica las sílabas trabadas escribiendo.',
+    icono: '🔤',
+    componente: CombinacionesConsonantes,
   },
 ]
 

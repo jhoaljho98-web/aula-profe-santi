@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react'
-import { hablarEn } from '../lib/hablar'
+import { hablar } from '../lib/hablar'
 
 // Tarjetas de aprendizaje que se muestran antes del juego.
 // tarjetas = [{ visual?, en, es, extra? }]
-export default function TarjetasAprendizaje({ titulo, subtitulo, tarjetas, onListo, onExit }) {
+export default function TarjetasAprendizaje({ titulo, subtitulo, tarjetas, onListo, onExit, idioma = 'en-US' }) {
   const [i, setI] = useState(0)
   const t = tarjetas[i]
   const esUltima = i === tarjetas.length - 1
 
-  // Al mostrar cada tarjeta, pronuncia el texto en inglés automáticamente
+  // Al mostrar cada tarjeta, pronuncia el texto automáticamente
   useEffect(() => {
-    if (t?.en) hablarEn(t.en)
+    const texto = t?.audio || t?.en
+    if (texto) hablar(texto, idioma)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [i])
 
@@ -65,7 +66,7 @@ export default function TarjetasAprendizaje({ titulo, subtitulo, tarjetas, onLis
         </div>
 
         <button
-          onClick={() => hablarEn(t.audio || t.en)}
+          onClick={() => hablar(t.audio || t.en, idioma)}
           className="mx-auto text-3xl bg-red-500 hover:bg-red-600 text-white rounded-full w-20 h-20 flex items-center justify-center shadow-lg transition-transform active:scale-95"
           title="Escuchar de nuevo"
         >
