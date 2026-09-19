@@ -283,7 +283,7 @@ export default function Actividades() {
 
       {estudiante ? (
         <div className="card bg-institucional-verde text-white flex flex-col sm:flex-row sm:items-center gap-3">
-          <Avatar foto={estudiante.foto} nombre={estudiante.nombre} tamano={64} />
+          <Avatar foto={estudiante.foto} nombre={estudiante.nombre} tamano={88} />
           <div className="flex-1">
             <div className="text-sm opacity-90">¡Bienvenido/a!</div>
             <div className="font-display font-bold text-lg">{estudiante.nombre}</div>

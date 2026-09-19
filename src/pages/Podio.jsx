@@ -279,7 +279,7 @@ export default function Podio() {
                   <div className="text-2xl w-8 text-center">
                     {POSICIONES[i] ?? <span className="text-gray-500 font-bold text-sm">#{i + 1}</span>}
                   </div>
-                  <Avatar foto={p.foto} nombre={p.nombre} tamano={48} />
+                  <Avatar foto={p.foto} nombre={p.nombre} tamano={72} />
                   <div className="flex-1 min-w-0">
                     <div className="font-display font-bold text-lg truncate">
                       {primerNombre(p.nombre)}
@@ -353,7 +353,7 @@ function MiResumen({ mis, posicion, materia, estudiante, rango }) {
     <div className={`card ${materiaObj?.color ?? 'bg-institucional-verde'} text-white space-y-3`}>
       <div className="flex items-center justify-between flex-wrap gap-2">
         <div className="flex items-center gap-3">
-          {estudiante && <Avatar foto={estudiante.foto} nombre={estudiante.nombre} tamano={72} />}
+          {estudiante && <Avatar foto={estudiante.foto} nombre={estudiante.nombre} tamano={96} />}
         <div>
           <div className="text-sm opacity-90">
             {esSemana ? '📅 Esta semana' : '🏛️ Histórico'}
