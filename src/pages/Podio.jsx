@@ -334,6 +334,7 @@ export default function Podio() {
 
 function MiResumen({ mis, posicion, materia, estudiante, rango }) {
   const [verNiveles, setVerNiveles] = useState(false)
+  const [verTrofeos, setVerTrofeos] = useState(false)
   const materiaObj = MATERIAS.find((m) => m.id === materia)
   const esSemana = rango === 'semana'
   const puntos = esSemana
@@ -382,6 +383,9 @@ function MiResumen({ mis, posicion, materia, estudiante, rango }) {
       {verNiveles && (
         <ModalNiveles puntos={mis.puntosTotal ?? 0} onCerrar={() => setVerNiveles(false)} />
       )}
+      {verTrofeos && (
+        <ModalTrofeos rachaMax={mis.rachaMax ?? 0} racha={mis.racha ?? 0} onCerrar={() => setVerTrofeos(false)} />
+      )}
 
       {materia === 'general' && sig && (
         <div>
@@ -406,11 +410,15 @@ function MiResumen({ mis, posicion, materia, estudiante, rango }) {
             <div className="text-lg font-bold">{racha}</div>
             <div className="text-[10px] opacity-90">Racha actual</div>
           </div>
-          <div className="text-center">
+          <button
+            onClick={() => setVerTrofeos(true)}
+            className="text-center hover:scale-110 transition-transform focus:outline-none focus:ring-2 focus:ring-institucional-amarillo rounded-lg"
+            title="Ver trofeos de racha"
+          >
             <div className="text-2xl">🏅</div>
             <div className="text-lg font-bold">{rachaMax}</div>
-            <div className="text-[10px] opacity-90">Racha máxima</div>
-          </div>
+            <div className="text-[10px] opacity-90 underline">Ver trofeos →</div>
+          </button>
           <div className="text-center">
             <div className="text-2xl">🛡️</div>
             <div className="text-lg font-bold">{escudos}</div>
@@ -669,6 +677,76 @@ function ModalNiveles({ puntos, onCerrar }) {
                   </div>
                 </div>
                 {lograda && <div className="text-green-600 font-bold text-lg">✓</div>}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function ModalTrofeos({ rachaMax, racha, onCerrar }) {
+  const conseguidos = trofeosGanados(rachaMax)
+  return (
+    <div
+      className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center p-4"
+      onClick={onCerrar}
+    >
+      <div
+        className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="sticky top-0 bg-orange-500 text-white p-4 flex items-center justify-between rounded-t-2xl">
+          <div>
+            <div className="text-sm opacity-90">🔥 Racha actual · máxima</div>
+            <div className="font-display font-bold text-2xl">
+              {racha} · {rachaMax} días
+            </div>
+          </div>
+          <button
+            onClick={onCerrar}
+            className="text-2xl bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full w-10 h-10 flex items-center justify-center"
+            title="Cerrar"
+          >
+            ✕
+          </button>
+        </div>
+        <div className="p-4 space-y-2">
+          <p className="text-sm text-gray-700 mb-3 text-center">
+            🏅 Tienes <b>{conseguidos.length}</b> de <b>{TROFEOS_RACHA.length}</b> trofeos de racha.
+            <br />¡Juega todos los días para conservar tu racha!
+          </p>
+          {TROFEOS_RACHA.map((t) => {
+            const logrado = rachaMax >= t.min
+            const proximo = !logrado && !TROFEOS_RACHA.find((x) => x.min > rachaMax && x.min < t.min)
+            const restante = t.min - rachaMax
+            return (
+              <div
+                key={t.id}
+                className={`flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${
+                  logrado
+                    ? 'bg-yellow-50 border-yellow-400'
+                    : proximo
+                    ? 'bg-orange-50 border-orange-400 ring-2 ring-orange-300'
+                    : 'bg-gray-50 border-gray-200 opacity-60'
+                }`}
+              >
+                <div className="text-4xl">{logrado ? t.icono : '🔒'}</div>
+                <div className="flex-1">
+                  <div className={`font-display font-bold ${logrado ? 'text-institucional-verdeOscuro' : 'text-gray-500'}`}>
+                    {t.nombre}
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    {t.min} día{t.min === 1 ? '' : 's'} de racha
+                    {proximo && (
+                      <span className="ml-2 text-orange-700 font-semibold">
+                        ¡Te faltan {restante} día{restante === 1 ? '' : 's'}!
+                      </span>
+                    )}
+                  </div>
+                </div>
+                {logrado && <div className="text-green-600 font-bold text-lg">✓</div>}
               </div>
             )
           })}
