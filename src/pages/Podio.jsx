@@ -13,6 +13,7 @@ import {
 } from '../lib/logros'
 import LoginEstudiante from '../components/LoginEstudiante'
 import Avatar from '../components/Avatar'
+import PopupVictoria from '../components/PopupVictoria.jsx'
 import notas from '../data/notas.json'
 
 const POSICIONES = ['🥇', '🥈', '🥉']
@@ -56,6 +57,7 @@ export default function Podio() {
   const [error, setError] = useState('')
   const [vista, setVista] = useState('ranking')
   const [rango, setRango] = useState('semana')  // 'semana' | 'historico'
+  const [popupLogros, setPopupLogros] = useState(null)  // logros pendientes para popup
 
   useEffect(() => {
     let vivo = true
@@ -96,7 +98,11 @@ export default function Podio() {
         setPodio(todos)
         if (estudiante) {
           const mias = await leerMisEstadisticas(estudiante.hash)
-          if (vivo) setMis(mias)
+          if (vivo) {
+            setMis(mias)
+            // Detectar medallas/trofeos que el estudiante ganó pero no vio popup
+            revisarLogrosPendientes(estudiante, mias, setPopupLogros)
+          }
         }
       } catch (e) {
         if (vivo) setError('No pudimos cargar el podio. Intenta de nuevo en un momento.')
@@ -171,6 +177,14 @@ export default function Podio() {
 
       {estudiante?.esDocente && <BotonMigracion />}
       {estudiante?.esDocente && <BotonNuevaSemana />}
+
+      {popupLogros && popupLogros.length > 0 && estudiante && (
+        <PopupVictoria
+          estudiante={estudiante}
+          logros={popupLogros}
+          onCerrar={() => setPopupLogros(null)}
+        />
+      )}
 
       {mis && <MiResumen mis={mis} posicion={posicionMia} materia={materia} estudiante={estudiante} rango={rango} />}
 
@@ -398,10 +412,10 @@ function MiResumen({ mis, posicion, materia, estudiante, rango }) {
       </div>
 
       {verNiveles && (
-        <ModalNiveles puntos={mis.puntosTotal ?? 0} onCerrar={() => setVerNiveles(false)} />
+        <ModalNiveles puntos={mis.puntosTotal ?? 0} onCerrar={() => setVerNiveles(false)} estudiante={estudiante} />
       )}
       {verTrofeos && (
-        <ModalTrofeos rachaMax={mis.rachaMax ?? 0} racha={mis.racha ?? 0} onCerrar={() => setVerTrofeos(false)} />
+        <ModalTrofeos rachaMax={mis.rachaMax ?? 0} racha={mis.racha ?? 0} onCerrar={() => setVerTrofeos(false)} estudiante={estudiante} />
       )}
 
       {materia === 'general' && sig && (
@@ -634,8 +648,9 @@ function BotonNuevaSemana() {
   )
 }
 
-function ModalNiveles({ puntos, onCerrar }) {
+function ModalNiveles({ puntos, onCerrar, estudiante }) {
   const desbloqueadas = medallasGanadas(puntos)
+  const [logroCompartir, setLogroCompartir] = useState(null)
   return (
     <div
       className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center p-4"
@@ -667,20 +682,10 @@ function ModalNiveles({ puntos, onCerrar }) {
             const lograda = puntos >= m.min
             const proxima = !lograda && !MEDALLAS.find((x) => x.min > puntos && x.min < m.min)
             const restante = m.min - puntos
-            return (
-              <div
-                key={m.id}
-                className={`flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${
-                  lograda
-                    ? 'bg-institucional-crema border-institucional-verde'
-                    : proxima
-                    ? 'bg-yellow-50 border-yellow-400 ring-2 ring-yellow-300'
-                    : 'bg-gray-50 border-gray-200 opacity-60'
-                }`}
-                style={lograda ? { borderLeftWidth: '6px', borderLeftColor: m.color } : {}}
-              >
+            const contenido = (
+              <>
                 <div className="text-4xl">{lograda ? m.icono : '🔒'}</div>
-                <div className="flex-1">
+                <div className="flex-1 text-left">
                   <div className={`font-display font-bold ${lograda ? 'text-institucional-verdeOscuro' : 'text-gray-500'}`}>
                     {m.nombre}
                   </div>
@@ -693,18 +698,46 @@ function ModalNiveles({ puntos, onCerrar }) {
                     )}
                   </div>
                 </div>
-                {lograda && <div className="text-green-600 font-bold text-lg">✓</div>}
-              </div>
+                {lograda && <div className="text-institucional-verdeOscuro text-xs font-bold">📤 Compartir</div>}
+              </>
             )
+            const base = `flex items-center gap-3 p-3 rounded-xl border-2 transition-all w-full ${
+              lograda
+                ? 'bg-institucional-crema border-institucional-verde hover:bg-yellow-50 cursor-pointer'
+                : proxima
+                ? 'bg-yellow-50 border-yellow-400 ring-2 ring-yellow-300'
+                : 'bg-gray-50 border-gray-200 opacity-60'
+            }`
+            if (lograda) {
+              return (
+                <button
+                  key={m.id}
+                  onClick={() => setLogroCompartir({ tipo: 'medalla', nombre: m.nombre, icono: m.icono, color: m.color })}
+                  className={base}
+                  style={{ borderLeftWidth: '6px', borderLeftColor: m.color }}
+                >
+                  {contenido}
+                </button>
+              )
+            }
+            return <div key={m.id} className={base}>{contenido}</div>
           })}
         </div>
       </div>
+      {logroCompartir && estudiante && (
+        <PopupVictoria
+          estudiante={estudiante}
+          logros={[logroCompartir]}
+          onCerrar={() => setLogroCompartir(null)}
+        />
+      )}
     </div>
   )
 }
 
-function ModalTrofeos({ rachaMax, racha, onCerrar }) {
+function ModalTrofeos({ rachaMax, racha, onCerrar, estudiante }) {
   const conseguidos = trofeosGanados(rachaMax)
+  const [logroCompartir, setLogroCompartir] = useState(null)
   return (
     <div
       className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center p-4"
@@ -738,19 +771,10 @@ function ModalTrofeos({ rachaMax, racha, onCerrar }) {
             const logrado = rachaMax >= t.min
             const proximo = !logrado && !TROFEOS_RACHA.find((x) => x.min > rachaMax && x.min < t.min)
             const restante = t.min - rachaMax
-            return (
-              <div
-                key={t.id}
-                className={`flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${
-                  logrado
-                    ? 'bg-yellow-50 border-yellow-400'
-                    : proximo
-                    ? 'bg-orange-50 border-orange-400 ring-2 ring-orange-300'
-                    : 'bg-gray-50 border-gray-200 opacity-60'
-                }`}
-              >
+            const contenido = (
+              <>
                 <div className="text-4xl">{logrado ? t.icono : '🔒'}</div>
-                <div className="flex-1">
+                <div className="flex-1 text-left">
                   <div className={`font-display font-bold ${logrado ? 'text-institucional-verdeOscuro' : 'text-gray-500'}`}>
                     {t.nombre}
                   </div>
@@ -763,12 +787,73 @@ function ModalTrofeos({ rachaMax, racha, onCerrar }) {
                     )}
                   </div>
                 </div>
-                {logrado && <div className="text-green-600 font-bold text-lg">✓</div>}
-              </div>
+                {logrado && <div className="text-orange-700 text-xs font-bold">📤 Compartir</div>}
+              </>
             )
+            const base = `flex items-center gap-3 p-3 rounded-xl border-2 transition-all w-full ${
+              logrado
+                ? 'bg-yellow-50 border-yellow-400 hover:bg-yellow-100 cursor-pointer'
+                : proximo
+                ? 'bg-orange-50 border-orange-400 ring-2 ring-orange-300'
+                : 'bg-gray-50 border-gray-200 opacity-60'
+            }`
+            if (logrado) {
+              return (
+                <button
+                  key={t.id}
+                  onClick={() => setLogroCompartir({ tipo: 'trofeo', nombre: t.nombre, icono: t.icono, color: '#F59E0B' })}
+                  className={base}
+                >
+                  {contenido}
+                </button>
+              )
+            }
+            return <div key={t.id} className={base}>{contenido}</div>
           })}
         </div>
       </div>
+      {logroCompartir && estudiante && (
+        <PopupVictoria
+          estudiante={estudiante}
+          logros={[logroCompartir]}
+          onCerrar={() => setLogroCompartir(null)}
+        />
+      )}
     </div>
   )
+}
+
+// Detecta medallas o trofeos ganados desde la última visita (por hash de estudiante).
+// Usa localStorage. Si es la primera vez, guarda el estado actual sin mostrar nada.
+function revisarLogrosPendientes(estudiante, mis, setPopupLogros) {
+  try {
+    const puntos = mis?.puntosTotal ?? 0
+    const rachaMax = mis?.rachaMax ?? 0
+    const medallasAhora = medallasGanadas(puntos).map((m) => m.id)
+    const trofeosAhora = trofeosGanados(rachaMax).map((t) => t.id)
+    const clave = `logros-vistos:${estudiante.hash}`
+    const previo = JSON.parse(localStorage.getItem(clave) || 'null')
+    if (!previo) {
+      // Primera vez: guardar y no mostrar nada
+      localStorage.setItem(clave, JSON.stringify({ medallas: medallasAhora, trofeos: trofeosAhora }))
+      return
+    }
+    const nuevasMedallas = medallasAhora.filter((id) => !previo.medallas.includes(id))
+    const nuevosTrofeos = trofeosAhora.filter((id) => !previo.trofeos.includes(id))
+    if (nuevasMedallas.length === 0 && nuevosTrofeos.length === 0) return
+    const logros = [
+      ...nuevasMedallas.map((id) => {
+        const m = MEDALLAS.find((x) => x.id === id)
+        return { tipo: 'medalla', nombre: m.nombre, icono: m.icono, color: m.color }
+      }),
+      ...nuevosTrofeos.map((id) => {
+        const t = TROFEOS_RACHA.find((x) => x.id === id)
+        return { tipo: 'trofeo', nombre: t.nombre, icono: t.icono, color: '#F59E0B' }
+      }),
+    ]
+    if (logros.length > 0) {
+      setPopupLogros(logros)
+      localStorage.setItem(clave, JSON.stringify({ medallas: medallasAhora, trofeos: trofeosAhora }))
+    }
+  } catch {}
 }
