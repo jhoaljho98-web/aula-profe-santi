@@ -5,6 +5,7 @@ const SECCIONES = [
   { to: '/diario', titulo: 'Diario de clase', desc: 'Fotos y guías de lo que hacemos clase a clase.', icon: '📅', color: 'bg-institucional-amarillo' },
   { to: '/recursos', titulo: 'Recursos', desc: 'Guías, videos y materiales por materia.', icon: '📚', color: 'bg-institucional-verdeClaro' },
   { to: '/actividades', titulo: 'Actividades lúdicas', desc: 'Juegos por materia para practicar.', icon: '🎮', color: 'bg-institucional-verde' },
+  { to: '/podio', titulo: 'Podio de la clase', desc: 'Ranking semanal, medallas y trofeos.', icon: '🏆', color: 'bg-institucional-amarillo' },
   { to: '/padres', titulo: 'Para los padres', desc: 'Recomendaciones de acompañamiento.', icon: '👨‍👩‍👧', color: 'bg-institucional-amarillo' },
   { to: '/notas', titulo: 'Consulta de notas', desc: 'Ver notas con documento del estudiante.', icon: '📊', color: 'bg-institucional-verdeClaro' },
   { to: '/asistencia', titulo: 'Consulta de asistencia', desc: 'Ver asistencia por periodo con documento.', icon: '✅', color: 'bg-institucional-verde' },

@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import TablasBatalla from '../games/TablasBatalla.jsx'
 import NumerosMagicos from '../games/NumerosMagicos.jsx'
 import MemoriaPalabras from '../games/MemoriaPalabras.jsx'
@@ -272,13 +273,21 @@ export default function Actividades() {
   // 3. Vista principal (con estudiante o como invitado)
   return (
     <div className="space-y-6">
-      <section>
-        <h1 className="text-3xl md:text-4xl font-display font-bold text-institucional-verdeOscuro">
-          Actividades lúdicas 🎮
-        </h1>
-        <p className="mt-2 text-gray-700">
-          Juega, practica y aprende. Cada actividad es corta y divertida.
-        </p>
+      <section className="flex items-start justify-between gap-3 flex-wrap">
+        <div>
+          <h1 className="text-3xl md:text-4xl font-display font-bold text-institucional-verdeOscuro">
+            Actividades lúdicas 🎮
+          </h1>
+          <p className="mt-2 text-gray-700">
+            Juega, practica y aprende. Cada actividad es corta y divertida.
+          </p>
+        </div>
+        <Link
+          to="/podio"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-institucional-amarillo text-institucional-verdeOscuro rounded-full font-bold text-sm hover:bg-yellow-400 shadow-md whitespace-nowrap"
+        >
+          🏆 Ver el podio
+        </Link>
       </section>
 
       {estudiante ? (
