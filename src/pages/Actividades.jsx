@@ -273,22 +273,30 @@ export default function Actividades() {
   // 3. Vista principal (con estudiante o como invitado)
   return (
     <div className="space-y-6">
-      <section className="flex items-start justify-between gap-3 flex-wrap">
-        <div>
-          <h1 className="text-3xl md:text-4xl font-display font-bold text-institucional-verdeOscuro">
-            Actividades lúdicas 🎮
-          </h1>
-          <p className="mt-2 text-gray-700">
-            Juega, practica y aprende. Cada actividad es corta y divertida.
-          </p>
-        </div>
-        <Link
-          to="/podio"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-institucional-amarillo text-institucional-verdeOscuro rounded-full font-bold text-sm hover:bg-yellow-400 shadow-md whitespace-nowrap"
-        >
-          🏆 Ver el podio
-        </Link>
+      <section>
+        <h1 className="text-3xl md:text-4xl font-display font-bold text-institucional-verdeOscuro">
+          Actividades lúdicas 🎮
+        </h1>
+        <p className="mt-2 text-gray-700">
+          Juega, practica y aprende. Cada actividad es corta y divertida.
+        </p>
       </section>
+
+      <Link
+        to="/podio"
+        className="card bg-institucional-amarillo hover:bg-yellow-400 hover:shadow-xl active:scale-[0.99] transition-all flex items-center gap-4 border-4 border-yellow-500 shadow-lg block"
+      >
+        <div className="text-6xl">🏆</div>
+        <div className="flex-1">
+          <div className="font-display font-bold text-2xl text-institucional-verdeOscuro">
+            Ver el podio de la clase
+          </div>
+          <div className="text-sm text-institucional-verdeOscuro opacity-90 font-semibold">
+            Ranking semanal, tus medallas y trofeos
+          </div>
+        </div>
+        <div className="text-4xl text-institucional-verdeOscuro font-black">→</div>
+      </Link>
 
       {estudiante ? (
         <div className="card bg-institucional-verde text-white flex flex-col sm:flex-row sm:items-center gap-3">
