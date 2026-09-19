@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useEstudiante } from '../lib/estudiante'
 import { leerPodio, leerPodioPorMateria, leerMisEstadisticas, migrarHistorico, migrarHashesLegados, iniciarNuevaSemana } from '../lib/puntajes'
 import { firebaseHabilitado } from '../lib/firebase'
@@ -141,6 +142,22 @@ export default function Podio() {
           Los que más juegan y aciertan van subiendo. ¡Suma puntos jugando en Actividades!
         </p>
       </section>
+
+      <Link
+        to="/actividades"
+        className="card bg-institucional-verde hover:bg-institucional-verdeOscuro hover:shadow-xl active:scale-[0.99] transition-all flex items-center gap-4 border-4 border-institucional-verdeOscuro shadow-lg text-white block"
+      >
+        <div className="text-6xl">🎮</div>
+        <div className="flex-1">
+          <div className="font-display font-bold text-2xl">
+            ¡A jugar!
+          </div>
+          <div className="text-sm opacity-90 font-semibold">
+            Suma puntos, gana medallas y sube en el podio
+          </div>
+        </div>
+        <div className="text-4xl font-black">→</div>
+      </Link>
 
       {!firebaseHabilitado && (
         <div className="card bg-yellow-100 border-2 border-yellow-400">
