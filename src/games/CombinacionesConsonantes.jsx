@@ -109,7 +109,8 @@ function generarBanco() {
       ),
       respuestas: [p.combo, p.combo.toLowerCase()],
       respuesta: p.combo,
-      placeholder: 'Escribe las 2 letras…',
+      placeholder: 'Solo las 2 letras',
+      maxCaracteres: 2,
     })
   }
 
@@ -132,6 +133,7 @@ function generarBanco() {
       respuestas: [p.combo, p.combo.toLowerCase()],
       respuesta: p.combo,
       placeholder: 'Ej. BR, PL, TR…',
+      maxCaracteres: 2,
     })
   }
 

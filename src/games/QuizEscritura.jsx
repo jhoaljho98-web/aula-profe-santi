@@ -98,7 +98,8 @@ export default function QuizEscritura({ juegoId, juegoNombre, materia, preguntas
             ref={inputRef}
             type="text"
             value={respuesta}
-            onChange={(e) => setRespuesta(e.target.value)}
+            onChange={(e) => setRespuesta(p.maxCaracteres ? e.target.value.slice(0, p.maxCaracteres) : e.target.value)}
+            maxLength={p.maxCaracteres || undefined}
             disabled={feedback !== null}
             placeholder={p.placeholder || 'Escribe tu respuesta…'}
             autoComplete="off"
