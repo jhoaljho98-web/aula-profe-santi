@@ -333,6 +333,7 @@ export default function Podio() {
 }
 
 function MiResumen({ mis, posicion, materia, estudiante, rango }) {
+  const [verNiveles, setVerNiveles] = useState(false)
   const materiaObj = MATERIAS.find((m) => m.id === materia)
   const esSemana = rango === 'semana'
   const puntos = esSemana
@@ -366,12 +367,21 @@ function MiResumen({ mis, posicion, materia, estudiante, rango }) {
         </div>
         </div>
         {materia === 'general' && medalla && (
-          <div className="text-center">
+          <button
+            onClick={() => setVerNiveles(true)}
+            className="text-center hover:scale-110 transition-transform focus:outline-none focus:ring-2 focus:ring-institucional-amarillo rounded-lg p-1"
+            title="Ver todos los niveles"
+          >
             <div className="text-5xl">{medalla.icono}</div>
             <div className="text-sm font-semibold">{medalla.nombre}</div>
-          </div>
+            <div className="text-[10px] opacity-80 underline">Ver niveles →</div>
+          </button>
         )}
       </div>
+
+      {verNiveles && (
+        <ModalNiveles puntos={mis.puntosTotal ?? 0} onCerrar={() => setVerNiveles(false)} />
+      )}
 
       {materia === 'general' && sig && (
         <div>
@@ -595,6 +605,75 @@ function BotonNuevaSemana() {
       >
         {estado === 'corriendo' ? 'Guardando…' : 'Comenzar semana'}
       </button>
+    </div>
+  )
+}
+
+function ModalNiveles({ puntos, onCerrar }) {
+  const desbloqueadas = medallasGanadas(puntos)
+  return (
+    <div
+      className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center p-4"
+      onClick={onCerrar}
+    >
+      <div
+        className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="sticky top-0 bg-institucional-verde text-white p-4 flex items-center justify-between rounded-t-2xl">
+          <div>
+            <div className="text-sm opacity-90">Tu puntaje total</div>
+            <div className="font-display font-bold text-2xl">{puntos.toLocaleString('es-CO')} pts</div>
+          </div>
+          <button
+            onClick={onCerrar}
+            className="text-2xl bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full w-10 h-10 flex items-center justify-center"
+            title="Cerrar"
+          >
+            ✕
+          </button>
+        </div>
+        <div className="p-4 space-y-2">
+          <p className="text-sm text-gray-700 mb-3 text-center">
+            🏅 Tienes <b>{desbloqueadas.length}</b> de <b>{MEDALLAS.length}</b> medallas.
+            <br />¡Sigue jugando para llegar a la siguiente!
+          </p>
+          {MEDALLAS.map((m) => {
+            const lograda = puntos >= m.min
+            const proxima = !lograda && !MEDALLAS.find((x) => x.min > puntos && x.min < m.min)
+            const restante = m.min - puntos
+            return (
+              <div
+                key={m.id}
+                className={`flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${
+                  lograda
+                    ? 'bg-institucional-crema border-institucional-verde'
+                    : proxima
+                    ? 'bg-yellow-50 border-yellow-400 ring-2 ring-yellow-300'
+                    : 'bg-gray-50 border-gray-200 opacity-60'
+                }`}
+                style={lograda ? { borderLeftWidth: '6px', borderLeftColor: m.color } : {}}
+              >
+                <div className="text-4xl">{lograda ? m.icono : '🔒'}</div>
+                <div className="flex-1">
+                  <div className={`font-display font-bold ${lograda ? 'text-institucional-verdeOscuro' : 'text-gray-500'}`}>
+                    {m.nombre}
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    {m.min.toLocaleString('es-CO')} pts
+                    {proxima && (
+                      <span className="ml-2 text-yellow-700 font-semibold">
+                        ¡Te faltan {restante.toLocaleString('es-CO')} pts!
+                      </span>
+                    )}
+                  </div>
+                </div>
+                {lograda && <div className="text-green-600 font-bold text-lg">✓</div>}
+              </div>
+            )
+          })}
+        </div>
+      </div>
     </div>
   )
 }

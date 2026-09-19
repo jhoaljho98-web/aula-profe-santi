@@ -11,6 +11,11 @@ export const MEDALLAS = [
   { id: 'zafiro',     nombre: 'Zafiro',     icono: '💙',  min: 20000,   color: '#2563eb' },
   { id: 'amatista',   nombre: 'Amatista',   icono: '💜',  min: 50000,   color: '#9333ea' },
   { id: 'diamante',   nombre: 'Diamante',   icono: '💎',  min: 100000,  color: '#06b6d4' },
+  { id: 'opalo',      nombre: 'Ópalo',      icono: '💠',  min: 200000,  color: '#0ea5e9' },
+  { id: 'estrella',   nombre: 'Estrella',   icono: '🌟',  min: 400000,  color: '#facc15' },
+  { id: 'galaxia',    nombre: 'Galaxia',    icono: '🌌',  min: 750000,  color: '#4c1d95' },
+  { id: 'mitico',     nombre: 'Mítico',     icono: '🔮',  min: 1500000, color: '#c026d3' },
+  { id: 'legendario', nombre: 'Legendario', icono: '👑',  min: 3000000, color: '#eab308' },
 ]
 
 export function medallasGanadas(puntos) {
