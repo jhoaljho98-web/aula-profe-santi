@@ -35,13 +35,18 @@ export function siguienteMedalla(puntos) {
 // Trofeos por racha de días
 // =============================================================
 export const TROFEOS_RACHA = [
-  { id: 'chispita',  nombre: 'Chispita',       icono: '🔥',  min: 3   },
-  { id: 'semanita',  nombre: 'Semanita',       icono: '🌱',  min: 7   },
-  { id: 'quincena',  nombre: 'Quincena',       icono: '🌿',  min: 14  },
-  { id: 'mes',       nombre: 'Mes constante',  icono: '🌳',  min: 30  },
-  { id: 'cohete',    nombre: 'Cohete',         icono: '🚀',  min: 60  },
-  { id: 'cien',      nombre: 'Cien días',      icono: '🏆',  min: 100 },
-  { id: 'leyenda',   nombre: 'Leyenda',        icono: '👑',  min: 200 },
+  { id: 'chispita',    nombre: 'Chispita',       icono: '🔥',  min: 3   },
+  { id: 'semanita',    nombre: 'Semanita',       icono: '🌱',  min: 7   },
+  { id: 'quincena',    nombre: 'Quincena',       icono: '🌿',  min: 14  },
+  { id: 'mes',         nombre: 'Mes constante',  icono: '🌳',  min: 30  },
+  { id: 'marea',       nombre: 'Marea',          icono: '🌊',  min: 45  },
+  { id: 'cohete',      nombre: 'Cohete',         icono: '🚀',  min: 60  },
+  { id: 'cometa',      nombre: 'Cometa',         icono: '☄️',  min: 80  },
+  { id: 'cien',        nombre: 'Cien días',      icono: '🏆',  min: 100 },
+  { id: 'titan',       nombre: 'Titán',          icono: '⚡',  min: 120 },
+  { id: 'fenix',       nombre: 'Fénix',          icono: '🔥',  min: 150 },
+  { id: 'constelacion',nombre: 'Constelación',   icono: '💫',  min: 175 },
+  { id: 'leyenda',     nombre: 'Leyenda',        icono: '👑',  min: 200 },
 ]
 
 export function trofeosGanados(dias) {

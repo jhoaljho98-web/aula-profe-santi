@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react'
 import { useEstudiante } from '../lib/estudiante'
 import { guardarPartida, calcularPuntos } from '../lib/puntajes'
 import { sonarGanaste, sonarMedalla } from '../lib/sonidos'
+import PopupVictoria from './PopupVictoria.jsx'
 
 export default function ResultadoPuntos({ juegoId, juegoNombre, materia, aciertos, total }) {
   const { estudiante } = useEstudiante()
   const [estado, setEstado] = useState('guardando')
   const [resultado, setResultado] = useState(null)
+  const [mostrarPopup, setMostrarPopup] = useState(false)
   const puntosPreview = calcularPuntos(aciertos, total)
   const perfecto = aciertos === total && total > 0
 
@@ -34,6 +36,7 @@ export default function ResultadoPuntos({ juegoId, juegoNombre, materia, acierto
           setEstado('guardado')
           if ((r?.medallasNuevas?.length ?? 0) > 0 || (r?.trofeosNuevos?.length ?? 0) > 0) {
             setTimeout(() => sonarMedalla(), 900)
+            setTimeout(() => setMostrarPopup(true), 1500)
           }
         }
       } catch (e) {
@@ -151,6 +154,27 @@ export default function ResultadoPuntos({ juegoId, juegoNombre, materia, acierto
             </div>
           )}
         </div>
+      )}
+
+      {mostrarPopup && estudiante && resultado && (
+        <PopupVictoria
+          estudiante={estudiante}
+          logros={[
+            ...(resultado.medallasNuevas ?? []).map((m) => ({
+              tipo: 'medalla',
+              nombre: m.nombre,
+              icono: m.icono,
+              color: m.color,
+            })),
+            ...(resultado.trofeosNuevos ?? []).map((t) => ({
+              tipo: 'trofeo',
+              nombre: t.nombre,
+              icono: t.icono,
+              color: '#F59E0B',
+            })),
+          ]}
+          onCerrar={() => setMostrarPopup(false)}
+        />
       )}
     </div>
   )
