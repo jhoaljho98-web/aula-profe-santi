@@ -228,11 +228,10 @@ export default function Actividades() {
   const [filtro, setFiltro] = useState('Todas')
   const [juegoActivo, setJuegoActivo] = useState(null)
 
-  // Orden aleatorio al entrar (cada visita cambia) — pero estable durante la sesión
-  const [juegosMezclados] = useState(() => [...JUEGOS].sort(() => Math.random() - 0.5))
   const lista = useMemo(
-    () => juegosMezclados.filter((j) => filtro === 'Todas' || j.materia === filtro),
-    [filtro, juegosMezclados],
+    // Los más nuevos van al principio (más abajo en el array = agregado después)
+    () => JUEGOS.filter((j) => filtro === 'Todas' || j.materia === filtro).slice().reverse(),
+    [filtro],
   )
 
   // 1. GATE: si no hay estudiante y no eligió invitado, mostrar solo el ingreso
